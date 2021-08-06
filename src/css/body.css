@@ -1,0 +1,280 @@
+.itemmenu{
+    height: 100%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    /* background-color: cadetblue !important; */
+}
+
+.itemmenu .sidebar{
+    /* position: fixed; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    left: 0px;
+    right: 0;
+    width: 75px;
+    height: 100vh;
+    transition: all ease-in-out 500ms;
+}
+
+.itemmenu .sidebar .fork{
+    width: 35px;
+    height: 35px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+.itemmenu .sidebar .clip{
+    width: 35px;
+    height: 35px;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+.itemmenu .product{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #E5E5E5;
+    border-right: solid 2px rgb(180, 178, 178);
+    /* background-color: blueviolet; */
+    transition: all ease-in-out 500ms;
+}
+.itemmenu .product .prd{
+    display: flex;
+    flex-direction: column;
+    /* background-color: cyan; */
+    margin: 20px;
+    transition: 50ms;
+}
+.itemmenu .product .prd:hover{
+    transform: scale(1.1);
+}
+.itemmenu .product .prd img{
+    width: 220px;
+    height: 160px;
+    cursor: pointer;
+}
+.itemmenu .product .prd .itemname{
+    font-size: 15px;
+    font-weight: 500;
+}
+.itemmenu .product .prd .itemprice{
+    font-size: 15px;
+    font-weight: 800;
+}
+.row .cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 720px;
+    /* background-color: khaki; */
+}
+.cart .cartid{
+    width: 100%;
+    height: 700px;
+    overflow: overlay;
+    /* background-color: violet; */
+}
+.cart .cartid::-webkit-scrollbar {
+    background:transparent;
+}
+
+.cart .cartid .cartqty{
+    height: 100vh;
+    /* background-color: hsl(71, 57%, 50%); */
+}
+.cart .cartid .cartprd{
+    display: flex;
+    justify-content: center;
+    /* background-color: aqua; */
+    margin-top: 15px;
+}
+.cart .cartid .cartprd img{
+    width: 100px;
+    height: 100px;
+}
+
+.cart .cartid .cartprd .row{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: blueviolet; */
+    width: 160px;
+    padding-right: 7px;
+}
+.cart .cartid .cartprd .row .cartname{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-family: 'Airbnb Cereal App', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 10px;
+    /* background-color: yellow; */
+}
+.cart .cartid .cartprd .row .btn{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    justify-content: flex-start;
+    /* background-color: grey; */
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.cart .cartid .cartprd .row .btn .qty{
+    align-items: center;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid#82DE3A;
+    color: #82DE3A;
+    font-size: 20px;
+}
+.cart .cartid .cartprd .row .btn .min{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid#82DE3A;
+    color: #82DE3A;
+    margin-left: 10px;
+    font-size: 25px;
+}
+.cart .cartid .cartprd .row .btn .max{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid#82DE3A;
+    color: #82DE3A;
+    font-size: 25px;
+}
+.cart .cartid .cartprd .row2{
+    width: 160px;
+    display: flex;
+    margin-left: -10px;
+    align-items: flex-end;
+    justify-content: flex-end;
+    /* background-color: rgb(35, 114, 55); */
+}
+.cart .cartid .cartprd .row2 .cartprice{
+    font-size: 20px;
+    font-weight: 500;
+    /* background-color: yellow; */
+}
+.cart .cartid .cartqty .empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.cart .cartid .cartqty .empty .cup{
+    width: 200px;
+    height: 200px;
+    margin-bottom: -30px;
+
+}
+.cart .cartid .cartqty .empty h3{
+    font-size: 27px;
+    font-weight: 600;
+}
+.cart .cartid .cartqty .empty p{
+    font-size: 20px;
+    font-weight: 500;
+    color: #CECECE;
+    text-align: center;
+}
+.row .row{
+    padding: 0;
+    margin: 0;
+    /* margin-top: 50%; */
+    display: flex;
+    justify-content: flex-end;
+
+}
+.ttl{
+    padding: 0;
+    /* background-color: lightgray; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+.ttl .totalitem{
+    width: 450px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    /* background-color: lawngreen; */
+}
+.ttl .totalitem .text{
+    display: flex;
+    width: 100%;
+    /* background-color: cadetblue; */
+}
+.ttl .totalitem .text .text1{
+    padding-left: 25px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: coral; */
+}
+.ttl .totalitem .text .text1 .titletotal{
+    font-size: 24px;
+    font-weight: 600;
+}
+.ttl .totalitem .text .text1 .ppn{
+    font-size: 20px;
+    font-weight: 300;
+}
+.ttl .totalitem .text .text2{
+    padding-right: 15px;
+    width: 230px;
+    /* background-color: crimson; */
+    display: flex;
+    justify-content: flex-end;
+}
+.ttl .totalitem .text .text2 .number{
+    text-align: end;
+    border: none;
+    list-style-type: none;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 600;
+}
+.ttl .totalitem .check{
+    font-size: 25px;
+    font-weight: 400;
+    color: white;
+    border: none;
+    background-color: #57CAD5;
+    width: 90%;
+    height: 60px;
+    margin-bottom: 10px;
+    transition: 50ms;
+}
+.ttl .totalitem .check:hover{
+    transform: scale(1.1);
+}
+.ttl .totalitem .cancel{
+    font-size: 25px;
+    font-weight: 400;
+    color: white;
+    border: none;
+    background-color: #F24F8A;
+    width: 90%;
+    height: 60px;
+    transition: 50ms;
+}
+.ttl .totalitem .cancel:hover{
+    transform: scale(1.1);
+}

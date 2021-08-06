@@ -1,0 +1,197 @@
+footer{
+    width: 100%;
+    padding: 0;
+    background-color: #F8F8F8;
+    height: 460px;
+    display: flex;
+
+}
+footer .part1{
+    width: 40%;
+    padding: 100px 0 0 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+footer .part1 .logo2{
+    width:70%;
+    display: flex;
+    justify-content: left;
+}
+footer .part1 .logo2 img{
+    width: 25px;
+    height: 25px;
+}
+footer .part1 .logo2 h1{
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+footer .part1 p{
+    width: 70%;
+    font-size: 15px;
+    font-weight: 550;
+    font-family: rubik;
+    text-align: left;
+    color: #4F5665;
+    line-height: 20px;
+    margin-top: 15px;
+}
+footer .part1 .social{
+    display: flex;
+    width: 70%;
+    margin-left: -5%;
+}
+footer .part1 .social img{
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    transition-duration: 55ms;
+}
+footer .part1 .social img:hover{
+    transform: scale(1.1);
+}
+footer .part1 .credit{
+    margin-top: 5px;
+    color: #AFB5C0;
+    font-weight: normal;
+    font-size: 12px;
+}
+footer .part2{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 8% 0 0 0;
+}
+footer .part3{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 110px 5% 0 0;
+}
+footer ol{
+    list-style-type: none;
+}
+footer ol b{
+    font-size: 18px;
+}
+footer ol li{
+    font-family: rubik;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+    color: #4F5665;
+}
+footer ol li:hover{
+    color: #6a4029;
+    font-weight: 600;
+}
+@media  screen and (max-width: 768px){
+    footer{
+        width: 100%;
+        padding: 0;
+        background-color: #F8F8F8;
+        height: 400px;
+        display: flex;
+    }
+    footer .part1{
+        width: 50%;
+        padding-top: 0;
+    }
+    footer .part1 .logo2{
+        width: 90%;
+    }
+    footer .part1 .social{
+        width: 90%;
+    }
+    footer .part1 p{
+        width: 90%;
+    }
+    footer .part2{
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0;
+    }
+    footer .part3{
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+    footer ol{
+        list-style-type: none;
+        margin-top: -10%;
+    }
+    footer ol b{
+        font-size: 18px;
+    }
+    footer ol li{
+        font-family: rubik;
+        margin-top: 20px;
+        font-size: 15px;
+        font-weight: 400;
+        cursor: pointer;
+        color: #4F5665;
+    }
+    footer ol li:hover{
+        color: #6a4029;
+        font-weight: 600;
+    }
+}
+@media  screen and (max-width: 576px) {
+    footer{
+        background-color: #F8F8F8;
+        width: 100%;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+    footer .part1{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 0;
+        padding: 0;
+    }
+    footer .part1 .logo2{
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 50px 0 0 -38px;
+    }
+    footer .part1 .logo2 img{
+        width: 25px;
+        height: 25px;
+    }
+    footer .part1 .logo2 h1{
+        font-size: 20px;
+        font-weight: 700;
+        margin-left: 5px;
+        margin-top: 14px;
+    }
+    footer .part1 p{
+        width: 90%;
+        margin: 0 0 10px 10%;
+        padding: 0;
+    }
+    footer .part1 .social{
+        width: 90%;
+        padding-left: 15px;
+    }
+    footer .part2{
+        display: none;
+    }
+    footer .part3{
+        display: none;
+    }
+}
