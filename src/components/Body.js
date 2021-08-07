@@ -22,7 +22,7 @@ class Body extends react.Component{
                 {this.props.product.map((e)=>{
                     return(
                       <div className="prd" id={e.id}>
-                        <img src={e.picture} onclick=""/>
+                        <img src={e.picture} onclick="" alt=""/>
                         <div className="itemname" >{e.product_name}</div>
                         <div className="itemprice">{e.price}</div>
                       </div>
@@ -32,11 +32,35 @@ class Body extends react.Component{
               </div>:
                 <div className="row">
                   <div className="income col-lg-12">
-                    <div className="card col-lg-4">
-                      <img src=""></img>
-                      <p className="namecard"></p>
-                      <p className="price"></p>
-                      <p className="year"></p>
+                    {this.props.card.map((e)=>{
+                      return(
+                        <div id={e.id} className="card">
+                          <img src={e.img} alt=""></img>
+                          <div className="text">
+                            <p className="namecard">{e.namecard}</p>
+                            <p className="price">{e.price}</p>
+                            <p className="year">{e.year}</p>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                  <div className="revenue col-lg-12 bg-info">
+                    <img className="chart" src="https://raw.githubusercontent.com/farizian/week14/master/img/Chart.png" alt="">
+                    </img>
+                  </div>
+                  <div className="recent col-lg-12">
+                    <div className="row">
+                      <div className="pic col-lg-6">
+                        <p>Recent Order</p>
+                      </div>
+                      <div className="pic col-lg-6">
+                        <div className="dropdown">
+                          <p>Today</p>
+                          <img src="" alt="" onClick="">
+                          </img>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>}
