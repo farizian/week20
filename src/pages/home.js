@@ -96,6 +96,18 @@ class Home extends react.Component{
       }
       console.log(this.state.cart)
     }
+    const catchData=(data)=>{
+      this.setState({
+        product: [...this.state.product,{
+          id: Math.random(),
+          product_name: data,
+          picture: data,
+          price: data,
+          qty: 1
+        }]
+      })
+      console.log(this.state.product)
+    }
     return(
       <div>
         <Navbar home={true}/>
@@ -103,10 +115,12 @@ class Home extends react.Component{
           <div className="container-fluid">
             <div className="row">
               <div className="itemmenu col-lg-8">
-              <Sidebar/>
+              <Sidebar actionModal={catchData}/>
               <Body home={true} product={this.state.product} receiveData={dataCart}/>
               </div>
+              <div className="cart col-lg-4">
               <Cart home={true} cart={this.state.cart}/>
+              </div>
             </div>
           </div>
         </section>

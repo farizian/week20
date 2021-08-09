@@ -3,20 +3,25 @@
 .cart{
     display: flex;
     flex-direction: column;
-    align-items: center;
     height: 720px;
-    overflow: overlay;
+    justify-content: flex-start;
+    align-items: center;
     margin: 0;
     padding: 0;
     /* background-color: khaki; */
 }
+.cart .cartpack{
+    height: 530px;
+    overflow: overlay;
+    /* background-color: brown; */
+}
 .cart .cartid{
-    height: 700px;
     margin: 0;
     padding: 0;
+    padding-left: 10px;
     /* background-color: violet; */
 }
-.cart .cartid::-webkit-scrollbar {
+.cart .cartpack::-webkit-scrollbar {
     background:transparent;
 }
 .cart .cartid .cartqty{
@@ -25,9 +30,9 @@
 }
 .cart .cartid .cartprd{
     display: flex;
-    justify-content: center;
     /* background-color: aqua; */
     margin-top: 15px;
+    margin-bottom: 0;
 }
 .cart .cartid .cartprd img{
     width: 100px;
@@ -36,7 +41,7 @@
 .cart .cartid .cartprd .row{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     /* background-color: blueviolet; */
     width: 160px;
     padding-right: 7px;
@@ -47,7 +52,8 @@
     font-family: 'Airbnb Cereal App', sans-serif;
     font-weight: 500;
     font-size: 20px;
-    margin-left: 10px;
+    margin-left: 5px;
+    padding-left: 7px;
     /* background-color: yellow; */
 }
 .cart .cartid .cartprd .row .btn{
@@ -56,7 +62,6 @@
     padding: 0;
     justify-content: flex-start;
     /* background-color: grey; */
-    width: 100%;
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
@@ -129,10 +134,8 @@
 .row .row{
     padding: 0;
     margin: 0;
-    /* margin-top: 50%; */
     display: flex;
     justify-content: flex-end;
-
 }
 .ttl{
     padding: 0;
@@ -143,7 +146,6 @@
 
 }
 .ttl .totalitem{
-    width: 450px;
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -152,7 +154,6 @@
 }
 .ttl .totalitem .text{
     display: flex;
-    width: 100%;
     /* background-color: cadetblue; */
 }
 .ttl .totalitem .text .text1{
@@ -173,7 +174,7 @@
 }
 .ttl .totalitem .text .text2{
     padding-right: 15px;
-    width: 230px;
+    width: 220px;
     /* background-color: crimson; */
     display: flex;
     justify-content: flex-end;
@@ -192,7 +193,7 @@
     color: white;
     border: none;
     background-color: #57CAD5;
-    width: 90%;
+    width: 88%;
     height: 60px;
     margin-bottom: 10px;
     transition: 50ms;
@@ -206,7 +207,7 @@
     color: white;
     border: none;
     background-color: #F24F8A;
-    width: 90%;
+    width: 88%;
     height: 60px;
     transition: 50ms;
 }
