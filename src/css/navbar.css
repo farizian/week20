@@ -140,5 +140,44 @@ input[type="checkbox"]{
     transform: scale(1);
 }
 
+@media  screen and (max-width: 576px){
+    body{
+        margin: 0px;
+        padding: 0px;
+        font-family: 'Airbnb Cereal App', sans-serif;
+    }
+    .navbar{
+        display: flex;
+        border-bottom: 2px solid #dddcdc;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+    .navbar .nav{
+        height: 60px;
+        border-right: 2px solid #CECECE;
+    }
+    .navbar .navi{
+        display: none;
+    }
+    .navbarlg{
+        display: flex;
+        border-bottom: 2px solid #dddcdc;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbarlg .nav{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 60px;
+    }
+    
+}
 
 

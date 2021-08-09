@@ -2,6 +2,8 @@ import react from 'react'
 import Navbar from '../components/Navbar'
 import "bootstrap/dist/css/bootstrap.min.css"
 import Body from "../components/Body"
+import Sidebar from "../components/Sidebar"
+
 
 class History extends react.Component{
   constructor(props){
@@ -29,14 +31,55 @@ class History extends react.Component{
           price: "Rp. 100.000.000.000",
           year: "+10% Last Year"
         },
+      ],
+      table: [
+        {
+          id: "data1",
+          class: "data col-lg-2",
+          name: "INVOICE",
+          data: "#10928"
+        },
+        {
+          id: "data2",
+          class: "data col-lg-2",
+          name: "CASHIER",
+          data: "Cashier 1"
+        },
+        {
+          id: "data3",
+          class: "data col-lg-3",
+          name: "DATE",
+          data: "06 October 2019"
+        },
+        {
+          id: "data4",
+          class: "data col-lg-3",
+          name: "ORDERS",
+          data: "Ice Tea, Salad With peanut sauce"
+        },
+        {
+          id: "data5",
+          class: "data col-lg-2",
+          name: "AMOUNT",
+          data: "Rp. 120.000"
+        },
       ]
     }
   }
   render(){
     return(
       <div>
-        <Navbar col={false} cart={false} search={false}/>
-        <Body card={this.state.card}/>
+        <Navbar home={false}/>
+        <section>
+          <div className="container-fluid">
+            <div className="row">
+              <div className="itemmenu col-lg-12">
+              <Sidebar home={false}/>
+              <Body home={false} card={this.state.card} table={this.state.table}/>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     )
   }

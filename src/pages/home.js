@@ -1,6 +1,8 @@
 import react from 'react'
 import Navbar from '../components/Navbar'
 import Body from '../components/Body'
+import Sidebar from '../components/Sidebar'
+import Cart from '../components/cart'
 
 class Home extends react.Component{
   constructor(props){
@@ -74,11 +76,40 @@ class Home extends react.Component{
       cart:[]
     }
   }
+
   render(){
+    const dataCart = (data)=>{
+      if(this.state.cart.id===data.id){
+        this.setState({
+          cart: [...this.state.cart,{
+            id: this.state.cart.id,
+            picture: this.state.cart.picture,
+            product_name: this.state.cart.product_name,
+            price: this.state.cart.price,
+            qty: this.state.cart.qty+1
+          }]
+        })
+      }else{
+        this.setState({
+          cart: [...this.state.cart,data]
+        })
+      }
+      console.log(this.state.cart)
+    }
     return(
       <div>
-        <Navbar col={true} cart={true} search={true}/>
-        <Body home={true} product={this.state.product}/>
+        <Navbar home={true}/>
+        <section>
+          <div className="container-fluid">
+            <div className="row">
+              <div className="itemmenu col-lg-8">
+              <Sidebar/>
+              <Body home={true} product={this.state.product} receiveData={dataCart}/>
+              </div>
+              <Cart home={true} cart={this.state.cart}/>
+            </div>
+          </div>
+        </section>
       </div>
     )
   }
