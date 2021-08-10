@@ -1,7 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Home from '../pages/home'
-import About from '../pages/about'
 import History from '../pages/history'
 
 class Router extends React.Component{
@@ -15,12 +14,6 @@ class Router extends React.Component{
           path="/history"
           render={(props)=>(
             <History {...props}/>
-          )}
-        />
-        <Route
-          path="/about"
-          render={(props)=>(
-            <About {...props}/>
           )}
         />
         <Route>

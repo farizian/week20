@@ -1,6 +1,7 @@
 import react from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../css/cart.css"
+import CurrencyFormat from 'react-currency-format'
 
 
 class Cart extends react.Component{
@@ -11,10 +12,15 @@ class Cart extends react.Component{
 		}
 	}
 	render(){
+		const {cart, del} = this.props
+        const itemsPrice = cart.reduce((total, product) => total + product.qty * product.price, 0);
+        const ppn = itemsPrice * 10 / 100
+        const inv = Math.floor(Math.random() * 1000000) + 11
+        const Total = ppn + itemsPrice
 		return(
 		<div>
 			<div className="cartpack">
-				{this.props.cart.length<=0?
+				{cart.length<=0?
 					<div className="cartid">
 						<div className="cartqty" id="cartitem">
 							<div className="empty" id="del">
@@ -24,7 +30,7 @@ class Cart extends react.Component{
 							</div>
 						</div>
 					</div>
-				:this.props.cart.map((e)=>{
+				:cart.map((e)=>{
 					return(
 						<div className="cartid">
 							<div class="cartprd" id="cartitem">
@@ -32,13 +38,13 @@ class Cart extends react.Component{
 								<div class="row">
 									<div class="cartname" id="nme">{e.product_name}</div>
 										<div class="btn">
-											<button onclick="" class="min">-</button>
+											<button onClick={()=>this.props.qtyRemove(e.id)} class="min">-</button>
 											<input class="qty" id="vl" type="string" value={e.qty}/>
-											<button onclick="" class="max">+</button>
+											<button onClick={()=>this.props.qtyAdd(e.id)} class="max">+</button>
 										</div>
 								</div>
 								<div class="row2">
-									<div class="cartprice">Rp.{e.price}</div>
+								<CurrencyFormat className='cartprice' value={e.price * e.qty} displayType={'text'} thousandSeparator={true} prefix={'Rp '} />
 								</div>
 							</div>
 						</div>
@@ -54,11 +60,11 @@ class Cart extends react.Component{
 							<p class="ppn">*Belum termasuk ppn</p>
 						</div>
 						<div class="text2">
-							<span class="number" id="nm" value="" >total</span>
+							<CurrencyFormat className='number' id="nm" value={itemsPrice} displayType={'text'} thousandSeparator={true} prefix={'Rp '} >total</CurrencyFormat>
 						</div>
 					</div>
 					<button  class="check">Checkout</button>
-					<button onclick="btndel()" class="cancel">Cancel</button>
+					<button onClick={del} class="cancel">Cancel</button>
 				</div>
 			</div>:null}
 		</div>

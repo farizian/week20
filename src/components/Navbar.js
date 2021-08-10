@@ -7,6 +7,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 class Navbar extends React.Component{
   render(){
+    const qty = this.props.qty
     return(
       <div>
       <navbar className={this.props.home===true?"navbar navbar-expand-xxl navbar-light bg-white":"navbarlg navbar-expand-xxl navbar-light bg-white"}>
@@ -33,8 +34,11 @@ class Navbar extends React.Component{
         {
           this.props.home===true?(
           <div className="container-fluid navi col-lg-4">
-            <a className="navbar-brand cartitle" href="#">Cart</a>
-            <div id="numcard" className="cartnum rounded-circle"></div>
+            <a className="navbar-brand cartitle" href="">Cart</a>
+            {this.props.cart.length>=1?
+              <div id="numcard" className="cartnum rounded-circle">{qty}</div>
+              :null
+            }
           </div>
           ):null
         }

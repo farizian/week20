@@ -8,7 +8,7 @@ class Home extends react.Component{
   constructor(props){
     super(props)
     this.state = {
-      product: [
+      products: [
         {
           id: 1,
           picture: "https://raw.githubusercontent.com/farizian/week10/master/tugas1/img/espresso.png",
@@ -73,53 +73,101 @@ class Home extends react.Component{
           qty: 1,
         },
       ],
-      cart:[]
+      cart: []
     }
   }
 
   render(){
-    const dataCart = (data)=>{
-      if(this.state.cart.id===data.id){
+    const {products, cart} = this.state
+
+    const updCart = ()=>{
         this.setState({
-          cart: [...this.state.cart,{
-            id: this.state.cart.id,
-            picture: this.state.cart.picture,
-            product_name: this.state.cart.product_name,
-            price: this.state.cart.price,
-            qty: this.state.cart.qty+1
-          }]
+            cart : cart
         })
-      }else{
-        this.setState({
-          cart: [...this.state.cart,data]
-        })
-      }
-      console.log(this.state.cart)
     }
-    const catchData=(data)=>{
-      this.setState({
-        product: [...this.state.product,{
-          id: Math.random(),
-          product_name: data,
-          picture: data,
-          price: data,
-          qty: 1
-        }]
-      })
-      console.log(this.state.product)
+    // update data product
+    const updateproduct = () =>{
+        this.setState({
+            products : products
+        })
+    }
+
+    // check data array cart
+    const checkdata  = (data) =>{
+        // eslint-disable-next-line array-callback-return
+        const find = cart.find((e) => {
+            if (e.id === data){
+                return e
+            }
+        })
+        return find
+    }
+
+    // menambahkan quantity product dengan button plus
+    const addqty = (data) =>{
+        const find = cart.findIndex((e=> e.id === data))
+        cart[find].qty +=1
+    }
+    const btnAdd = (data) =>{
+        addqty(data)
+        updCart()
+    }
+
+    // mengurangi quantity product dengan button plus
+    const btnRemove = (data) =>{
+        const remove = cart.findIndex((e=> e.id === data))
+        cart[remove].qty <= 1 ? (
+            cart.splice([remove],1)
+        ): (cart[remove].qty -=1 )
+        updCart()
+    }
+
+    // menghapus data di array cart berdasarkan id
+    const remove = (data) =>{
+        const newcart = checkdata(data)
+        cart.splice([newcart],1)
+        updCart()
+    }
+    // menghapus semua data di array cart
+    const removeAll = () =>{
+        this.setState({cart: []});
+    }
+      // menambahkan data baru ke array cart
+    const dataCart = (id) =>{
+        // eslint-disable-next-line array-callback-return
+        const find = products.find((e) => {
+            if(e.id === id){
+                return e
+            }
+        })
+        const check = checkdata(id)
+        // console.log (check)
+        if (check === undefined){
+            const qty = {
+                ...find, qty : 1
+            }
+            cart.push(qty)
+        }else {
+            addqty(id)
+        }
+        updCart()
+    }
+    const addPrd = (result) =>{
+      products.push(result)
+      updateproduct()
     }
     return(
       <div>
-        <Navbar home={true}/>
+        <Navbar home={true} cart={cart} qty={updCart}/>
         <section>
           <div className="container-fluid">
             <div className="row">
               <div className="itemmenu col-lg-8">
-              <Sidebar actionModal={catchData}/>
-              <Body home={true} product={this.state.product} receiveData={dataCart}/>
+              <Sidebar actionModal={addPrd}/>
+              <Body home={true} product={products} receiveData={dataCart}/>
               </div>
               <div className="cart col-lg-4">
-              <Cart home={true} cart={this.state.cart}/>
+              <Cart home={true} cart={cart} qtyAdd={btnAdd} qtyRemove={btnRemove} onRemove={remove} del={removeAll}/>
               </div>
             </div>
           </div>

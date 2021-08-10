@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../css/sidebar.css"
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {Link} from 'react-router-dom'
 
 
 class Sidebar extends React.Component{
   constructor(props){
 		super(props)
 		this.state={
+      title: "itemmodal",
       modal: false,
-      id: Math.random(),
       name: "",
       images: "",
       price: "",
@@ -41,20 +42,22 @@ class Sidebar extends React.Component{
     });
   }
 
-  
-
     return (
       <div className="sidebar" id="sb">
+        <Link to="/">
         <img className="fork" src="https://raw.githubusercontent.com/farizian/week10/master/tugas1/img/fork.png" alt="" srcset=""/>
-        <img className="clip" src="https://raw.githubusercontent.com/farizian/week10/master/tugas1/img/clipboard.png" alt="" srcset=""/>
+        </Link>
+        <Link to="/history">
+        <img className="clip" src="https://raw.githubusercontent.com/farizian/week10/master/tugas1/img/clipboard.png" alt="" link="/history" srcset=""/>
+        </Link>
         <img className="clip" src="https://raw.githubusercontent.com/farizian/week10/master/tugas1/img/add.png" onClick={toggle} alt="" srcset=""></img>
-        <Modal isOpen={this.state.modal} toggle={toggle} className="itemmodal">
+        <Modal isOpen={this.state.modal} toggle={toggle} className={this.state.title}>
           <ModalHeader >Add Item</ModalHeader>
           <ModalBody>
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <div className="form form-group">
                 <label for="recipient-name" className="labelname ">Name</label>
-                <input type="text" class="inputname form-control" value={this.state.name} id="name1" onChange={this.handleChange}></input>
+                <input type="" value={this.state.name}class="inputname form-control" id="name1" onChange={this.handleChange}></input>
               </div>
               <div className="form form-group">
                 <label for="recipient-name" className="labelname ">Images</label>

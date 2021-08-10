@@ -1,6 +1,7 @@
 import react from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../css/body.css"
+import CurrencyFormat from 'react-currency-format'
 
 class Body extends react.Component{
   constructor(props){
@@ -17,9 +18,9 @@ class Body extends react.Component{
           {this.props.product.map((e)=>{
               return(
                 <div className="prd" id={e.id}>
-                  <img src={e.picture} onClick={()=>this.props.receiveData(e)} alt=""></img>
+                  <img src={e.picture} onClick={()=>this.props.receiveData(e.id)} alt=""></img>
                   <div className="itemname" >{e.product_name}</div>
-                  <div className="itemprice">{e.price}</div>
+                  <CurrencyFormat className="itemprice" value={e.price} displayType={'text'} thousandSeparator={true} prefix={'Rp '}/>
                 </div>
               )
             })
