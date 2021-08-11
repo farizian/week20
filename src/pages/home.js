@@ -158,7 +158,7 @@ class Home extends react.Component{
     }
     return(
       <div>
-        <Navbar home={true} cart={cart} qty={updCart}/>
+        <Navbar home={true} cart={cart} qty={cart}/>
         <section>
           <div className="container-fluid">
             <div className="row">

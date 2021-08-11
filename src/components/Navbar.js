@@ -35,10 +35,9 @@ class Navbar extends React.Component{
           this.props.home===true?(
           <div className="container-fluid navi col-lg-4">
             <a className="navbar-brand cartitle" href="">Cart</a>
-            {this.props.cart.length>=1?
-              <div id="numcard" className="cartnum rounded-circle">{qty}</div>
-              :null
-            }
+            <div id="numcard" className="cartnum rounded-circle">{
+            qty.reduce((total, product) => total + product.qty, 0)
+            }</div>
           </div>
           ):null
         }

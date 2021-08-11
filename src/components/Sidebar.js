@@ -11,31 +11,50 @@ class Sidebar extends React.Component{
 		this.state={
       title: "itemmodal",
       modal: false,
+      id: 11,
       name: "",
       images: "",
       price: "",
       category: "",
 		}
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
 	}
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  idChange = ()=>{
+    this.setState({
+        id : Math.floor(Math.random() * 100) + 11
+    })
+  }
+  nameChange = (e)=>{
+      this.setState ({
+          nameproduct : e.target.value
+      })
+  }
+  priceChange = (e) =>{
+      this.setState ({
+          price : e.target.value
+      })
+  }
+  imageChange = (e) =>{
+      this.setState ({
+          picture : e.target.value
+      })
+  }
+  catChange = (e) =>{
+      this.setState ({
+          category : e.target.value
+      })
   }
   
-  handleSubmit(event){
-    const addprd ={
-      id: this.state.id,
-      name: this.state.name,
-      image: this.state.image,
-      price: this.state.price,
-      category: this.state.category
-    }
-    event.preventDefault();
-    this.props.receiveData(addprd)
-  }
+  
   render(){
-
+  const {id, name, image, price, category} = this.state
+  const handleSubmit=(event)=>{
+    this.idChange()
+    event.preventDefault();
+    const addprd ={id, name, image, price, category}
+    this.props.actionModal(addprd)
+  }
   const toggle = () => {
     this.setState({
       modal: !this.state.modal
@@ -54,22 +73,22 @@ class Sidebar extends React.Component{
         <Modal isOpen={this.state.modal} toggle={toggle} className={this.state.title}>
           <ModalHeader >Add Item</ModalHeader>
           <ModalBody>
-            <form onSubmit={this.handleSubmit}>
+            <form>
               <div className="form form-group">
                 <label for="recipient-name" className="labelname ">Name</label>
-                <input type="" value={this.state.name}class="inputname form-control" id="name1" onChange={this.handleChange}></input>
+                <input type="" class="inputname form-control" id="name1" onChange={this.nameChange} name=""></input>
               </div>
               <div className="form form-group">
                 <label for="recipient-name" className="labelname ">Images</label>
-                <input type="text" class="inputname form-control" value={this.state.images} id="name2" onChange={this.handleChange}></input>
+                <input type="text" class="inputname form-control"  id="name2" onChange={this.imageChange} name=""></input>
               </div>
               <div className="form form-group">
                 <label className="labelname">Price</label>
-                <input type="text" className="inputname form-control" value={this.state.price} id="name3" onChange={this.handleChange}></input>
+                <input type="text" className="inputname form-control" id="name3" onChange={this.priceChange} name=""></input>
               </div>
               <div className="form form-group">
                 <label for="recipient-name" className="labelname">Category</label>
-                <select className="inputname form-control" value={this.state.category} id="name4">
+                <select className="inputname form-control" onChange={this.catChange} name="" id="name4">
                   <option className="opt">Main Course</option>
                   <option className="opt">Dessert</option>
                   <option className="opt">Drink</option>
@@ -78,8 +97,8 @@ class Sidebar extends React.Component{
             </form>
           </ModalBody>
           <ModalFooter>
-            <button className="btnModal" onClick={toggle}>Cancel</button>{' '}
-            <button className="btnModal" id="btn2"onClick={this.handleSubmit}>Add</button>
+            <button className="btnModal" onClick={toggle}>Cancel</button>
+            <button className="btnModal" id="btn2" onClick={handleSubmit}>Submit</button>
           </ModalFooter>
         </Modal>
       </div>
