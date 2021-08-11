@@ -1,22 +1,36 @@
 import react from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../css/cart.css"
+import "../css/modal.css"
 import CurrencyFormat from 'react-currency-format'
+import { Modal} from 'reactstrap';
 
 
 class Cart extends react.Component{
 	constructor(props){
 		super(props)
 		this.state={
-
+      modal: false,
+      name: "nama"
 		}
 	}
 	render(){
 		const {cart, del} = this.props
-        const itemsPrice = cart.reduce((total, product) => total + product.qty * product.price, 0);
-        const ppn = itemsPrice * 10 / 100
-        const inv = Math.floor(Math.random() * 1000000) + 11
-        const Total = ppn + itemsPrice
+    const itemsPrice = cart.reduce((total, product) => total + product.qty * product.price, 0);
+    const ppn = itemsPrice * 10 / 100
+    const invoice = Math.floor(Math.random() * 1000000) + 11
+    const Total = ppn + itemsPrice
+    const setName = ()=>{
+      this.setState({
+        name: "Subaru"
+      })
+    }
+    const toggle = () => {
+      setName()
+      this.setState({
+        modal: !this.state.modal
+      })
+    }
 		return(
 		<div>
 			<div className="cartpack">
@@ -63,10 +77,45 @@ class Cart extends react.Component{
 							<CurrencyFormat className='number' id="nm" value={itemsPrice} displayType={'text'} thousandSeparator={true} prefix={'Rp '} >total</CurrencyFormat>
 						</div>
 					</div>
-					<button  class="check">Checkout</button>
+					<button  class="check" onClick={toggle}>Checkout</button>
 					<button onClick={del} class="cancel">Cancel</button>
 				</div>
 			</div>:null}
+      <Modal isOpen={this.state.modal} toggle={toggle}>
+        <div className='Title'>
+            <h1 className='check'>CheckOut <span> Receipt no : #{invoice} </span></h1>
+            <h2 className='cashier'>Cashier : {this.state.name}</h2>
+        </div>
+        {
+          cart.map((e)=>{
+            return(
+              <div key={e.id} className='invoice'>
+                <div className='product'>
+                  <p>{e.product_name} <span>{e.qty}x</span></p>
+                </div>
+                <div className='Price'>
+                  <CurrencyFormat className='priceproduct' value={e.price * e.qty} displayType={'text'} thousandSeparator={true} prefix={'Rp '} />
+                </div>
+              </div>
+            )
+          })
+        }
+        <div className='totalPpn'>
+            <div className='ppnPayment'>
+                <p className='ppn'>Ppn 10%</p>
+                <p className='pay'>Payment : Cash</p>
+            </div>
+            <div className='totalPayment'>
+                <CurrencyFormat className='' value={ppn} displayType={'text'} thousandSeparator={true} prefix={'Rp '} />
+                <p>Total : <CurrencyFormat className='' value={Total} displayType={'text'} thousandSeparator={true} prefix={'Rp '} /></p>
+            </div>
+        </div>
+        <div className='buttonPayment'>
+            <button type="" className='print'>Print</button>
+            <p>Or</p>
+            <button type="" className='email'>Send Email</button>
+        </div>
+    </Modal>
 		</div>
 		
 		)

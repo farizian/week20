@@ -17,8 +17,6 @@ class Sidebar extends React.Component{
       price: "",
       category: "",
 		}
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
 	}
   idChange = ()=>{
     this.setState({
