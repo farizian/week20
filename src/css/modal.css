@@ -1,25 +1,29 @@
 .Title{
     padding: 25px;
     padding-bottom: 0;
-}
-.Title .check{
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    /* background-color: blueviolet; */
+    flex-direction: column;
 }
-
-.Title .check span{
+.Title .order{
     display: flex;
     align-items: center;
+    /* background-color: cornflowerblue; */
+}
+.Title .order .check{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+    width: 30%;
+    font-weight: 600;
+    /* background-color: blueviolet; */
+}
+.Title .order .span{
+    display: flex;
+    width: 70%;
+    justify-content: flex-end;
     font-size: 15px;
-    margin-left: 203px;
     /* background-color: brown; */
 }
-
 .Title .cashier{
     font-size: 15px;
     margin: 0px;

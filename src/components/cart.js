@@ -83,7 +83,10 @@ class Cart extends react.Component{
 			</div>:null}
       <Modal isOpen={this.state.modal} toggle={toggle}>
         <div className='Title'>
-            <h1 className='check'>CheckOut <span> Receipt no : #{invoice} </span></h1>
+          <div className="order">
+            <h1 className='check'>CheckOut</h1>
+            <h1 className="span">Receipt no : #{invoice}</h1>
+          </div>
             <h2 className='cashier'>Cashier : {this.state.name}</h2>
         </div>
         {
