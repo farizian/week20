@@ -62,30 +62,30 @@ class Sidebar extends React.Component{
     return (
       <div className="sidebar" id="sb">
         <Link to="/">
-        <img className="fork" src="https://raw.githubusercontent.com/farizian/week10/master/tugas1/img/fork.png" alt="" srcset=""/>
+        <img className="fork" src="https://raw.githubusercontent.com/farizian/week10/master/tugas1/img/fork.png" alt="" srcSet=""/>
         </Link>
         <Link to="/history">
-        <img className="clip" src="https://raw.githubusercontent.com/farizian/week10/master/tugas1/img/clipboard.png" alt="" link="/history" srcset=""/>
+        <img className="clip" src="https://raw.githubusercontent.com/farizian/week10/master/tugas1/img/clipboard.png" alt="" link="/history" srcSet=""/>
         </Link>
-        <img className="clip" src="https://raw.githubusercontent.com/farizian/week10/master/tugas1/img/add.png" onClick={toggle} alt="" srcset=""></img>
+        <img className="clip" src="https://raw.githubusercontent.com/farizian/week10/master/tugas1/img/add.png" onClick={toggle} alt="" srcSet=""></img>
         <Modal isOpen={this.state.modal} toggle={toggle} className={this.state.title}>
           <ModalHeader >Add Item</ModalHeader>
           <ModalBody>
             <form>
               <div className="form form-group">
-                <label for="recipient-name" className="labelname ">Name</label>
-                <input type="" class="inputname form-control" id="name1" onChange={this.nameChange} name=""></input>
+                <label htmlFor="recipient-name" className="labelname ">Name</label>
+                <input type="" className="inputname form-control" id="name1" onChange={this.nameChange} name=""></input>
               </div>
               <div className="form form-group">
-                <label for="recipient-name" className="labelname ">Images</label>
-                <input type="text" class="inputname form-control"  id="name2" onChange={this.imageChange} name=""></input>
+                <label htmlFor="recipient-name" className="labelname ">Images</label>
+                <input type="text" className="inputname form-control"  id="name2" onChange={this.imageChange} name=""></input>
               </div>
               <div className="form form-group">
                 <label className="labelname">Price</label>
                 <input type="text" className="inputname form-control" id="name3" onChange={this.priceChange} name=""></input>
               </div>
               <div className="form form-group">
-                <label for="recipient-name" className="labelname">Category</label>
+                <label htmlFor="recipient-name" className="labelname">Category</label>
                 <select className="inputname form-control" onChange={this.catChange} name="" id="name4">
                   <option className="opt">Main Course</option>
                   <option className="opt">Dessert</option>

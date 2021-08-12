@@ -38,7 +38,7 @@ class Cart extends react.Component{
 					<div className="cartid">
 						<div className="cartqty" id="cartitem">
 							<div className="empty" id="del">
-								<img className="cup" src="https://raw.githubusercontent.com/farizian/week10/master/tugas1/img/cupblank.png" alt="" srcset=""/>
+								<img className="cup" src="https://raw.githubusercontent.com/farizian/week10/master/tugas1/img/cupblank.png" alt="" srcSet=""/>
 								<h3>Your cart is empty</h3>
 								<p>Please add some items from the menu</p>
 							</div>
@@ -47,17 +47,17 @@ class Cart extends react.Component{
 				:cart.map((e)=>{
 					return(
 						<div className="cartid">
-							<div class="cartprd" id="cartitem">
+							<div className="cartprd" id="cartitem">
 								<img src={e.picture} alt=""/>
-								<div class="row">
-									<div class="cartname" id="nme">{e.product_name}</div>
-										<div class="btn">
-											<button onClick={()=>this.props.qtyRemove(e.id)} class="min">-</button>
-											<input class="qty" id="vl" type="string" value={e.qty}/>
-											<button onClick={()=>this.props.qtyAdd(e.id)} class="max">+</button>
+								<div className="row">
+									<div className="cartname" id="nme">{e.product_name}</div>
+										<div className="btn">
+											<button onClick={()=>this.props.qtyRemove(e.id)} className="min">-</button>
+											<input className="qty" id="vl" type="string" value={e.qty}/>
+											<button onClick={()=>this.props.qtyAdd(e.id)} className="max">+</button>
 										</div>
 								</div>
-								<div class="row2">
+								<div className="row2">
 								<CurrencyFormat className='cartprice' value={e.price * e.qty} displayType={'text'} thousandSeparator={true} prefix={'Rp '} />
 								</div>
 							</div>
@@ -67,18 +67,18 @@ class Cart extends react.Component{
 			</div>
 			{this.props.cart.length>=1?
 			<div className="ttl">
-				<div class="totalitem">
-					<div class="text">
-						<div class="text1">
-							<h1 class="titletotal">Total:</h1>
-							<p class="ppn">*Belum termasuk ppn</p>
+				<div className="totalitem">
+					<div className="text">
+						<div className="text1">
+							<h1 className="titletotal">Total:</h1>
+							<p className="ppn">*Belum termasuk ppn</p>
 						</div>
-						<div class="text2">
+						<div className="text2">
 							<CurrencyFormat className='number' id="nm" value={itemsPrice} displayType={'text'} thousandSeparator={true} prefix={'Rp '} >total</CurrencyFormat>
 						</div>
 					</div>
-					<button  class="check" onClick={toggle}>Checkout</button>
-					<button onClick={del} class="cancel">Cancel</button>
+					<button  className="check" onClick={toggle}>Checkout</button>
+					<button onClick={del} className="cancel">Cancel</button>
 				</div>
 			</div>:null}
       <Modal isOpen={this.state.modal} toggle={toggle}>

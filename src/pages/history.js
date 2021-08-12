@@ -35,31 +35,31 @@ class History extends react.Component{
       table: [
         {
           id: "data1",
-          class: "data col-lg-2",
+          className: "data col-lg-2",
           name: "INVOICE",
           data: "#10928"
         },
         {
           id: "data2",
-          class: "data col-lg-2",
+          className: "data col-lg-2",
           name: "CASHIER",
           data: "Cashier 1"
         },
         {
           id: "data3",
-          class: "data col-lg-3",
+          className: "data col-lg-3",
           name: "DATE",
           data: "06 October 2019"
         },
         {
           id: "data4",
-          class: "data col-lg-3",
+          className: "data col-lg-3",
           name: "ORDERS",
           data: "Ice Tea, Salad With peanut sauce"
         },
         {
           id: "data5",
-          class: "data col-lg-2",
+          className: "data col-lg-2",
           name: "AMOUNT",
           data: "Rp. 120.000"
         },

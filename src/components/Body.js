@@ -14,7 +14,7 @@ class Body extends react.Component{
     return(
       <div>
         {this.props.home===true?
-        <div id="items" class="product">
+        <div id="items" className="product">
           {this.props.product.map((e)=>{
               return(
                 <div className="prd" id={e.id}>
@@ -62,7 +62,7 @@ class Body extends react.Component{
                       <div className="row">
                           {this.props.table.map((e)=>{
                             return(
-                            <div className={e.class} id={e.id}>
+                            <div className={e.className} id={e.id}>
                               <h1>{e.name}</h1>
                               <p>{e.data}</p>
                             </div>
