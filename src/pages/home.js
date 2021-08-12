@@ -166,9 +166,7 @@ class Home extends react.Component{
               <Sidebar actionModal={addPrd}/>
               <Body home={true} product={products} receiveData={dataCart}/>
               </div>
-              <div className="cart col-lg-4">
               <Cart home={true} cart={cart} qtyAdd={btnAdd} qtyRemove={btnRemove} onRemove={remove} del={removeAll}/>
-              </div>
             </div>
           </div>
         </section>

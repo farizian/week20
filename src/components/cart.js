@@ -32,7 +32,7 @@ class Cart extends react.Component{
       })
     }
 		return(
-		<div>
+		<div className="cart col-lg-4">
 			<div className="cartpack">
 				{cart.length<=0?
 					<div className="cartid">

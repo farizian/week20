@@ -12,6 +12,7 @@
 }
 .cart .cartpack{
     height: 530px;
+    width: 100%;
     overflow: overlay;
     /* background-color: brown; */
 }
@@ -139,6 +140,7 @@
 }
 .ttl{
     padding: 0;
+    width: 100%;
     /* background-color: lightgray; */
     display: flex;
     flex-direction: column;
@@ -146,6 +148,7 @@
 
 }
 .ttl .totalitem{
+    width: 100%;
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -153,12 +156,13 @@
     /* background-color: lawngreen; */
 }
 .ttl .totalitem .text{
+    width: 100%;
     display: flex;
     /* background-color: cadetblue; */
 }
 .ttl .totalitem .text .text1{
     padding-left: 25px;
-    width: 220px;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -174,7 +178,7 @@
 }
 .ttl .totalitem .text .text2{
     padding-right: 15px;
-    width: 220px;
+    width: 50%;
     /* background-color: crimson; */
     display: flex;
     justify-content: flex-end;
