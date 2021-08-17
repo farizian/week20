@@ -25,7 +25,7 @@ class Sidebar extends React.Component{
   }
   nameChange = (e)=>{
       this.setState ({
-          nameproduct : e.target.value
+          name : e.target.value
       })
   }
   priceChange = (e) =>{
@@ -35,7 +35,7 @@ class Sidebar extends React.Component{
   }
   imageChange = (e) =>{
       this.setState ({
-          picture : e.target.value
+        images : e.target.value
       })
   }
   catChange = (e) =>{

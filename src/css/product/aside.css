@@ -1,0 +1,263 @@
+.prdmain{
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+}
+.prdmain .prdaside{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid #eeeeee;
+}
+.prdmain .prdaside .header{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.prdmain .prdaside .header h1{
+    font-size: 20px;
+    margin: 0px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 900;
+    color: #6A4029;
+}
+.prdmain .prdaside .header p{
+    width: 70%;
+    text-align: center;
+    font-size: 13px;
+}
+.prdmain .prdaside .content{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.prdmain .prdaside .content .promo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.prdmain .prdaside .content .promo .prmcard{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    width: 302px;
+    height: 80px;
+    cursor: pointer;
+    transition-duration: 55ms;
+}
+.prdmain .prdaside .content .promo .prmcard:hover{
+    transform: scale(1.1);
+}
+.prdmain .prdaside .content .promo .prmcard .image{
+    width: 25%;
+    height: 85px;
+    margin-top: -15px;
+}
+.prdmain .prdaside .content .promo .prmcard .title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    width: 75%;
+}
+.prdmain .prdaside .content .promo .prmcard .title p{
+    margin: 0px;
+}
+.prdmain .prdaside .content .action .btn{
+    margin-top: 40px;
+    border: none;
+    width: 302px;
+    height: 50px;
+    background-color: #6A4029;
+    color: #ffffff;
+    font-weight: 510;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    transition-duration: 50ms;
+    cursor: pointer;
+}
+.prdmain .prdaside .content .action .btn:hover{
+    background-color: #ffba33;
+    font-weight: 700;
+    box-shadow: 1px 1px 10px #cccccc;
+    color: #6A4029;
+    transform: scale(1.1);
+}
+.prdmain .prdaside .terms ol{
+    background-color: rgb(255, 255, 255);
+    margin-left: -90px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    font-family: rubik;
+}
+.prdmain .prdaside .terms ol b{
+    margin-left: -8px;
+    font-size: 10px;
+}
+.prdmain .prdaside .terms ol li{
+    margin: 5px;
+    font-weight: normal;
+    font-size: 10px;
+    font-family: 'rubik', sans-serif;
+}
+.green{
+    background-color: #88B788;
+}
+.yellow{
+    background-color: #f5c361;
+}
+.red{
+    background-color: #C59378;
+}
+@media screen and (max-width: 768px){
+    .prdmain{
+        display: flex;
+    }
+    .prdmain .prdaside{
+        width: 30%;
+        justify-content: center;
+        align-items: center;
+        border-right: 2px solid #eeeeee;
+    }
+    .prdmain .prdaside .header{
+        padding-top: 30px;
+    }
+    .prdmain .prdaside .header p{
+        width: 70%;
+        text-align: center;
+        font-size: 13px;
+    }
+    .prdmain .prdaside .content{
+        width: 100%;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .prdmain .prdaside .content .promo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        height: 200px;
+        padding: 10px 10px 0 10px;
+        overflow: scroll;
+    }
+    .prdmain .prdaside .content .promo .prmcard{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 15px;
+        width: 100%;
+        height: 80px;
+        cursor: pointer;
+        transition-duration: 55ms;
+    }
+    .prdmain .prdaside .content .promo .prmcard:hover{
+        transform: scale(1.1);
+    }
+    .prdmain .prdaside .content .promo .prmcard .image{
+        width: 25%;
+        height: 80px;
+        margin-top: -10px;
+    }
+    .prdmain .prdaside .content .promo .prmcard .title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 10px;
+        font-family: 'Poppins', sans-serif;
+        width: 75%;
+    }
+    .prdmain .prdaside .content .promo .prmcard .title p{
+        margin: 0px;
+    }
+    .prdmain .prdaside .content .action{
+        width: 80%;
+    }
+    .prdmain .prdaside .content .action .btn{
+        margin-top: 40px;
+        border: none;
+        width: 100%;
+        height: 50px;
+    }
+    .prdmain .prdaside .terms ol{
+        margin-left: 0;
+        margin-top: 30px;
+    }
+}
+@media screen and (max-width: 576px){
+    .prdmain{
+        display: flex;
+        flex-direction: column;
+    }
+    .prdmain .prdaside{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        border-right: 2px solid #eeeeee;
+    }
+    .prdmain .prdaside .header{
+        padding-top: 30px;
+    }
+    .prdmain .prdaside .header p{
+        width: 70%;
+        text-align: center;
+        font-size: 13px;
+    }
+    .prdmain .prdaside .content{
+        width: 100%;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .prdmain .prdaside .content .promo{
+        padding: 10px 10px 0 10px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100px;
+        overflow-x: auto;
+    }
+    .prdmain .prdaside .content .promo .prmcard{
+        display: flex;
+        margin-bottom: 15px;
+        margin-right: 10px;
+        padding: 10px;
+        padding-right: 30px;
+        border-radius: 15px;
+        width: 400px;
+        height: 80px;
+        cursor: pointer;
+        transition-duration: 55ms;
+    }
+    .prdmain .prdaside .content .promo .prmcard .title{
+        width: 150px;
+        margin-left: 10px;
+        font-size: 10px;
+    }
+    .prdmain .prdaside .content .promo .prmcard .image img{
+        width: 75px;
+        height: 100px;
+        margin-top: 0;
+    }
+    .prdmain .prdaside .terms ol{
+        margin-left: -70px;
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+}

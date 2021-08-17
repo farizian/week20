@@ -1,183 +1,417 @@
-@import url('http://fonts.cdnfonts.com/css/airbnb-cereal-app');
-
-body{
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Airbnb Cereal App', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .navbar{
-    display: flex;
-    border-bottom: 2px solid #dddcdc;
-    width: 100%;
+    border-bottom: 2px solid #eeeeee;
     margin: 0;
     padding: 0;
-    align-items: flex-end;
-    justify-content: flex-end;
 }
-.navbar .nav{
-    height: 60px;
-    border-right: 2px solid #CECECE;
+.bar{
+    background-color: #ffba33 !important;
 }
-.navbar .navi{
-    /* background-color: springgreen; */
+.bar .baricon{
+    color: #6a4029 !important;
+}
+.coffeelogo{
     display: flex;
-    height: 60px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition-duration: 50ms;
+    margin-left: 7%;
+}
+.coffeelogo:hover{
+    font-weight: 600;
+    transform: scale(1.1);
+}
+.coffeelogo img{
+    width: 25px;
+    height: 25px;
+}
+.coffeelogo h1{
+    font-size: 15px;
+    font-weight: 800;
+    position: relative;
+    left: 11px;
+    margin-top: 7px;
+    color: #6a4029 !important;
+}
+.navmenu{
+    margin: 0;
+    padding: 0;
+    width: 80%;
     justify-content: center;
 }
-.navbarlg{
+.primary-menu{
     display: flex;
-    border-bottom: 2px solid #dddcdc;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin-left: 15%;
+    width: 400px;
+}
+.primary-menu .menu1{
+    margin: 15px 0 15px 0;
+    font-size: 13px;
+    font-weight: 400;
+    color: #4f5665;
+    cursor: pointer;
+    text-align: center;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    text-decoration: none;
+}
+.primary-menu .menu1:hover{
+    color: #6a4029;
+    font-weight: 700;
+}
+.secondary-menu {
+    display: flex;
+    margin-left: 20%;
+    margin-right: 5%;
+}
+.secondary-menu .menu2{
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+}
+.secondary-menu .menu2.login{
+    color: #000000;
+}
+.secondary-menu .menu2 .signup{
+    background-color: #ffba33;
+    padding: 10px 25px;
+    color: #6a4029;
+    border-radius: 100px;
+    transition-duration: 50ms;
+    width: 100px;
+}
+.secondary-menu .menu2 .signup:hover{
+    background-color: #6a4029;
+    font-weight: 700;
+    box-shadow: 1px 1px 10px #cccccc;
+    color: white;
+    transform: scale(1.1);
+}
+.secondary-menu .menu2 .login:hover{
+    transform: scale(1.1);
+}
+/* logsign */
+.logsignNav{
+    display: flex;
     align-items: center;
     justify-content: center;
 }
-.navbarlg .nav{
+.logsignNav .logosign{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 60px;
+    cursor: pointer;
+    transition-duration: 50ms;
+    width: 50%;
+    padding-left: 8%;
+    text-decoration: none;
+    color: #0B132A;
 }
-.cartitle{
+.logsignNav .logosign:hover{
+    transform: scale(1.1);
+}
+.logsignNav .logosign img{
+    width: 25px;
+    height: 25px;
+    margin-right: 7px;
+}
+.logsignNav .logosign h1{
+    font-size: 15px;
+    font-weight: 800;
+    margin-top: 8px;
+}
+.logsignNav .sc-menu{
+    width: 50%;
     display: flex;
-    /* background-color: steelblue; */
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: 600;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10%;
 }
-.cartnum{
-    text-align: center;
-    font-size: 16px;
+.logsignNav .sc-menu .menu{
+    display: flex;
+    list-style-type: none;
+    margin: 15px;
+    margin-left: 0px;
+    font-size: 13px;
+    cursor: pointer;
+}
+.logsignNav .sc-menu .menu a{
+    text-decoration: none;
     font-weight: 500;
-    margin-top: 10px;
-    margin-left: -8px;
-    width: 23px;
-    height: 23px;
+}
+.logsignNav .sc-menu .menu .signup{
+    background-color: #ffba33;
+    padding: 10px 25px;
+    color: #6a4029;
+    border-radius: 100px;
+    transition-duration: 50ms;
+}
+.logsignNav .sc-menu .menu .signup:hover{
+    background-color: #6a4029;
+    font-weight: 700;
+    box-shadow: 1px 1px 10px #cccccc;
     color: white;
-    background-color: #57CAD5;
+    transform: scale(1.1);
 }
-.bar{
-    color: black !important;
-    border: none !important;
-    margin-left: 1%;
+.logsignNav .sc-menu .menu .login{
+    background-color: #ffba33;
+    padding: 10px 25px;
+    color: #6a4029;
+    border-radius: 100px;
+    transition-duration: 50ms;
 }
-.bar .baricon{
+.logsignNav .sc-menu .menu .login:hover{
+    background-color: #6a4029;
+    font-weight: 700;
+    box-shadow: 1px 1px 10px #cccccc;
+    color: white;
+    transform: scale(1.1);
+}
+/* product */
+.navbar .navmenu .sec{
+    width: 40%;
+}
+.navbar .navmenu .sec .menu{
+    width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style-type: none;
+    margin-left: 20%;
 }
-.logo{
+.navbar .navmenu .sec .menu .search{
+    width: 40%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #EFEEEE;
+    border-radius: 20px;
+    margin-right: 6%;
+}
+.navbar .navmenu .sec .menu .search input{
+    border: none;
+    background-color: #EFEEEE;
+    width: 90%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 0 10px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 20px;
+}
+.navbar .navmenu .sec .menu .search .srch{
+    margin-left: 5%;
+    width: 15px;
+    height: 15px;
+}
+.navbar .navmenu .sec .menu .chat{
+    height: 30px;
+    width: 35px;
+    padding: 5px;
+    margin-right: 5%;
+    cursor: pointer;
+}
+.navbar .navmenu .sec .menu .profile{
+    cursor: pointer;
+}
+.navbar .navmenu .sec .menu .chat img{
+    margin-left: 2px;
+}
+.navbar .navmenu .sec .menu .chat:hover{
+    font-weight: 600;
+    transform: scale(1.1);
+}
+.navbar .navmenu .sec .menu .profile:hover{
+    font-weight: 600;
+    transform: scale(1.1);
+}
+.navbar .navmenu .sec .menu .chat .notif{
+    background-color: #6A4029;
+    width: 12px;
+    height: 12px;
+    border-radius: 100px;
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    font-family: sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 23px;
-    font-weight: 600;
-}
-.logo2{
-    margin-left: 40%;
-    font-size: 23px;
-    font-weight: 600;
-}
-input[type="checkbox"]{
-    display: none;
-}
-.box{
-    /* position: absolute; */
-    display: flex;
-    width: 50px;
-    height: 50px;
-    transition: .5s;
-}
-.box label .i{
-    position: absolute;
-    bottom: 7px;
-    right: 8px;
-}
-.box label{
-    position: absolute;
-    top: 10px;
-    left: 62%;
-    width: 40px;
-    height: 40px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    color: gray;
-    font-size: 23px;
-    cursor: pointer;
-    transition: .5s;
-}
-.box label:hover{
-    box-shadow: -10px -10px 15px #edeff1, 10px 10px 15px #cacfd8;
-    transform: scale(1.1);
-}
-.box input{
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    border: none;
-    border-radius: 30px;
-    outline: none;
-    font-size: 19px;
-    padding-left: 20px;
-    color: gray;
-    transition: .5s;
-    opacity: 0;
-}
-.box input:focus{
-    box-shadow: -10px -10px 40px #edeff1, 10px 10px 40px #cacfd8;
-}
-#check:checked+.box{
-    width: 200px;
-}
-#check:checked+.box > input{
-    opacity: 1;
-}
-#check:checked+.box > label{
-    box-shadow: none;
-}
-#check:checked+.box > label:hover{
-    transform: scale(1);
+    margin-top: -28px;
+    margin-left: -5px;
 }
 
-@media  screen and (max-width: 576px){
-    body{
-        margin: 0px;
-        padding: 0px;
-        font-family: 'Airbnb Cereal App', sans-serif;
-    }
+
+@media  screen and (max-width: 768px) {
+    /* landingpage */
     .navbar{
-        display: flex;
-        border-bottom: 2px solid #dddcdc;
+        border-bottom: 2px solid #eeeeee;
         width: 100%;
         margin: 0;
         padding: 0;
-        align-items: flex-end;
-        justify-content: flex-end;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
-    .navbar .nav{
-        height: 60px;
-        border-right: 2px solid #CECECE;
-    }
-    .navbar .navi{
-        display: none;
-    }
-    .navbarlg{
-        display: flex;
-        border-bottom: 2px solid #dddcdc;
-        width: 100%;
+    .navbar .container-fluid{
         margin: 0;
         padding: 0;
+    }
+    .bar{
+        background-color: #ffba33 !important;
+        margin-right: 5%;
+    }
+    .bar .baricon{
+        color: #6a4029 !important;
+    }
+    .coffeelogo{
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        cursor: pointer;
+        transition-duration: 50ms;
+        margin-left: 7%;
+    }
+    .coffeelogo:hover{
+        font-weight: 600;
+        transform: scale(1.1);
+    }
+    .coffeelogo img{
+        width: 25px;
+        height: 25px;
+    }
+    .coffeelogo h1{
+        font-size: 15px;
+        font-weight: 800;
+        position: relative;
+        left: 11px;
+        margin-top: 7px;
+        color: #6a4029 !important;
+    }
+    .navbar .navmenu{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        margin-top: 10px;
+        background-color: white;
+    }
+    .navbar .navmenu .primary-menu{
+        list-style-type: none;
+        margin-left: 0;
+        width: 100%;
+        display: flex;
+    }
+    .navbar .navmenu .primary-menu .menu1{
+        margin: 0;
+        font-size: 13px;
+        font-weight: 400;
+        color: #4f5665;
+        cursor: pointer;
+        display: flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
     }
-    .navbarlg .nav{
+    .navbar .navmenu .primary-menu .menu1:hover{
+        color: #6a4029;
+        font-weight: 700;
+    }
+    .navbar .navmenu .primary-menu .menu1 a{
+        margin-left: 10px;
+    }
+    .navbar .navmenu .secondary-menu {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5px;
+        margin-left: 5%;
+    }
+    .navbar .navmenu .secondary-menu .menu2{
+        font-size: 13px;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 0 0 10px 0;
+    }
+    .navbar .navmenu .secondary-menu .menu2 .login{
+        display: flex;
+        color: #000000;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100px;
+        border: 2px solid #ffba33;
+        height: 50px;
+        font-family: rubik;
+        font-size: large;
+        font-weight: 600;
+    }
+    .navbar .navmenu .secondary-menu .menu2 .signup{
+        background-color: #ffba33;
+        padding: 0;
+        height: 50px;
+        color: #6a4029;
+        border-radius: 100px;
+        transition-duration: 50ms;
+        width: 100%;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-        height: 60px;
+        justify-content: center;
+        font-family: rubik;
+        font-size: large;
+        font-weight: 600;
     }
-    
+    .navbar .navmenu .secondary-menu .menu2 .signup:hover{
+        background-color: #6a4029;
+        font-weight: 700;
+        box-shadow: 1px 1px 10px #cccccc;
+        color: white;
+        transform: scale(1.1);
+    }
+    .navbar .navmenu .secondary-menu .menu2 .login:hover{
+        transform: scale(1.1);
+    }
+    /* logsign */
+    .logsignNav{
+        margin: 20px 20px 0 20px;
+    }
+    .logsignNav .logosign{
+        margin-left: 0;
+        padding: 0;
+    }
+    .logsignNav .sc-menu{
+        padding: 0;
+    }
+    /* product */
+    .navbar .navmenu .sec{
+        width: 100%;
+        height: 50px;
+        padding-left: 10%;
+        justify-content: flex-start;
+    }
+    .navbar .navmenu .sec .menu{
+        margin-top: 10px;
+        margin-left: 0;
+    }
+    .navbar .navmenu .sec .menu .search{
+        width: 60%;
+    }
+    .navbar .navmenu .sec .menu .search input{
+        width: 100%;
+    }
 }
 
+@media screen and (max-width: 576px) {
+    /* logsign */
 
+    /* product */
+
+}

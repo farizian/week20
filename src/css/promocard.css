@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+/* landingpage */
+.promocard{
+  width: 100%;
+}
+.promocard .promo{
+  margin-bottom: -8%;
+}
+.promocard .promo .card{
+  height: 233px;
+  border-radius: 10px;
+}
+.promocard .promo .card .card-body{
+  display: flex;
+  border-radius: 10px;
+}
+.promocard .promo .card .card-body .title{
+  width: 60%;
+  padding: 3% 0 0 5%;
+}
+.promocard .promo .card .card-body .title .card-title{
+  font-size: 3vw;
+  font-family: rubik;
+  font-weight: 500;
+}
+.promocard .promo .card .card-body .title .card-text{
+  font-size: 1.2vw;
+  font-family: rubik;
+  font-weight: 400;
+}
+.promocard .promo .card .card-body .btnpromo{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.promocard .promo .card .card-body .btnpromo .btn{
+  width: 60%;
+  height: 30%;
+  margin-left: 15%;
+  border-radius: 10px;
+  padding-top: 17px;
+  font-size: 16px;
+  font-family: rubik;
+  font-weight: 700;
+  background-color: #ffba33;
+  color: #6A4029;
+  cursor: pointer;
+}
+.promocard .promo .card .card-body .btnpromo .btn:hover{
+  transform: scale(1.1);
+}
+/* login */
+.contCard{
+  background-color: white;
+  width: 75%;
+  height: 200px;
+  position: absolute;
+  margin-left: 145px;
+  margin-top: -100px;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(63, 61, 61, 0.445);
+  display: flex;
+}
+.contCard .row-card{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 5%;
+}
+.contCard .row-card p{
+  color: #0B132A;
+  font-size: 35px;
+  font-weight: 600;
+}
+.contCard .row-card .let{
+  color: #4F5665;
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: -15px;
+}
+.contCard .btnpromo{
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.contCard .btnpromo .btn{
+  width: 40%;
+  height: 60px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #6a4029;
+  font-weight: bolder;
+  margin-right: 10%;
+  border: none;
+  background-color: #ffba33;
+  transition-duration: 55ms;
+  cursor: pointer;
+}
+.contCard .btnpromo .btn:hover{
+  color: white;
+}
+.contCard .btnpromo .btn:hover{
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  /* landingpage */
+  .promocard .promo{
+    margin-bottom: -12%;
+  }
+  .promocard .promo .card{
+    height: 190px;
+  }
+  .promocard .promo .card .card-body .title{
+    padding: 5% 0 0 5%;
+  }
+  .promocard .promo .card .card-body .btnpromo .btn{
+    padding-top: 10px;
+  }
+  /* login */
+  .contCard{
+    width: 80%;
+    height: 130px;
+    margin-left: 10%;
+    margin-top: -50px;
+  }
+  .contCard .row-card{
+    width: 50%;
+    padding: 5%;
+  }
+  .contCard .row-card p{
+    width: 100%;
+    font-size: 20px;
+    padding-left: 0;
+  }
+  .contCard .row-card .let{
+    width: 100%;
+    font-size: 15px;
+  }
+  .contCard .btnpromo{
+    width: 50%;
+  }
+  .contCard .btnpromo .btn{
+    width: 70%;
+  }
+  
+}
+@media  screen and (max-width: 576px) {
+  .promocard{
+    display: none;
+  }
+  /* login */
+  .contCard{
+    width: 90%;
+    height: 100px;
+    margin-left: 5%;
+    margin-top: -50px;
+  }
+  .contCard .row-card{
+    width: 80%;
+    padding: 5%;
+    padding-top: 40px;
+  }
+  .contCard .row-card p{
+    font-size: 15px;
+    padding-left: 0;
+  }
+  .contCard .row-card .let{
+    font-size: 10px;
+    margin-top: -10px;
+  }
+  .contCard .btnpromo{
+    width: 40%;
+  }
+  .contCard .btnpromo .btn{
+    width: 100%;
+    margin-right: 10px;
+  }
+}

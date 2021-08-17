@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.productitem{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: aqua; */
+}
+.productitem .prdmenu{
+  width: 100%;
+  /* background-color: blueviolet; */
+}
+.productitem .prdmenu .navprd{
+  height: 50px;
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  margin: 0;
+  margin-left: 10%;
+}
+.productitem .prdmenu .navprd li{
+  margin: 0 30px 0 30px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #9F9F9F;
+}
+.productitem .prdmenu .navprd li:hover{
+  color: #6A4029;
+  font-weight: 600;
+  border-bottom: 3px solid #6A4029;
+}
+.productitem .row{
+  margin-left: 0;
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgb(30, 255, 0); */
+}
+.productitem .row .card{
+  height: 180px;
+  text-align: center;
+  border-radius: 30px;
+  margin: 50px 20px 20px 20px;
+  border: none;
+  box-shadow: 0px 30px 60px 0px #3939391A;
+  transition-duration: 55ms;
+  cursor: pointer;
+  /* background-color: aquamarine; */
+}
+.productitem .row .card .link{
+  text-decoration: none;
+}
+#prd1 .prdname{
+  margin-top: 65%;
+  margin-bottom: 14px;
+}
+
+#prd9 .prdname{
+  margin-top: 65%;
+  margin-bottom: 14px;
+}
+.productitem .row .card:hover{
+  transform: scale(1.1);
+}
+.productitem .row .card img{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -35px;
+  left: 15px;
+  border-radius: 100px;
+}
+.productitem .row .card .disc{
+  background-color: white;
+  position: absolute;
+  padding: 10px 5px;
+  font-size: 25px;
+  top: -90px;
+  left: 80px;
+  border-radius: 20px;
+}
+.productitem .row .card .prdname{
+  margin-bottom: 0;
+  height: 60px;
+}
+.productitem .row .card p{
+  margin-top: 85px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 20px;
+  color: #000000;
+}
+.productitem .row .card .harga{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 580;
+  font-size: 15px;
+  color: #6A4029;
+}
+.productitem .end{
+  width: 70%;
+  color: #6A4029;
+  font-size: 15px;
+  margin-top: 15px;
+  margin-left: 17px;
+  font-weight: 500;
+}
+@media screen and (max-width: 768px){
+  .productitem{
+    width: 70%;
+  }
+  .productitem .prdmenu{
+    width: 100%;
+    padding: 10px;
+  }
+  .productitem .prdmenu .navprd{
+    width: 100%;
+    justify-content: left;
+    padding: 0;
+    margin: 0;
+  }
+  .productitem .prdmenu .navprd li{
+    margin:0 20px 0 10px;
+  }
+  .productitem .row{
+    width: 100%;
+    height: 500px;
+    margin-left: 0;
+    padding: 50px 0 0 0;
+    align-items: center;
+    justify-content: center;
+    overflow: scroll;
+  }
+  .productitem .row .card{
+    width: 24.5%;
+    margin-bottom: 63px;
+  }
+  .productitem .end{
+    color: #6A4029;
+    font-size: 15px;
+    margin: 90px 0 0 50px;
+    font-weight: 500;
+    margin: 20px 0 0 30px;
+  }
+}
+@media screen and (max-width: 576px) {
+
+  .productitem{
+    width: 100%;
+  }
+  .productitem .prdmenu{
+    width: 100%;
+    height: 60px;
+    overflow: scroll;
+  }
+  .productitem .prdmenu .navprd{
+    width: 600px;
+    justify-content: left;
+    padding: 0;
+  }
+  .productitem .prdmenu .navprd li{
+    margin:0 20px 0 20px;
+  }
+  .productitem .prdmenu .navprd li:hover{
+    color: #6A4029;
+    font-weight: 600;
+    border-bottom: 3px solid #6A4029;
+  }
+  .productitem .row{
+    width: 100%;
+    height: 500px;
+    padding: 0;
+    padding-top: 10px;
+    overflow: scroll;
+  }
+  .productitem .row .card{
+    width: 35%;
+    margin: 30px 20px;
+    height: 180px;
+  }
+  .productitem .row .card .veggie{
+    margin-top: 80px;
+  }
+  .productitem .end{
+    color: #6A4029;
+    font-size: 15px;
+    margin: 90px 0 0 50px;
+    font-weight: 500;
+    margin: 20px 0 0 30px;
+  }
+}
