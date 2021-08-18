@@ -2,7 +2,7 @@ import {Redirect, Route} from 'react-router-dom'
 // untuk kondisi jika halaman di refresh maka token di hapus
 const refresh = window.onbeforeunload = (e) => {
   if(e){
-    localStorage.removeItem('token')
+    // localStorage.removeItem('token')
   }
 };
 const Guard =({component: Component, ...rest})=>{
@@ -14,6 +14,7 @@ const Guard =({component: Component, ...rest})=>{
           refresh()
           return <Component {...props}/>
         }else{
+          alert('harap login terlebih dahulu')
           return <Redirect to= "/login"/>
         }
       }

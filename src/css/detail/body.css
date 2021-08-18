@@ -327,7 +327,6 @@
 }
 @media screen and (max-width: 576px){
   .viewprd{
-    background-color: tomato;
     height: auto;
   }
   .desc{

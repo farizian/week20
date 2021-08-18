@@ -1,4 +1,4 @@
-// import { useState } from "react"
+import { useState, useEffect } from "react"
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import {Link} from 'react-router-dom'
@@ -121,10 +121,29 @@ const product = [
 localStorage.setItem('data', JSON.stringify(product))
 const local = localStorage.getItem('data')
 const prd = JSON.parse(local)
+const [prdData, setData]=useState(prd)
+const [search, setSearch]=useState("")
+const searchGet=(search)=>{
+  setSearch(search)
+}
+useEffect(()=>{
+  if(search && search !== ""){
+    // eslint-disable-next-line array-callback-return
+    const prdSearch = prd.filter((e)=>{
+      if(e.prdname === search){
+        return e
+      }
+    })
+    setData(prdSearch)
+  }else{
+    setData(prd)
+  }
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, [search])
 
   return(
     <div>
-      <Navbar logsign={false} product={true}/>
+      <Navbar logsign={false} product={true} search={searchGet}/>
       <main className="prdmain">
         <aside className="prdaside">
           <div className="header">
@@ -187,9 +206,9 @@ const prd = JSON.parse(local)
             </ul>
           </nav>
           <div className="row">
-            {prd.map((e)=>{
+            {prdData.map((e, i)=>{
               return(
-                <div className="card col-lg-2 col-md-4 col-6" id={e.idStyle}>
+                <div key={i} className="card col-lg-2 col-md-4 col-6" id={e.idStyle}>
                   <Link className="link" to={`/detailprd/${e.id}`}>
                   <img src={e.img} alt=""/>
                   {e.disc!==""?

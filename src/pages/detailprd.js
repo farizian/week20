@@ -6,7 +6,7 @@ import CurrencyFormat from 'react-currency-format'
 import { useState } from "react"
 
 const Detail =(props)=>{
-const {cart, setCart}=useState([{
+const {dataprd, setdataprd}=useState([{
   qty: 1
 }])
 const local = localStorage.getItem('data')
@@ -20,46 +20,46 @@ const product = prd.find((e)=>{
   }
 })
 const sizebtn =(data)=>{
-  if(cart.length<=0){
-    setCart({
+  if(dataprd.length<=0){
+    setdataprd({
       size: data
     })
   }else{
-    setCart({
-      ...cart,
+    setdataprd({
+      ...dataprd,
       size: data
     })
   }
 }
 const delivbtn =(data)=>{
-  if(cart.length<=0){
-    setCart({
+  if(dataprd.length<=0){
+    setdataprd({
       delivery: data
     })
   }else{
-    setCart({
-      ...cart,
+    setdataprd({
+      ...dataprd,
       delivery: data
     })
   }
 }
 const setTime=(event)=>{
-  if(cart.length<=0){
-    setCart({
+  if(dataprd.length<=0){
+    setdataprd({
       time: event.target.value,
       qty: 1
     })
   }else{
-    setCart({
-      ...cart,
+    setdataprd({
+      ...dataprd,
       time: event.target.value,
       qty: 1
     })
   }
 }
 const setQty=()=>{
-  const find = cart.findIndex((e=> e.qty <= 1))
-  cart[find].qty +=1
+  const find = dataprd.findIndex((e=> e.qty <= 1))
+  dataprd[find].qty +=1
 }
 const inputData=async()=>{
   try{
@@ -74,8 +74,8 @@ const inputData=async()=>{
 const addqty=()=>{
   inputData()
   setQty()
-  setCart({
-    qty: cart
+  setdataprd({
+    qty: dataprd
   })
 }
   return(

@@ -1,13 +1,29 @@
-import {Link} from 'react-router-dom'
+import {Link, useHistory, useLocation} from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../css/navbar.css'
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Collapse, NavbarToggler} from 'reactstrap';
 
 const Navbarmenu=(props)=>{
   const [collapsed, setCollapsed] = useState(true);
-
   const toggleNavbar = () => setCollapsed(!collapsed);
+  const location= useLocation()
+  const history = useHistory()
+  const [search, setSearch]= useState("")
+  const query = new URLSearchParams(location.search)
+  const hasilSearch = query.get("search")
+  const changeSearch=(event)=>{
+    setSearch(event.target.value)
+  }
+  const submitPrd=(event)=>{
+    event.preventDefault();
+    sendData()
+    history.push(`/product?search=${search}`)
+  }
+  const sendData=()=>{
+    props.search(hasilSearch)
+  }
+
   return(
     <div>
     {props.logsign===false?
@@ -24,8 +40,8 @@ const Navbarmenu=(props)=>{
           <ul className="navbar-nav primary-menu">
             <Link className="menu1 nav-item" to="/">Home</Link>
             <Link className="menu1 nav-item" to="/product">Product</Link>
-            <Link className="nav-item menu1">Your Cart</Link>
-            <Link className="nav-item menu1">
+            <Link to="" className="nav-item menu1">Your Cart</Link>
+            <Link to="" className="nav-item menu1">
               <div className="nav-link active" href="#" aria-disabled="true">History</div>
             </Link>
           </ul>
@@ -40,10 +56,10 @@ const Navbarmenu=(props)=>{
           </ul>:
           <ul className="navbar-nav sec">
             <ul className="menu">
-              <li className="nav-item search">
-                <img className="srch" src="https://raw.githubusercontent.com/farizian/week5/master/img/searchlogo.png" alt="srch" />
-                <input type="text" placeholder="Search" name="" value=""></input>
-              </li>
+              <form onSubmit={submitPrd} className="nav-item search">
+                <img onClick={submitPrd} className="srch" src="https://raw.githubusercontent.com/farizian/week5/master/img/searchlogo.png" alt="srch" ></img>
+                <input type="text" onChange={changeSearch} placeholder="Search" name="" value={search}></input>
+              </form>
               <li className="nav-item chat">
                 <img src="https://raw.githubusercontent.com/farizian/week5/master/img/chat%20(1)%201.png" width="20px" height="20px" alt=""/>
                 <div className="notif">1</div>
@@ -65,7 +81,7 @@ const Navbarmenu=(props)=>{
         <ul className="menu">
           {props.login===true?
           <Link to="/signup" className="signup">Sign Up</Link>:
-          <Link to="/login" class="login">Login</Link>}
+          <Link to="/login" className="login">Login</Link>}
         </ul>
       </div>
     </nav>}
