@@ -1,5 +1,6 @@
 # Coffee Shop Website
   ini adalah tampilan website coffeeshop
+  untuk menjalankan silahkan baca README_react.md
 ## Desktop Version
 
 **1. Landing Page**
@@ -50,6 +51,17 @@ Signup view
 Footer
 ![signup](https://raw.githubusercontent.com/farizian/week5/master/screenshot/signup/desktop/signup2.png)
 
+**5. Detail product page**
+
+Detail Product view 1
+![detail](https://raw.githubusercontent.com/farizian/week15/master/img/detail1desktop.png)
+
+Detail Product view 2
+![detail](https://raw.githubusercontent.com/farizian/week15/master/img/detail2desktop.png)
+
+Footer
+![detail](https://raw.githubusercontent.com/farizian/week15/master/img/detail3desktop.png)
+
 ## Mobile Version
 
 **1. Landing page**
@@ -96,3 +108,8 @@ Signup view
 
 Footer
 ![signup](https://raw.githubusercontent.com/farizian/week5/master/screenshot/signup/mobile/signup2.png)
+
+**5. Detail product page**
+
+Detail Product view 1
+![detail](https://raw.githubusercontent.com/farizian/week15/master/img/detailmobile.png)
