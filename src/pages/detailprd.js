@@ -1,17 +1,15 @@
+/* eslint-disable array-callback-return */
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../css/detail/body.css'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import CurrencyFormat from 'react-currency-format'
-import { useState } from "react"
 
 const Detail =(props)=>{
-const {dataprd, setdataprd}=useState([{
-  qty: 1
-}])
 const local = localStorage.getItem('data')
 const prd = JSON.parse(local)
 const id = props.match.params.id
+const cart = []
 // eslint-disable-next-line array-callback-return
 const product = prd.find((e)=>{
   // eslint-disable-next-line eqeqeq
@@ -20,46 +18,41 @@ const product = prd.find((e)=>{
   }
 })
 const sizebtn =(data)=>{
-  if(dataprd.length<=0){
-    setdataprd({
-      size: data
-    })
+  if(cart.length<=0){
+    cart.push({
+      size: data,
+      qty: 1})
   }else{
-    setdataprd({
-      ...dataprd,
-      size: data
-    })
+    cart.push(...cart,{size: data})
   }
 }
 const delivbtn =(data)=>{
-  if(dataprd.length<=0){
-    setdataprd({
-      delivery: data
-    })
+  if(cart.length<=0){
+    cart.push({delivery: data})
   }else{
-    setdataprd({
-      ...dataprd,
-      delivery: data
-    })
+    cart.push(...cart,{delivery: data})
   }
 }
 const setTime=(event)=>{
-  if(dataprd.length<=0){
-    setdataprd({
-      time: event.target.value,
-      qty: 1
-    })
+  if(cart.length<=0){
+    const time = event.target.value
+    cart.push(time)
   }else{
-    setdataprd({
-      ...dataprd,
-      time: event.target.value,
-      qty: 1
-    })
+    const time = event.target.value
+    cart.push(...cart,{time})
   }
 }
-const setQty=()=>{
-  const find = dataprd.findIndex((e=> e.qty <= 1))
-  dataprd[find].qty +=1
+const plus=()=>{
+  const find = cart.filter((e)=>{
+    e.qty +=1
+  })
+  cart.push(find)
+}
+const min=()=>{
+  const find = cart.filter((e)=>{
+    e.qty -=1
+  })
+  cart.push(find)
 }
 const inputData=async()=>{
   try{
@@ -73,10 +66,7 @@ const inputData=async()=>{
 }
 const addqty=()=>{
   inputData()
-  setQty()
-  setdataprd({
-    qty: dataprd
-  })
+  plus()
 }
   return(
     <div>
@@ -134,13 +124,17 @@ const addqty=()=>{
           </img>
           <div className="text">
             <h1 className="header">{product.prdname.toUpperCase()}</h1>
-            <p className="txt">data</p>
-            <p className="txt">data</p>
-            <p className="txt">data</p>
+            {cart.map((e)=>{
+              return(
+                <div>
+                <p className="txt">{`x${e.qty} ${e.size}`}</p>
+                </div>
+              )
+            })}
           </div>
           <div className="qtybtn">
-            <button className="btn">-</button>
-            <p className="qty">2</p>
+            <button onClick={min} className="btn">-</button>
+            <p className="qty">{cart.map((e)=>(e.qty))}</p>
             <button onClick={addqty} className="btn">+</button>
           </div>
         </div>
