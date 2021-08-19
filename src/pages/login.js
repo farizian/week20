@@ -24,8 +24,17 @@ const setPassword=(event)=>{
     password: event.target.value
   })
 }
-
+const inputData=async()=>{
+  try{
+    const input1 = await setEmail()
+    const input2 = await setPassword(input1)
+    return input2
+  }catch(error){
+    console.log(error)
+  }
+}
 const submit=(event)=>{
+  inputData()
   const {email, password}= user
   event.preventDefault();
   const data = {email, password}
@@ -54,7 +63,7 @@ const submit=(event)=>{
             </aside>
             <section className="lgn col-lg-7">
             <Navbar logsign={true} login={true}/>
-              <form className="formlgn">
+              <form onSubmit={submit} className="formlgn">
                 <div className="header">
                 <h1>Login</h1>
                 </div>

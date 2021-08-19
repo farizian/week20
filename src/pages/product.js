@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import {Link} from 'react-router-dom'
+import {Link, useHistory, useLocation} from 'react-router-dom'
 import "../css/product/section.css"
 import "../css/product/aside.css"
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -121,16 +121,22 @@ const product = [
 localStorage.setItem('data', JSON.stringify(product))
 const local = localStorage.getItem('data')
 const prd = JSON.parse(local)
+const location= useLocation()
+const history = useHistory()
 const [prdData, setData]=useState(prd)
 const [search, setSearch]=useState("")
+const query = new URLSearchParams(location.search)
+const hasilSearch = query.get("search")
+
 const searchGet=(search)=>{
   setSearch(search)
+  history.push(`/product?search=${search}`)
 }
 useEffect(()=>{
-  if(search && search !== ""){
+  if(hasilSearch && hasilSearch !== ""){
     // eslint-disable-next-line array-callback-return
     const prdSearch = prd.filter((e)=>{
-      if(e.prdname === search){
+      if(e.prdname === hasilSearch){
         return e
       }
     })

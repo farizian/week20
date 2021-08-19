@@ -7,21 +7,16 @@ import { Collapse, NavbarToggler} from 'reactstrap';
 const Navbarmenu=(props)=>{
   const [collapsed, setCollapsed] = useState(true);
   const toggleNavbar = () => setCollapsed(!collapsed);
-  const location= useLocation()
-  const history = useHistory()
   const [search, setSearch]= useState("")
-  const query = new URLSearchParams(location.search)
-  const hasilSearch = query.get("search")
   const changeSearch=(event)=>{
     setSearch(event.target.value)
   }
   const submitPrd=(event)=>{
     event.preventDefault();
     sendData()
-    history.push(`/product?search=${search}`)
   }
   const sendData=()=>{
-    props.search(hasilSearch)
+    props.search(search)
   }
 
   return(

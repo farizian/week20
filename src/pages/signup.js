@@ -88,7 +88,7 @@ const Signup =(props)=>{
             </aside>
             <section className="lgn col-lg-7">
             <Navbar logsign={true} login={false}/>
-              <form className="formlgn">
+              <form onSubmit={submitData}  className="formlgn">
                 <div className="header">
                 <h1>Sign Up</h1>
                 </div>
