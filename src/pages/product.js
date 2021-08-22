@@ -11,22 +11,112 @@ import axios from "axios"
 
 const Product=()=>{
 const [localdata, setLocal]=useState([])
+const [updData, setUpd]=useState({
+  img: "",
+  disc: "",
+  name: "",
+  price: "",
+  category: ""
+})
 const [toggle, setToggle]=useState()
 const token = localStorage.getItem('token')
 const getData =()=>{
   axios.get(`${process.env.REACT_APP_URL_PRODUCT}?field=id`, {headers: {token: token} })
   .then((response)=>{
     setLocal(response.data.field.data)
-    
   }).catch((err)=>{
     console.log(err)
   })
 }
 useEffect(()=>{
   getData()
+// eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
 const navproduct=(data)=>{
   setToggle(data)
+}
+const addImg=(event)=>{
+  setUpd({
+    img: event.target.value
+  })
+}
+const addDisc=(event)=>{
+  setUpd({
+    ...updData,
+    disc: event.target.value
+  })
+}
+const addName=(event)=>{
+  setUpd({
+    ...updData,
+    name: event.target.value
+  })
+}
+const addPrice=(event)=>{
+  setUpd({
+    ...updData,
+    price: event.target.value
+  })
+}
+const addCategory=(event)=>{
+  setUpd({
+    ...updData,
+    category: event.target.value
+  })
+}
+const inputData=async()=>{
+  try{
+    const input1 = await addImg()
+    const input2 = await addDisc(input1)
+    const input3 = await addName(input2)
+    const input4 = await addPrice(input3)
+    const input5 = await addCategory(input4)
+    return input5
+  }catch(error){
+    console.log(error)
+  }
+}
+
+const insertPrd=(event)=>{
+  inputData()
+  event.preventDefault();
+  console.log(updData)
+  const {img, disc, name, price, category}=updData
+  const body={
+    img: img,
+    disc: disc,
+    prdname: name,
+    price: price,
+    category_id: category,
+    qty: 1
+  }
+  const headers={
+    headers: {
+      token: token
+    }
+  }
+  axios.post(`${process.env.REACT_APP_URL_PRODUCT}`, body, headers)
+  .then((response)=>{
+    getData()
+    alert("input data berhasil")
+    setToggle("product")
+  }).catch((err)=>{
+    console.log(err)
+  })
+}
+const deletePrd=(id)=>{
+  const headers={
+    headers: {
+      token: token
+    }
+  }
+  axios.delete(`${process.env.REACT_APP_URL_PRODUCT}/${id}`,headers)
+  .then((response)=>{
+    getData()
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
 }
 const product = [
 {
@@ -142,7 +232,6 @@ const local = localStorage.getItem('data')
 const prd = JSON.parse(local)
 const location= useLocation()
 const history = useHistory()
-const [prdData, setData]=useState(prd)
 const [search, setSearch]=useState("")
 const query = new URLSearchParams(location.search)
 const hasilSearch = query.get("search")
@@ -159,9 +248,9 @@ useEffect(()=>{
         return e
       }
     })
-    setData(prdSearch)
+    setLocal(prdSearch)
   }else{
-    setData(prd)
+    setLocal(prd)
   }
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [search])
@@ -225,18 +314,42 @@ useEffect(()=>{
             <ul className="navprd">
               <li onClick={()=>navproduct("product")}>Favorite & Promo</li>
               <li onClick={()=>navproduct("addprd")}>Add Product</li>
-              <li onClick={()=>navproduct("edit")}>Edit Product</li>
+              <li>Edit Product</li>
               <li>Foods</li>
               <li>Add-on</li>
             </ul>
           </nav>
           <div className="row">
-            {toggle==="edit"?
-            <div>edit</div>:toggle==="addprd"? <div>add</div>:localdata.map((e, i)=>{
+            {toggle==="addprd"?
+            <form className="insert" onSubmit={insertPrd}>
+            <div className="textbox" id="txtbox1">
+              <h3>Product Img Link :</h3>
+              <input type="text" placeholder="Enter your img address" name="" onChange={addImg}></input>
+            </div>
+            <div className="textbox">
+              <h3>Discount :</h3>
+              <input type="text" placeholder="Enter your discount" name="" onChange={addDisc}></input>
+            </div>
+            <div className="textbox">
+              <h3>Product Name :</h3>
+              <input type="text" placeholder="Enter product name" name="" onChange={addName}></input>
+            </div>
+            <div className="textbox">
+              <h3>Price :</h3>
+              <input type="number" placeholder="Enter your price" name="" onChange={addPrice}></input>
+            </div>
+            <div className="textbox">
+              <h3>Category :</h3>
+              <input type="number" placeholder="Enter category" name="" onChange={addCategory}></input>
+            </div>
+            <button onClick={insertPrd}>submit</button>
+          </form>:
+            localdata.map((e, i)=>{
               return(
                 <div key={i} className="card col-lg-2 col-md-4 col-6" id={e.idStyle}>
+                  <button onClick={()=>deletePrd(e.id)} className="remove">-</button>
                   <Link className="link" to={`/detailprd/${e.id}`}>
-                  <img src={e.img} alt=""/>
+                  <img className="prdimg" src={e.img} alt=""/>
                   {e.disc!==null?
                   <p className="disc">{e.disc}</p>:null
                   }
