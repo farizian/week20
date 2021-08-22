@@ -6,9 +6,28 @@ import "../css/product/section.css"
 import "../css/product/aside.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import CurrencyFormat from 'react-currency-format'
+import axios from "axios"
 
 
 const Product=()=>{
+const [localdata, setLocal]=useState([])
+const [toggle, setToggle]=useState()
+const token = localStorage.getItem('token')
+const getData =()=>{
+  axios.get(`${process.env.REACT_APP_URL_PRODUCT}?field=id`, {headers: {token: token} })
+  .then((response)=>{
+    setLocal(response.data.field.data)
+    
+  }).catch((err)=>{
+    console.log(err)
+  })
+}
+useEffect(()=>{
+  getData()
+},[])
+const navproduct=(data)=>{
+  setToggle(data)
+}
 const product = [
 {
   id: 1,
@@ -204,20 +223,21 @@ useEffect(()=>{
         <section className="productitem">
           <nav className="prdmenu">
             <ul className="navprd">
-              <li>Favorite & Promo</li>
-              <li>Coffee</li>
-              <li>Non Coffee</li>
+              <li onClick={()=>navproduct("product")}>Favorite & Promo</li>
+              <li onClick={()=>navproduct("addprd")}>Add Product</li>
+              <li onClick={()=>navproduct("edit")}>Edit Product</li>
               <li>Foods</li>
               <li>Add-on</li>
             </ul>
           </nav>
           <div className="row">
-            {prdData.map((e, i)=>{
+            {toggle==="edit"?
+            <div>edit</div>:toggle==="addprd"? <div>add</div>:localdata.map((e, i)=>{
               return(
                 <div key={i} className="card col-lg-2 col-md-4 col-6" id={e.idStyle}>
                   <Link className="link" to={`/detailprd/${e.id}`}>
                   <img src={e.img} alt=""/>
-                  {e.disc!==""?
+                  {e.disc!==null?
                   <p className="disc">{e.disc}</p>:null
                   }
                   <p className="prdname">{e.prdname}</p>

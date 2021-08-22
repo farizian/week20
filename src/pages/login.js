@@ -41,7 +41,7 @@ const submit=(event)=>{
   const local = localStorage.getItem('user')
   const localuser = JSON.parse(local)
   if(data.email===localuser.email&&data.password===localuser.password){
-    localStorage.setItem("token","1234abc")
+    localStorage.setItem("token","123abc123abc123abcbca123")
     props.history.push('/product');
   }else if(data.email!==localuser.email){
     alert("account tidak ditemukan, silahkan registrasi")
