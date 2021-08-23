@@ -25,6 +25,11 @@
 }
 #p1{
   margin-right: 5px;
+  transition: 50ms;
+  cursor: pointer;
+}
+#p1:hover{
+  transform: scale(1.1);
 }
 #p2{
   color: #6A4029;
