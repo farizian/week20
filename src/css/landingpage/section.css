@@ -780,7 +780,10 @@ body{
         margin-right: 0;
         width: 90%;
         height: 750px;
-        overflow: scroll;
+        overflow: overlay;
+    }
+    .favorite .row::-webkit-scrollbar{
+        background: transparent;
     }
     .favorite .row .card{
         margin-top: 120px;

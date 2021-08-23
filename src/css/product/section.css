@@ -40,64 +40,7 @@
   justify-content: center;
   /* background-color: rgb(30, 255, 0); */
 }
-.productitem .row .insert{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* background-color: blueviolet; */
-}
-.productitem .row .insert .textbox{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 20px;
-  /* background-color: tomato; */
-}
-#txtbox1{
-  margin-top: 30px;
-}
-.productitem .row .insert .textbox input{
-  height: 50px;
-  width: 65%;
-  border-radius: 20px;
-  font-family: Rubik;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  padding-left: 20px;
-  text-align: left;
-}
-.productitem .row .insert .textbox h3{
-  font-family: Rubik;
-  width: 65%;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 24px;
-  letter-spacing: 0em;
-  padding-left: 5px;
-}
-.productitem .row .insert button{
-  margin-top: 20px;
-  margin-bottom: 30px;
-  border: none;
-  height: 50px;
-  width: 65%;
-  border-radius: 20px;
-  background-color: #6A4029;
-  box-shadow: 0px 6px 20px 0px #6A4029A1;
-  font-family: Rubik;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  color: white;
-  transition: 50ms;
-}
-.productitem .row .insert button:hover{
-  transform: scale(1.1);
-}
+
 .productitem .row .card{
   height: 180px;
   text-align: center;
@@ -145,7 +88,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(241, 241, 239);
+  background-color: #FFBA33;
 }
 .productitem .row .card .disc{
   background-color: white;
