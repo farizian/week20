@@ -85,7 +85,7 @@ const insertPrd=(event)=>{
   console.log(updData)
   const {img, disc, name, price, category}=updData
   const body={
-    idStyle: `prd${Math.random()}`,
+    idStyle: `prd${Math.floor(Math.random() * 5+30)}`,
     img: img===undefined?"":img,
     disc: disc===undefined?"":disc,
     prdname: name===undefined?"":name,
