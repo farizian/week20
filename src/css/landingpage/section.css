@@ -387,7 +387,10 @@ body{
     font-family: rubik;
     margin-left: 5%;
     padding: 10px 0 0 0;
-    overflow: scroll;
+    overflow: overlay;
+}
+.review .row::-webkit-scrollbar{
+    background: transparent;
 }
 .review .row .card{
     width: 500px;
