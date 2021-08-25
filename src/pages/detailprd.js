@@ -1,5 +1,6 @@
 /* eslint-disable array-callback-return */
 import { useState, useEffect } from "react"
+import {Input} from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../css/detail/body.css'
 import Navbar from '../components/Navbar'
@@ -14,73 +15,41 @@ const [prd, setPrd]=useState([])
 const history = useHistory();
 const token = localStorage.getItem('token')
 const id = props.match.params.id
-const [updData, setUpd]=useState({
-  img: "",
-  disc: "",
-  name: "",
-  price: "",
-  category: ""
-})
+const local = localStorage.getItem('data')
+const dataDf = JSON.parse(local)
+
+
+
 const getData =()=>{
-  axios.get(`${process.env.REACT_APP_URL_PRODUCT}/${id}`, {headers: {token: token} })
+  axios.get(`${process.env.REACT_APP_URL_PRODUCT}/product/${id}`, {headers: {token: token} })
   .then((response)=>{
     setPrd(response.data.field)
-    console.log(response.data.field)
   }).catch((err)=>{
-    console.log(err)
+    alert(err)
   })
 }
 useEffect(()=>{
   getData()
 // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
+const [updData, setUpd]=useState({
+  img: prd.map((e)=>(e.img)),
+  disc: prd.map((e)=>(e.disc)),
+  name: prd.map((e)=>(e.prdname)),
+  price: prd.map((e)=>(e.price)),
+  category: prd.map((e)=>(e.category===1?"Main Course":"Coffee"))
+})
 const clicked=(data)=>{
   setToggle(data)
 }
 // update
-const addImg=(event)=>{
-  setUpd({
-    img: event.target.value
-  })
-}
-const addDisc=(event)=>{
+const setChange=(event)=>{
   setUpd({
     ...updData,
-    disc: event.target.value
+    [event.target.name]: event.target.value,
   })
-}
-const addName=(event)=>{
-  setUpd({
-    ...updData,
-    name: event.target.value
-  })
-}
-const addPrice=(event)=>{
-  setUpd({
-    ...updData,
-    price: event.target.value
-  })
-}
-const addCategory=(event)=>{
-  setUpd({
-    ...updData,
-    category: event.target.value
-  })
-}
-const inputData=async()=>{
-  try{
-    const input1 = await addImg()
-    const input2 = await addDisc(input1)
-    const input3 = await addName(input2)
-    const input4 = await addPrice(input3)
-    const input5 = await addCategory(input4)
-    return input5
-  }catch(error){
-    console.log(error)
-  }
 }
 const insertPrd=(event)=>{
-  inputData()
   event.preventDefault();
   console.log(updData)
   const {img, disc, name, price, category}=updData
@@ -98,9 +67,8 @@ const insertPrd=(event)=>{
       token: token
     }
   }
-  axios.post(`${process.env.REACT_APP_URL_PRODUCT}`, body, headers)
+  axios.post(`${process.env.REACT_APP_URL_PRODUCT}/product`, body, headers)
   .then((response)=>{
-    getData()
     alert("input data berhasil")
     setUpd({
       img: "",
@@ -111,11 +79,10 @@ const insertPrd=(event)=>{
     })
     history.push("/product");
   }).catch((err)=>{
-    console.log(err)
+    alert(err)
   })
 }
 const updatePrd=(event)=>{
-  inputData()
   event.preventDefault();
   console.log(updData)
   const {img, disc, name, price, category}=updData
@@ -131,7 +98,7 @@ const updatePrd=(event)=>{
       token: token
     }
   }
-  axios.put(`${process.env.REACT_APP_URL_PRODUCT}/${id}`, body, headers)
+  axios.put(`${process.env.REACT_APP_URL_PRODUCT}/product/${id}`, body, headers)
   .then((response)=>{
     getData()
     alert("Update data berhasil")
@@ -142,9 +109,10 @@ const updatePrd=(event)=>{
       price: "",
       category: ""
     })
+    
     history.push("/product");
   }).catch((err)=>{
-    console.log(err)
+    alert(err)
   })
 }
 
@@ -158,9 +126,9 @@ const updatePrd=(event)=>{
               <p className="textdtl" id="p1" onClick={()=>clicked('prd')}>Favorite & Promo</p>
               <p className="textdtl" id="p2" >{`> ${prd.map((e)=>(e.prdname))}`}</p>
             </div>
-            {prd.map((e)=>{
+            {prd.map((e,i)=>{
               return(
-              <div className="dtlproduct">
+              <div key={i} className="dtlproduct">
                 <img className="prdimg" src={e.img} alt=""/>
                 <h1 className="prdname">{e.prdname.toUpperCase()}</h1>
                 <CurrencyFormat className="prdprice" value={e.price} displayType={'text'} thousandSeparator={true} prefix={'Rp. '}/>
@@ -178,25 +146,25 @@ const updatePrd=(event)=>{
               <form className="insert" onSubmit={updatePrd}>
                 <div className="textbox" id="txtbox1">
                   <h3>Product Img Link :</h3>
-                  <input type="text" placeholder="Enter your img address" name="" onChange={addImg}></input>
+                  <Input type="text" placeholder="Enter your img address" name="img" value={updData.img} onChange={setChange}></Input>
                 </div>
                 <div className="textbox">
                   <h3>Discount :</h3>
-                  <input type="text" placeholder="Enter your discount" name="" onChange={addDisc}></input>
+                  <Input type="text" placeholder="Enter your discount" name="disc" value={updData.disc} onChange={setChange}></Input>
                 </div>
                 <div className="textbox">
                   <h3>Product Name :</h3>
-                  <input type="text" placeholder="Enter product name" name="" onChange={addName}></input>
+                  <Input type="text" placeholder="Enter product name" name="name" value={updData.name} onChange={setChange}></Input>
                 </div>
                 <div className="textbox">
                   <h3>Price :</h3>
-                  <input type="number" placeholder="Enter your price" name="" onChange={addPrice}></input>
+                  <Input type="number" placeholder="Enter your price" name="price" value={updData.price} onChange={setChange}></Input>
                 </div>
                 <div className="textbox">
                   <h3>Category :</h3>
-                  <input type="text" placeholder="Enter category" name="" onChange={addCategory}></input>
+                  <Input type="text" placeholder="Enter category" name="category" value={updData.category} onChange={setChange}></Input>
                 </div>
-                <button onClick={updatePrd}>submit</button>
+                <button type='submit' >submit</button>
               </form>
             </div>
           </div>:
@@ -206,25 +174,25 @@ const updatePrd=(event)=>{
               <form className="insert" onSubmit={insertPrd}>
                 <div className="textbox" id="txtbox1">
                   <h3>Product Img Link :</h3>
-                  <input type="text" placeholder="Enter your img address" name="" onChange={addImg}></input>
+                  <Input type="text" placeholder="Enter your img address" name="img" value={updData.img} onChange={setChange}></Input>
                 </div>
                 <div className="textbox">
                   <h3>Discount :</h3>
-                  <input type="text" placeholder="Enter your discount" name="" onChange={addDisc}></input>
+                  <Input type="text" placeholder="Enter your discount" name="disc" value={updData.disc} onChange={setChange}></Input>
                 </div>
                 <div className="textbox">
                   <h3>Product Name :</h3>
-                  <input type="text" placeholder="Enter product name" name="" onChange={addName}></input>
+                  <Input type="text" placeholder="Enter product name" name="name" value={updData.name} onChange={setChange}></Input>
                 </div>
                 <div className="textbox">
                   <h3>Price :</h3>
-                  <input type="number" placeholder="Enter your price" name="" onChange={addPrice}></input>
+                  <Input type="number" placeholder="Enter your price" name="price" value={updData.price} onChange={setChange}></Input>
                 </div>
                 <div className="textbox">
                   <h3>Category :</h3>
-                  <input type="text" placeholder="Enter category" name="" onChange={addCategory}></input>
+                  <Input type="text" placeholder="Enter category" name="category" value={updData.category} onChange={setChange}></Input>
                 </div>
-                <button onClick={insertPrd}>submit</button>
+                <button type='submit'>submit</button>
               </form>
             </div>
           </div>:
@@ -252,7 +220,7 @@ const updatePrd=(event)=>{
                 </div>
                 <div className="inputbox">
                   <p className="text">Set time :</p>
-                  <input onChange="" className="input" placeholder="Enter the time you’ll arrived"></input>
+                  <Input className="Input" placeholder="Enter the time you’ll arrived"></Input>
                 </div>
               </div>
             </div>
@@ -260,9 +228,9 @@ const updatePrd=(event)=>{
         </div>
       </div>
       <div className="dtlprdcard">
-          {prd.map((e)=>{
+          {prd.map((e,i)=>{
             return(
-            <div className="card">
+            <div key={i} className="card">
               <img src={e.img} alt="">
               </img>
               <div className="text">

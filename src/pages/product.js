@@ -14,11 +14,12 @@ const [localdata, setLocal]=useState([])
 const [search, setSearch]=useState("")
 const token = localStorage.getItem('token')
 const getData =()=>{
-  axios.get(`${process.env.REACT_APP_URL_PRODUCT}?field=id`, {headers: {token: token} })
+  axios.get(`${process.env.REACT_APP_URL_PRODUCT}/product?field=id`, {headers: {token: token} })
   .then((response)=>{
     setLocal(response.data.field.data)
+    console.log(response.data.field.data)
   }).catch((err)=>{
-    console.log(err)
+    alert(err)
   })
 }
 useEffect(()=>{
@@ -32,20 +33,20 @@ const deletePrd=(id)=>{
       token: token
     }
   }
-  axios.delete(`${process.env.REACT_APP_URL_PRODUCT}/${id}`,headers)
+  axios.delete(`${process.env.REACT_APP_URL_PRODUCT}/product/${id}`,headers)
   .then(getData())
   .catch((err)=>{
-    console.log(err)
+    alert(err)
   })
 }
 
 const searchPrd=(data)=>{
   setSearch(data)
-  axios.get(`${process.env.REACT_APP_URL_PRODUCT}?search=${search}&field=id`, {headers: {token: token} })
+  axios.get(`${process.env.REACT_APP_URL_PRODUCT}/product?search=${search}&field=id`, {headers: {token: token} })
   .then((response)=>{
     setLocal(response.data.field.data)
   }).catch((err)=>{
-    console.log(err)
+    alert(err)
   })
 }
 
