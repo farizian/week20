@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { GET_DETAIL_PRODUCT, UPDATE, GET_CATEGORY_PRODUCT } from "../redux/actions/product"
+import { GET_DETAIL_PRODUCT, UPDATE, GET_CATEGORY_PRODUCT, GET_CART } from "../redux/actions/product"
 import { GET_DETAIL_USER } from "../redux/actions/users"
 import {Input} from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -25,10 +25,10 @@ const Detail =(props)=>{
 
 
 
-  const getData =()=>{
-    dispatch(GET_DETAIL_PRODUCT(id))
-    dispatch(GET_DETAIL_USER())
-    dispatch(GET_CATEGORY_PRODUCT())
+  const getData = async()=>{
+    await dispatch(GET_DETAIL_PRODUCT(id))
+    await dispatch(GET_DETAIL_USER())
+    await dispatch(GET_CATEGORY_PRODUCT())
   }
   useEffect(()=>{
     getData()
@@ -42,15 +42,16 @@ const Detail =(props)=>{
   const [qty, setQty]=useState({
     qty: 1
   })
-  const btnAdd = ()=>{
-    setQty({
-      qty: qty.qty+=1
-    })
-  }
-  const btnMin = ()=>{
-    setQty({
-      qty: qty.qty<=1?1:qty.qty-=1
-    })
+  const btnQty = (data)=>{
+    if(data === "add") {
+      setQty({
+        qty: qty.qty+=1
+      })
+    } else if (data === "min") {
+      setQty({
+        qty: qty.qty<=1?1:qty.qty-=1
+      })
+    }
   }
   const clicked=(data)=>{
     setToggle(data)
@@ -83,6 +84,7 @@ const Detail =(props)=>{
       total: prd.price*qty.qty+200+1000
     }
     console.log(data)
+    dispatch(GET_CART(data))
     localStorage.setItem("cart", JSON.stringify(data))
     history.push('/payment')
   }
@@ -170,11 +172,8 @@ const Detail =(props)=>{
                   <p className="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                 </div>
                 <div className="sizemenu">
-                  <p className="text">Choose a size</p>
                   <div className="sizebox">
-                    <div onClick="" className="size">R</div>
-                    <div onClick="" className="size">L</div>
-                    <div onClick="" className="size" id="xl">XL</div>
+                    <div onClick="" className="size">{prd.size}</div>
                   </div>
                 </div>
               </div>
@@ -206,9 +205,9 @@ const Detail =(props)=>{
             </div>
           </div>
           <div className="qtybtn">
-            <button onClick={btnMin} className="btn">-</button>
+            <button onClick={()=>btnQty("min")} className="btn">-</button>
             <p className="qty">{qty.qty}</p>
-            <button onClick={btnAdd} className="btn">+</button>
+            <button onClick={()=>btnQty("add")} className="btn">+</button>
           </div>
         </div>
         <button className="btncard" onClick={checkout}>CHECKOUT</button>

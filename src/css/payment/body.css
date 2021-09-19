@@ -1,132 +1,114 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-#dtlrow1{
-  background-image: url(https://s3-alpha-sig.figma.com/img/0c77/3b4e/13c3507aae6dd22ab12f949706660279?Expires=1632700800&Signature=ePsVZRotxkL2KNz0agHHgfsEiqmzk7WW~LmHZhihUKTWIBseBpqh9xSXxC-6~ZOtAosxLErSf1upkYLiXgSTk~zfXJibT8ZvcRhL7WrMK3D5IOF5DrBxuE9agKWNDAlE8jVRbFj~xaKm0JM5fSRuoG0Geuxcw0nmGzkoDnWWbEU-tUyI0EtMNQOMx8741ez4~2Z85oCr7ta1MNUhPjwZgn-pK3KFDQevswYP9ahlNBLlhh-yOYmd1b7exS1pjiP7oCkL-BQ26Lw8hlePSF-x4Yukn6cDuw-rfxvjoqIDC5NFiR~S7MrkhRwPl~3b~TxWBkrZ~6NVk3tD1Hm3tDUVoA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA);
+#dtlrow2{
+  background-image: url(https://raw.githubusercontent.com/farizian/week20/master/img/page.png);
   background-size: cover;
   background-position-y: center;
 }
-.viewprd{
+.summary{
   /* background-color: wheat; */
-  height: 148vh;
+  height: 200vh;
+  padding: 5% 0 0 7%;
 }
-/* .desc{
-  background-color: blueviolet;
-} */
-.viewprd .txt{
-  display: flex;
+.summary .titlebox{
+  width: 50%;
+  height: 150px;
+}
+.summary .titlebox h1{
   font-family: Rubik;
-  font-size: 15px;
-  font-weight: 400;
-  text-align: left;
-  color: #4F5665;
-  margin: 30px 0 0 15%;
-  /* background-color: thistle; */
-  width: 300px;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 47px;
+  color: white;
+  text-shadow:  4px 4px 4px black;
 }
-#p1{
-  margin-right: 5px;
-  transition: 50ms;
-  cursor: pointer;
+.summary .descbox{
+  background-color: white;
+  width: 80%;
+  height: 590px;
+  border-radius: 20px;
+  padding: 15% 5% 0 5%;
 }
-#p1:hover{
-  transform: scale(1.1);
+/* .summary .descbox .textbox{
+  background-color: thistle;
+} */
+.summary .descbox2{
+  background-color: white;
+  width: 90%;
+  height: 590px;
+  margin-top: 50px;
+  border-radius: 10px;
 }
-#p2{
-  color: #6A4029;
-  font-weight: 600;
-}
-.viewprd .dtlproduct{
-  /* background-color: aquamarine; */
+.summary .descbox .textbox{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 70px;
-  margin-bottom: 35px;
+  margin: 0;
 }
-.viewprd .dtlproduct .prdimg{
-  width: 300px;
-  border-radius: 150px;
-}
-.viewprd .dtlproduct .prdname{
+.summary .descbox .textbox h1{
   font-family: Poppins;
-  font-size: 42px;
+  font-size: 35px;
   font-style: normal;
-  font-weight: 900;
-  /* background-color: blueviolet; */
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 15px;
-  width: 300px;
+  font-weight: 700;
+  color: #362115;
 }
-.viewprd .dtlproduct .prdprice{
+.summary .descbox .prdbox{
+  display: flex;
+  background-color: burlywood;
+}
+.method{
+  padding: 16% 7% 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.method .text h3{
   font-family: Poppins;
   font-size: 25px;
   font-style: normal;
-  font-weight: 500;
-  text-align: center;
+  font-weight: 700;
+  text-shadow:  4px 4px 4px #000000CC;
+  color: white;
+  width: 50%;
+  text-align: left;
 }
-.viewprd .dtlbutton{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* background-color: cadetblue; */
-}
-.viewprd .dtlbutton .btn{
-  border: none;
-  list-style-type: none;
-  width: 300px;
-  height: 60px;
-  border-radius: 10px;
-  background-color: #FFBA33;
-  margin-bottom: 20px;
+.method .text p{
+  width: 50%;
+  text-align: end;
   font-family: Poppins;
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
-  text-align: center;
   color: white;
-  transition-duration: 50ms;
-  cursor: pointer;
 }
-.viewprd .dtlbutton .btn:hover{
-  font-weight: 700;
-  box-shadow: 1px 1px 10px #cccccc;
-  transform: scale(1.1);
-}
-
-#btn1{
-  background-color: #6A4029;
-}
-.desc{
-  padding: 0;
-}
-.desc .descbox{
+.method .descbox{
   background-color: white;
   width: 90%;
-  height: 590px;
-  margin-top: 50px;
-  border-radius: 10px;
+  height: 198px;
+  margin-top: 10px;
+  border-radius: 20px;
   padding: 70px;
 }
-/* .desc .descbox .textbox{
+/* .method .descbox .textbox{
   background-color: thistle;
 } */
-.desc .descbox2{
+.method .descbox2{
   background-color: white;
   width: 90%;
   height: 590px;
   margin-top: 50px;
   border-radius: 10px;
 }
-.desc .descbox2 .insert{
+.method .descbox2 .insert{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   /* background-color: blueviolet; */
 }
-.desc .descbox2 .insert .textbox{
+.method .descbox2 .insert .textbox{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,7 +119,7 @@
 #txtbox1{
   margin-top: 30px;
 }
-.desc .descbox2 .insert .textbox input{
+.method .descbox2 .insert .textbox input{
   height: 40px;
   width: 65%;
   border-radius: 20px;
@@ -148,7 +130,7 @@
   padding-left: 20px;
   text-align: left;
 }
-.desc .descbox2 .insert .textbox select {
+.method .descbox2 .insert .textbox select {
   height: 40px;
   width: 65%;
   border-radius: 20px;
@@ -159,7 +141,7 @@
   padding: 0 0 0 20px;
   text-align: left;
 }
-.desc .descbox2 .insert .textbox h3{
+.method .descbox2 .insert .textbox h3{
   font-family: Rubik;
   width: 65%;
   font-size: 20px;
@@ -169,7 +151,7 @@
   letter-spacing: 0em;
   padding-left: 5px;
 }
-.desc .descbox2 .insert button{
+.method .descbox2 .insert button{
   margin-top: 20px;
   margin-bottom: 30px;
   border: none;
@@ -185,10 +167,10 @@
   color: white;
   transition: 50ms;
 }
-.desc .descbox2 .insert button:hover{
+.method .descbox2 .insert button:hover{
   transform: scale(1.1);
 }
-.desc .descbox .textbox .text{
+.method .descbox .textbox .text{
   font-family: Poppins;
   font-size: 20px;
   font-style: normal;
@@ -197,18 +179,18 @@
   text-align: left;
   color: #6A4029;
 }
-.desc .descbox .textbox #text1{
+.method .descbox .textbox #text1{
   /* background-color: teal; */
   width: 70%;
   margin-bottom: 30px;
 }
-.desc .descbox .sizemenu{
+.method .descbox .sizemenu{
   display: flex;
   flex-direction: column;
   /* background-color: tan; */
   margin-top: 50px;
 }
-.desc .descbox .sizemenu .text{
+.method .descbox .sizemenu .text{
   font-family: Poppins;
   font-size: 20px;
   font-style: normal;
@@ -216,13 +198,13 @@
   text-align: center;
   color: black;
 }
-.desc .descbox .sizemenu .sizebox{
+.method .descbox .sizemenu .sizebox{
   display: flex;
   /* background-color: lawngreen; */
   margin-top: 10px;
   justify-content: center;
 }
-.desc .descbox .sizemenu .sizebox .size{
+.method .descbox .sizemenu .sizebox .size{
   display: flex;
   width: 45px;
   height: 45px;
@@ -238,14 +220,14 @@
   transition-duration: 50ms;
   cursor: pointer;
 }
-.desc .descbox .sizemenu .sizebox .size:hover{
+.method .descbox .sizemenu .sizebox .size:hover{
   box-shadow: 1px 1px 10px #cccccc;
   transform: scale(1.1);
 }
 #xl{
   margin-right: 0;
 }
-.desc .delivery{
+.method .delivery{
   /* background-color: lawngreen; */
   display: flex;
   flex-direction: column;
@@ -253,19 +235,19 @@
   width: 90%;
   margin-top: 35px;
 }
-.desc .delivery .txtmenu{
+.method .delivery .txtmenu{
   font-family: Poppins;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   margin-bottom: 35px;
 }
-.desc .delivery .buttonbox{
+.method .delivery .buttonbox{
   display: flex;
   justify-content: center;
   /* background-color: lightblue; */
 }
-.desc .delivery .buttonbox .btn{
+.method .delivery .buttonbox .btn{
   width: 110px;
   height: 45px;
   background-color: #F4F4F8;
@@ -277,7 +259,7 @@
   color: #9F9F9F;
   transition-duration: 50ms;
 }
-.desc .delivery .buttonbox .btn:hover{
+.method .delivery .buttonbox .btn:hover{
   box-shadow: 0px 6px 20px 0px #89553766;
   background-color: #6A4029;
   color: white;
@@ -287,7 +269,7 @@
   width: 145px;
   margin: 0 20px 0 20px;
 }
-.desc .delivery .inputbox{
+.method .delivery .inputbox{
   /* background-color: tomato; */
   width: 100%;
   height: 100%;
@@ -296,7 +278,7 @@
   justify-content: center;
   margin-top: 28px;
 }
-.desc .delivery .inputbox .text{
+.method .delivery .inputbox .text{
   font-size: 20px;
   margin-top: 13px;
   margin-right: 20px;
@@ -306,7 +288,7 @@
   align-items: center;
   /* background-color: thistle; */
 }
-.desc .delivery .inputbox .input{
+.method .delivery .inputbox .input{
   width: 300px;
   border: none;
   border-bottom: 1px solid #9F9F9F;
@@ -408,53 +390,53 @@
   transform: scale(1.1);
 }
 @media screen and (max-width: 576px){
-  .viewprd{
+  .summary{
     height: auto;
   }
-  .desc{
+  .method{
     padding: 0;
     height: 120vh;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .desc .descbox{
+  .method .descbox{
     padding: 10px;
   }
-  .desc .descbox .textbox .text{
+  .method .descbox .textbox .text{
     font-size: 15px;
   }
-  .desc .descbox .textbox #text1{
+  .method .descbox .textbox #text1{
     /* background-color: teal; */
     width: 70%;
     margin-bottom: 30px;
   }
-  .desc .descbox .sizemenu{
+  .method .descbox .sizemenu{
     margin-top: 40%;
   }
-  .desc .delivery .txtmenu{
+  .method .delivery .txtmenu{
     font-family: Poppins;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
     margin-bottom: 35px;
   }
-  .desc .delivery .buttonbox{
+  .method .delivery .buttonbox{
     display: flex;
     justify-content: center;
     /* background-color: lightblue; */
   }
-  .desc .delivery .buttonbox .btn{
+  .method .delivery .buttonbox .btn{
     width: 70px;
     font-size: 10px;
   }
   #deliv2{
     width: 110px;
   }
-  .desc .delivery .inputbox .text{
+  .method .delivery .inputbox .text{
     font-size: 15px;
   }
-  .desc .delivery .inputbox .input{
+  .method .delivery .inputbox .input{
     width: 200px;
     font-size: 13px;
   }

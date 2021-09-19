@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { GET_DETAIL_PRODUCT, GET_CATEGORY_PRODUCT } from "../redux/actions/product"
+import { GET_DETAIL_PRODUCT, GET_CATEGORY_PRODUCT, GET_CART } from "../redux/actions/product"
 import { GET_DETAIL_USER } from "../redux/actions/users"
 import {Input} from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -23,13 +23,15 @@ const Payment =(props)=>{
   const id = params.id
   const category = product.category
   const prd = product.getDetail
+  const cart = product.cart
 
 
 
-  const getData =()=>{
-    dispatch(GET_DETAIL_PRODUCT(id))
-    dispatch(GET_DETAIL_USER())
-    dispatch(GET_CATEGORY_PRODUCT())
+  const getData =async()=>{
+    await dispatch(GET_DETAIL_PRODUCT(id))
+    await dispatch(GET_DETAIL_USER())
+    await dispatch(GET_CATEGORY_PRODUCT())
+    await dispatch(GET_CART())
   }
   useEffect(()=>{
     getData()
@@ -42,37 +44,62 @@ const Payment =(props)=>{
     <div>
       <Navbar logsign={false} product={true}/>
       <div className="container-fluid">
-        <div className="row" id="dtlrow1">
-          <div className="col-lg-7 col-12 viewprd">
-            
-          </div>
-          
-            <div className="col-lg-5 col-12 desc">
+        <div className="row" id="dtlrow2">
+          <div className="col-lg-7 col-12 summary">
+              <div className="titlebox">
+                <h1>Checkout your item now!</h1>
+              </div>
               <div className="descbox">
-                <div className="textbox">
-                  <p className="text" id="text1">Delivery only on <b>Monday to friday at  1 - 7 pm</b></p>
-                  <p className="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <div className="textbox bg-info" >
+                  <h1 className="text" id="text1" >Order Summary</h1>
                 </div>
-                <div className="sizemenu">
-                  <p className="text">Choose a size</p>
-                  <div className="sizebox">
-                    <div onClick="" className="size">R</div>
-                    <div onClick="" className="size">L</div>
-                    <div onClick="" className="size" id="xl">XL</div>
+                <div className="prdbox" >
+                  <img src="" alt=""></img>
+                  <div className="txt" style={{display: "flex", flexDirection: "column"}}>
+                    <p>Text</p>
+                    <p>x1</p>
+                    <p>Reg</p>
+                  </div>
+                  <div className="txt">
+                    <p>price</p>
                   </div>
                 </div>
+                <div className="pricemenu" style={{display: "flex"}}>
+                  <div className="txt">
+                    <p>SUBTOTAL</p>
+                    <p>TAX</p>
+                    <p>SHIPPING</p>
+                  </div>
+                  <div className="txt">
+                    <p>PRICE</p>
+                    <p>PRICE</p>
+                    <p>PRICE</p>
+                  </div>
+                </div>
+                <div className="sizebox" style={{display: "flex"}}>
+                  <h1 onClick="" className="total">TOTAL</h1>
+                  <h1 onClick="" className="pricettl">RP.</h1>
+                </div>
               </div>
-              <div className="delivery">
-                <p className="txtmenu">Choose Delivery Methods</p>
-                <div className="buttonbox">
-                  <button onClick="" className="btn">Dine in</button>
-                  <button onClick="" className="btn" id="deliv2">Door Delivery</button>
-                  <button onClick="" className="btn">Pick up</button>
-                </div>
-                <div className="inputbox">
-                  <p className="text">Set time :</p>
-                  <Input className="Input" placeholder="Enter the time you’ll arrived"></Input>
-                </div>
+          </div>
+          
+            <div className="col-lg-5 col-12 method">
+              <div className="text" style={{display:"flex", width:"88%"}}>
+                <h3>Address details</h3>
+                <p>edit</p>
+              </div>
+              <div className="descbox">
+                
+              </div>
+              <div className="text" style={{display:"flex", width:"88%"}}>
+                <h3>Address details</h3>
+                <p>edit</p>
+              </div>
+              <div className="descbox">
+                
+              </div>
+              <div className="button">
+                <button>Confirm and Pay</button>
               </div>
             </div>
           

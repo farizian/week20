@@ -23,10 +23,10 @@ const Product=()=>{
   const category = useSelector(state => state.product.category)
   const user = useSelector(state => state.user)
   const detail = user.getDetail
-  const getData =()=>{
-    dispatch(GET_ALL_PRODUCT())
-    dispatch(GET_DETAIL_USER())
-    dispatch(GET_CATEGORY_PRODUCT())
+  const getData = async()=>{
+    await dispatch(GET_ALL_PRODUCT())
+    await dispatch(GET_DETAIL_USER())
+    await dispatch(GET_CATEGORY_PRODUCT())
   }
   useEffect(()=>{
     getData()
