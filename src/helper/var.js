@@ -1,0 +1,17 @@
+// product
+export const getAllProduct = 'GET_ALL_PRODUCT_FULFILLED'
+export const getAllProductPending = 'GET_ALL_PRODUCT_PENDING'
+export const getAllProductError = 'GET_ALL_PRODUCT_REJECTED'
+export const getDetailProduct = 'GET_DETAIL_PRODUCT_FULFILLED'
+export const getDetailProductPending = 'GET_DETAIL_PRODUCT_PENDING'
+export const getDetailProductError = 'GET_DETAIL_PRODUCT_REJECTED'
+export const categoryProduct = 'GET_CATEGORY_PRODUCT_FULFILLED'
+export const categoryProductPending = 'GET_CATEGORY_PRODUCT_PENDING'
+export const categoryProductError = 'GET_CATEGORY_PRODUCT_REJECTED'
+// user
+export const getAllUser = 'GET_ALL_USER_FULFILLED'
+export const getAllUserPending = 'GET_ALL_USER_PENDING'
+export const getAllUserError = 'GET_ALL_USER_REJECTED'
+export const getDetailUser = 'GET_DETAIL_USER_FULFILLED'
+export const getDetailUserPending = 'GET_DETAIL_USER_PENDING'
+export const getDetailUserError = 'GET_DETAIL_USER_REJECTED'

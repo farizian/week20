@@ -4,55 +4,32 @@ import Navbar from "../components/Navbar"
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../css/logsign/section.css'
 import { useState } from "react"
-import {Link} from 'react-router-dom'
+import { LOGIN } from "../redux/actions/users"
+import {Link, useHistory} from 'react-router-dom'
 
 
 const Login =(props)=>{
+const history = useHistory()
 const [user, setUser] = useState({
-  email:"",
+  email: "",
   password: "",
 })
 
-const setEmail=(event)=>{
-  setUser({
-    email: event.target.value
-  })
-}
-const setPassword=(event)=>{
+const setData=(event)=>{
   setUser({
     ...user,
-    password: event.target.value
+    [event.target.name]: event.target.value
   })
 }
-const inputData=async()=>{
-  try{
-    const input1 = await setEmail()
-    const input2 = await setPassword(input1)
-    return input2
-  }catch(error){
-    console.log(error)
-  }
-}
+
 const submit=(event)=>{
-  inputData()
-  const {email, password}= user
   event.preventDefault();
-  const data = {email, password}
-  const local = localStorage.getItem('user')
-  const localuser = JSON.parse(local)
-  if(data.email===localuser.email&&data.password===localuser.password){
-    localStorage.setItem("token","123abc123abc123abcbca123")
-    props.history.push('/product');
-  }else if(data.email!==localuser.email){
-    alert("account tidak ditemukan, silahkan registrasi")
-    props.history.push('/signup');
-  }
-  else{
-    alert("password salah")
-  }
-  console.log(data)
-  // localStorage.removeItem('user')
-  console.log(localuser)
+  LOGIN(user).then(() =>{
+    alert("Login Berhasil")
+    history.push('/product')
+  }).catch((err) =>{
+    alert("username/password salah")
+  })
 }
   return(
     <div>
@@ -70,11 +47,11 @@ const submit=(event)=>{
                 <div className="signbox">
                   <h3>Email Address :</h3>
                   <div className="textbox">
-                    <input type="text" placeholder="Enter your email address" name="" onChange={setEmail}></input>
+                    <input type="text" placeholder="Enter your email address" name="email" onChange={setData}></input>
                   </div>
                   <h3>Password :</h3>
                   <div className="textbox">
-                    <input type="password" placeholder="Enter your password" name="" onChange={setPassword}></input>
+                    <input type="password" placeholder="Enter your password" name="password" onChange={setData}></input>
                   </div>
                   <h3 className="forgot">Forgot Password?</h3>
                 </div>

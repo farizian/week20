@@ -5,79 +5,26 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import '../css/logsign/section.css'
 import { useState } from "react"
 import {Link} from 'react-router-dom'
+import { REGISTER } from "../redux/actions/users"
+import { useHistory } from 'react-router-dom'
 
 
 const Signup =(props)=>{
-  const [user, setUser] = useState([])
-
-  const setEmail=(event)=>{
-    if(user.length<=0){
-      setUser({
-        email: event.target.value
-      })
-    }
-    else{
-      setUser({
-        ...user,
-        email: event.target.value
-      })
-    }
-  }
-  const setPassword=(event)=>{
-    if(user.length<=0){
-      setUser({
-        password: event.target.value
-      })
-    }
-    else{
-      setUser({
-        ...user,
-        password: event.target.value
-      })
-    }
-  }
-  const setPhone=(event)=>{
-    if(user.length<=0){
-      setUser({
-        phone: event.target.value
-      })
-    }
-    else{
-      setUser({
-        ...user,
-        phone: event.target.value
-      })
-    }
-  }
-  const inputData=async()=>{
-    try{
-      const input1 = await setEmail()
-      const input2 = await setPassword(input1)
-      const input3 = await setPhone(input2)
-      return input3
-    }catch(error){
-      console.log(error)
-    }
+  const [user, setUser] = useState({})
+  const history = useHistory()
+  const setData = (event) =>{
+    setUser({
+      ...user,
+      [event.target.name]: event.target.value
+    })
   }
   const submitData=(event)=>{
-    inputData()
-    const {email, password, phone}= user
     event.preventDefault();
-    const data = {email, password, phone}
-    const local = localStorage.getItem('user')
-    const localuser = JSON.parse(local)
-    if(localuser===null){
-      localStorage.setItem('user', JSON.stringify(data))
-      props.history.push('/login');
-    }else{
-      if(localuser.email===data.email){
-        alert('email sudah digunakan')
-      }else{
-        localStorage.setItem('user', JSON.stringify(data))
-        props.history.push('/login');
-      }
-    }
-    console.log(user)
+    REGISTER(user).then(() =>{
+      history.push('/login')
+    }).catch(() =>{
+      alert('email sudah digunakan')
+    })
   }
   return(
     <div>
@@ -95,15 +42,15 @@ const Signup =(props)=>{
                 <div className="signbox">
                   <h3>Email Address :</h3>
                   <div className="textbox">
-                    <input type="text" placeholder="Enter your email address" name="" onChange={setEmail}></input>
+                    <input type="text" placeholder="Enter your email address" name="email" onChange={setData}></input>
                   </div>
                   <h3>Password :</h3>
                   <div className="textbox">
-                    <input type="password" placeholder="Enter your password" name="" onChange={setPassword}></input>
+                    <input type="password" placeholder="Enter your password" name="password" onChange={setData}></input>
                   </div>
                   <h3>Phone Number :</h3>
                   <div class="textbox">
-                    <input type="text" placeholder="Enter your phone number" name="" onChange={setPhone}></input>
+                    <input type="number" placeholder="Enter your phone number" name="phone_number" onChange={setData}></input>
                   </div>
                 </div>
               </form>

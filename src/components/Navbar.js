@@ -3,8 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import '../css/navbar.css'
 import { useState } from 'react';
 import { Collapse, NavbarToggler} from 'reactstrap';
+import { useDispatch } from "react-redux"
+import { GET_ALL_PRODUCT } from "../redux/actions/product"
 
 const Navbarmenu=(props)=>{
+  const dispatch = useDispatch()
   const [collapsed, setCollapsed] = useState(true);
   const toggleNavbar = () => setCollapsed(!collapsed);
   const [search, setSearch]= useState("")
@@ -13,10 +16,7 @@ const Navbarmenu=(props)=>{
   }
   const submitPrd=(event)=>{
     event.preventDefault();
-    sendData()
-  }
-  const sendData=()=>{
-    props.search(search)
+    dispatch(GET_ALL_PRODUCT(search))
   }
 
   return(

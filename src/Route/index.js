@@ -5,6 +5,7 @@ import Login from '../pages/login'
 import Signup from '../pages/signup'
 import Detailprd from '../pages/detailprd'
 import Guard from './guard'
+import Payment from '../pages/payment'
 
 const Router =()=>{
  
@@ -17,6 +18,7 @@ const Router =()=>{
         <Route path="/signup" exact render={(props)=>(<Signup  {...props}/>)}/>
         <Guard path="/product" exact component={Product}/>
         <Guard path="/detailprd/:id" exact component={Detailprd}/>
+        <Guard path="/payment" exact component={Payment}/>
         <Route>
           404 NOT FOUND
         </Route>
