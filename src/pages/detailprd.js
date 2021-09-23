@@ -1,7 +1,8 @@
 /* eslint-disable array-callback-return */
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { GET_DETAIL_PRODUCT, UPDATE, GET_CATEGORY_PRODUCT, GET_CART } from "../redux/actions/product"
+import { GET_DETAIL_PRODUCT, UPDATE, GET_CATEGORY_PRODUCT} from "../redux/actions/product"
+import { INSERT_CART } from "../redux/actions/cart"
 import { GET_DETAIL_USER } from "../redux/actions/users"
 import {Input} from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -22,9 +23,7 @@ const Detail =(props)=>{
   const id = params.id
   const category = product.category
   const prd = product.getDetail
-
-
-
+  
   const getData = async()=>{
     await dispatch(GET_DETAIL_PRODUCT(id))
     await dispatch(GET_DETAIL_USER())
@@ -35,10 +34,20 @@ const Detail =(props)=>{
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   const [updData, setUpd]=useState({
-    disc: prd.disc,
-    name: prd.prdname,
-    price: prd.price,
+    disc: "",
+    name: "",
+    price: "",
   })
+  useEffect(() =>{
+    setUpd({
+      img: prd.img,
+      disc: prd.disc,
+      name: prd.prdname,
+      price: prd.price,
+      size: prd.size
+    })
+  }, [prd])
+  
   const [qty, setQty]=useState({
     qty: 1
   })
@@ -69,7 +78,7 @@ const Detail =(props)=>{
       img: event.target.files[0]
     })
   }
-  const checkout=()=>{
+  const addCart=()=>{
     const data = {
       user_id: user.Id,
       img: prd.img,
@@ -84,31 +93,40 @@ const Detail =(props)=>{
       total: prd.price*qty.qty+200+1000
     }
     console.log(data)
-    dispatch(GET_CART(data))
-    localStorage.setItem("cart", JSON.stringify(data))
+    dispatch(INSERT_CART(data))
+    history.push('/product')
+  }
+  const checkout = () => {
+    const data = {
+      user_id: user.Id,
+      img: prd.img,
+      prdname: prd.prdname,
+      product_id: prd.id,
+      qty: qty.qty,
+      size: prd.size==="XL"?"Extra Large":prd.size==="L"?"Large":"Regular",
+      price: prd.price,
+      subtotal: prd.price*qty.qty,
+      tax: 200,
+      shipping: 1000,
+      total: prd.price*qty.qty+200+1000
+    }
+    console.log(data)
+    dispatch(INSERT_CART(data))
     history.push('/payment')
   }
-  
   const updatePrd=(event)=>{
     event.preventDefault();
-    const {img, disc, name, price, category}=updData
+    const {img, disc, name, price, size, category}=updData
     const formData = new FormData()
     formData.append("img", img)
-    formData.append("disc", disc===undefined?"":disc)
-    formData.append("prdname", name===undefined?"":name)
-    formData.append("price", price===undefined?"":price)
-    formData.append("category_id", category===undefined?"": category)
+    formData.append("disc", disc===undefined||""||null?"":disc)
+    formData.append("prdname", name===undefined||""||null?"":name)
+    formData.append("price", price===undefined||""||null?"":price)
+    formData.append("size", size===undefined||""||null?prd.size:size)
+    formData.append("category_id", category===undefined||""||null?prd.category: category)
     UPDATE(formData, id).then((response) => {
       console.log(response)
-      getData()
       alert("Update data berhasil")
-      setUpd({
-        img: "",
-        disc: "",
-        name: "",
-        price: "",
-        category: ""
-      })
       history.push("/product");
     }).catch((err) =>{
       console.log(err)
@@ -133,14 +151,14 @@ const Detail =(props)=>{
                 <CurrencyFormat className="prdprice" value={prd.price} displayType={'text'} thousandSeparator={true} prefix={'Rp. '}/>
               </div>
             <div className="dtlbutton">
-              <button className="btn" id="btn1" onClick={()=>clicked('update')}>Update Product</button>
-              <button className="btn" onClick="">Add Product</button>
+              {user.status===0?(<button className="btn" id="btn1" onClick={()=>clicked('update')}>Update Product</button>):null}
+              <button className="btn" onClick={addCart}>Add to Cart</button>
             </div>
           </div>
           {toggle==="update"?
           <div className="col-lg-7 col-12 desc">
             <div className="descbox2">
-              <form className="insert" onSubmit={updatePrd}>
+              <form className="insert" >
                 <div className="textbox" id="txtbox1">
                   <h3>Picture :</h3>
                   <Input type="file" name="img" onChange={setFile}></Input>
@@ -158,10 +176,18 @@ const Detail =(props)=>{
                   <Input type="number" placeholder="Enter your price" name="price" value={updData.price} onChange={setChange}></Input>
                 </div>
                 <div className="textbox">
+                  <h3>Size :</h3>
+                  <select name="size" class="form-control" onChange={setChange}>
+                    <option value="R" >Regular</option>
+                    <option value="L" >Large</option>
+                    <option value="XL" >Extra Large</option>
+                  </select>
+                </div>
+                <div className="textbox">
                   <h3>Category :</h3>
                   <select name="category" class="form-control" onChange={setChange}>{category.map((e)=>{return(<option value={e.id}>{e.category}</option>)})}</select>
                 </div>
-                <button type='submit' >submit</button>
+                <button type="submit" onClick={updatePrd}>submit</button>
               </form>
             </div>
           </div>:
@@ -193,7 +219,8 @@ const Detail =(props)=>{
           }
         </div>
       </div>
-      <div className="dtlprdcard">
+      {user.status===1?(
+        <div className="dtlprdcard">
         <div className="card">
           <img src={API_URL+prd.img} alt="">
           </img>
@@ -212,6 +239,7 @@ const Detail =(props)=>{
         </div>
         <button className="btncard" onClick={checkout}>CHECKOUT</button>
       </div>
+      ):null}
       <Footer/>
     </div>
   )

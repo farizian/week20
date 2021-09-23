@@ -3,12 +3,11 @@ import { useSelector, useDispatch } from "react-redux"
 import { GET_ALL_PRODUCT, deletePrd, GET_CATEGORY_PRODUCT, INSERT} from "../redux/actions/product"
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import "../css/product/section.css"
 import "../css/product/aside.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import CurrencyFormat from 'react-currency-format'
-import {useHistory} from 'react-router-dom'
 import { API_URL } from '../helper/env'
 import { GET_DETAIL_USER } from "../redux/actions/users"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from "reactstrap"

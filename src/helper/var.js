@@ -8,9 +8,9 @@ export const getDetailProductError = 'GET_DETAIL_PRODUCT_REJECTED'
 export const categoryProduct = 'GET_CATEGORY_PRODUCT_FULFILLED'
 export const categoryProductPending = 'GET_CATEGORY_PRODUCT_PENDING'
 export const categoryProductError = 'GET_CATEGORY_PRODUCT_REJECTED'
-export const cartProduct = 'GET_CART_PRODUCT_FULFILLED'
-export const cartProductPending = 'GET_CART_PRODUCT_PENDING'
-export const cartProductError = 'GET_CART_PRODUCT_REJECTED'
+// cart
+export const insertCart = 'INSERT_CART'
+export const deleteCart = 'DELETE_CART'
 // user
 export const getAllUser = 'GET_ALL_USER_FULFILLED'
 export const getAllUserPending = 'GET_ALL_USER_PENDING'

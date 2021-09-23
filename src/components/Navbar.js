@@ -1,9 +1,11 @@
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../css/navbar.css'
 import { useState } from 'react';
 import { Collapse, NavbarToggler} from 'reactstrap';
 import { useDispatch } from "react-redux"
+import { API_URL } from '../helper/env'
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { GET_ALL_PRODUCT } from "../redux/actions/product"
 
 const Navbarmenu=(props)=>{
@@ -11,6 +13,19 @@ const Navbarmenu=(props)=>{
   const [collapsed, setCollapsed] = useState(true);
   const toggleNavbar = () => setCollapsed(!collapsed);
   const [search, setSearch]= useState("")
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const imgUser = localStorage.getItem('img')
+  const status = localStorage.getItem('status')
+  const token = localStorage.getItem('token')
+  const history = useHistory()
+
+  const toggle = () => setDropdownOpen(prevState => !prevState);
+  const logout = () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('img')
+    localStorage.removeItem('status')
+    history.push('/')
+  }
   const changeSearch=(event)=>{
     setSearch(event.target.value)
   }
@@ -35,12 +50,12 @@ const Navbarmenu=(props)=>{
           <ul className="navbar-nav primary-menu">
             <Link className="menu1 nav-item" to="/">Home</Link>
             <Link className="menu1 nav-item" to="/product">Product</Link>
-            <Link to="" className="nav-item menu1">Your Cart</Link>
+            {status==='1'?<Link to="/payment" className="nav-item menu1">Your Cart</Link>:null}
             <Link to="" className="nav-item menu1">
               <div className="nav-link active" href="#" aria-disabled="true">History</div>
             </Link>
           </ul>
-          {props.product===false?
+          {!token?
           <ul className="navbar-nav secondary-menu">
             <Link className="menu2 nav-item" to="/login">
               <div className="login nav-link active">Login</div>
@@ -59,9 +74,15 @@ const Navbarmenu=(props)=>{
                 <img src="https://raw.githubusercontent.com/farizian/week5/master/img/chat%20(1)%201.png" width="20px" height="20px" alt=""/>
                 <div className="notif">1</div>
               </li>
-              <li className="nav-item profile">
-                <img src="https://raw.githubusercontent.com/farizian/week5/master/img/image%2039.png" width="20" height="23" alt=""/>
-              </li>
+              <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                <DropdownToggle className="nav-item profile bg-transparent" style={{border: 'none'}}>
+                  <img src={API_URL+imgUser} style={{borderRadius:"20px", width:"25px", height:"25px"}} alt=""/>
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem>Edit Profile</DropdownItem>
+                  <DropdownItem onClick={logout}>Log Out</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
             </ul>
           </ul>}
         </Collapse>

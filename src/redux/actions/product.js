@@ -1,6 +1,6 @@
 import axios from "axios";
 import { API_URL } from "../../helper/env";
-import { getAllProduct, getAllProductPending, getAllProductError, getDetailProduct, getDetailProductPending, getDetailProductError, categoryProduct, categoryProductPending, categoryProductError, cartProductPending, cartProduct, cartProductError} from "../../helper/var";
+import { getAllProduct, getAllProductPending, getAllProductError, getDetailProduct, getDetailProductPending, getDetailProductError, categoryProduct, categoryProductPending, categoryProductError} from "../../helper/var";
 
 const token = localStorage.getItem('token')
 
@@ -15,6 +15,7 @@ export const UPDATE = (form, id)=> {
       resolve(response)
     }).catch ((err) => {
       reject(err)
+      console.log(err)
     })
   })
 }
@@ -32,21 +33,6 @@ export const INSERT = (form)=> {
       reject(err)
     })
   })
-}
-export const GET_CART = (data) => {
-  return (dispatch) => {
-    dispatch({
-      type: cartProductPending
-    })
-    dispatch({
-      type: cartProduct,
-      payload: data
-    })
-    dispatch({
-      type: cartProductError,
-      payload: "terjadi kesalahan"
-    })
-  }
 }
 export const GET_CATEGORY_PRODUCT = () => {
   return (dispatch) => {

@@ -114,9 +114,9 @@
 .desc .descbox2{
   background-color: white;
   width: 90%;
-  height: 590px;
   margin-top: 50px;
   border-radius: 10px;
+  padding: 20px 0 20px 0;
 }
 .desc .descbox2 .insert{
   display: flex;

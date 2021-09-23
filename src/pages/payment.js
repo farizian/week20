@@ -1,9 +1,9 @@
 /* eslint-disable array-callback-return */
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { GET_DETAIL_PRODUCT, GET_CATEGORY_PRODUCT, GET_CART } from "../redux/actions/product"
+import { GET_DETAIL_PRODUCT, GET_CATEGORY_PRODUCT} from "../redux/actions/product"
+import { INSERT_CART, DELETE_CART } from "../redux/actions/cart"
 import { GET_DETAIL_USER } from "../redux/actions/users"
-import {Input} from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../css/payment/body.css'
 import Navbar from '../components/Navbar'
@@ -20,24 +20,24 @@ const Payment =(props)=>{
   const history = useHistory();
   const params = useParams();
   const token = localStorage.getItem('token')
-  const id = params.id
   const category = product.category
   const prd = product.getDetail
-  const cart = product.cart
+  const cart = useSelector(state => state.cart.cart)
+  const subtotal = cart.reduce((total, e) => total + e.qty * e.price, 0)
+  const tax = 200
+  const shipping = cart.reduce((total, e) => total + e.shipping, 0)
 
-
-
-  const getData =async()=>{
-    await dispatch(GET_DETAIL_PRODUCT(id))
-    await dispatch(GET_DETAIL_USER())
-    await dispatch(GET_CATEGORY_PRODUCT())
-    await dispatch(GET_CART())
+  const getData =()=>{
+    dispatch(GET_DETAIL_USER())
+    dispatch(GET_CATEGORY_PRODUCT())
   }
   useEffect(()=>{
     getData()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
-
+  const deleteBtn =(id)=>{
+    dispatch(DELETE_CART(id))
+  }
   // const cartData = localStorage.getItem("cart")
   // const cart = JSON.parse(cartData)
   return(
@@ -50,35 +50,38 @@ const Payment =(props)=>{
                 <h1>Checkout your item now!</h1>
               </div>
               <div className="descbox">
-                <div className="textbox bg-info" >
+                <div className="textbox" >
                   <h1 className="text" id="text1" >Order Summary</h1>
                 </div>
-                <div className="prdbox" >
-                  <img src="" alt=""></img>
-                  <div className="txt" style={{display: "flex", flexDirection: "column"}}>
-                    <p>Text</p>
-                    <p>x1</p>
-                    <p>Reg</p>
+                {cart.map((e, i) => (
+                  <div key={i} id={`idbox${i}`} className="prdbox" >
+                    <img src={API_URL+e.img} alt=""></img>
+                    <div className="txt" style={{display: "flex", flexDirection: "column"}}>
+                      <p>{e.prdname}</p>
+                      <p>x{e.qty}</p>
+                      <p>{e.size}</p>
+                    </div>
+                    <div className="txt2">
+                      <button onClick={()=>deleteBtn(e.product_id)}>-</button>
+                      <CurrencyFormat className="num" value={e.price} displayType={'text'} thousandSeparator={true} prefix={'Rp. '}/>
+                    </div>
                   </div>
-                  <div className="txt">
-                    <p>price</p>
-                  </div>
-                </div>
+                ))}
                 <div className="pricemenu" style={{display: "flex"}}>
                   <div className="txt">
                     <p>SUBTOTAL</p>
                     <p>TAX</p>
                     <p>SHIPPING</p>
                   </div>
-                  <div className="txt">
-                    <p>PRICE</p>
-                    <p>PRICE</p>
-                    <p>PRICE</p>
+                  <div className="txt2">
+                    <CurrencyFormat className="num mt-0" value={subtotal} displayType={'text'} thousandSeparator={true} prefix={'Rp. '}/>
+                    <CurrencyFormat className="num" value={tax} displayType={'text'} thousandSeparator={true} prefix={'Rp. '}/>
+                    <CurrencyFormat className="num" value={shipping} displayType={'text'} thousandSeparator={true} prefix={'Rp. '}/>
                   </div>
                 </div>
-                <div className="sizebox" style={{display: "flex"}}>
+                <div className="totalbox" style={{display: "flex"}}>
                   <h1 onClick="" className="total">TOTAL</h1>
-                  <h1 onClick="" className="pricettl">RP.</h1>
+                  <CurrencyFormat className="pricettl" value={subtotal+tax+shipping} displayType={'text'} thousandSeparator={true} prefix={'Rp. '}/>
                 </div>
               </div>
           </div>
