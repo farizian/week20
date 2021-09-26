@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.row{
+  padding: 6%;
+  background-color: violet;
+}
+.row .title{
+  font-family: Rubik;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 500;
+  color: white;
+}
+.photobox{
+  padding: 20px 5% 20px 5%;
+  background-color: aquamarine;
+}
+.photobox .row{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: burlywood;
+}
+.photobox .row .imgbox{
+  width: 80%;
+  background-color: coral;
+}
+.photobox .row .imgbox img{
+  width: 100%;
+  height: 189px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+.photobox .row .imgbox h3{
+  font-family: Rubik;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  color: black;
+  text-align: center;
+}
+.photobox .row .imgbox p{
+  font-family: Rubik;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+}
+.photobox .row .buttonbox1{
+  width: 80%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: coral;
+}
+.photobox .row .buttonbox1 button{
+  height: 44px;
+  width: 95%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-family: Poppins;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  background-color: #FFBA33;
+  color: #6A4029;
+  border: none;
+}
+.photobox .row .buttonbox1 .remove{
+  background-color: #6A4029;
+  color: white;
+}
+.photobox .row .buttonbox1 .remove:hover{
+  background-color: #382216;
+  color: rgb(148, 145, 145);
+}
+.photobox .row .buttonbox1 button:hover{
+  background-color: #705621;
+  color: #382216;
+}
+.photobox .row .buttonbox2{
+  width: 80%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: coral;
+}
+.photobox .row .buttonbox2 h3{
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  color: #6A4029;
+  text-align: center;
+  margin: 30px 0 30px 0;
+}
+.photobox .row .buttonbox2 button{
+  height: 60px;
+  width: 95%;
+  border-radius: 20px;
+  border: none;
+  font-family: Poppins;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  background-color: #6A4029;
+  color: white;
+  margin-bottom: 20px;
+}
+.photobox .row .buttonbox2 .cancel{
+  background-color: #FFBA33;
+  color: #6A4029;
+}
+.photobox .row .buttonbox2 .cancel:hover{
+  background-color: #705621;
+  color: #382216;
+}
+.photobox .row .buttonbox2 button:hover{
+  background-color: #382216;
+  color: rgb(148, 145, 145);
+  box-shadow: 0px 10px 20px 0px #00000038;
+}
+.photobox .row .buttonbox2 .logout{
+  background-color: white;
+  color: #6A4029;
+  border: 1px solid #9F9F9F
+}
+.photobox .row .buttonbox2 .logout:hover{
+  background-color: rgb(146, 145, 145);
+  color: #4b2d1d;
+}
+.inputbox{
+  background-color: blue;
+}

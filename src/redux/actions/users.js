@@ -8,6 +8,7 @@ export const LOGIN = (data)=> {
   return new Promise((resolve, reject) =>{
     axios.post(`${API_URL}login`, data)
     .then((response) => {
+      resolve(response.data)
       const tokenLogin = response.data.token
       const img = response.data.field[0].img
       const status = response.data.field[0].status
@@ -15,7 +16,6 @@ export const LOGIN = (data)=> {
       localStorage.setItem("token", tokenLogin)
       localStorage.setItem("img", img)
       localStorage.setItem("status", status)
-      resolve(response.data.field[0])
     }).catch ((err) => {
       reject(err)
     })

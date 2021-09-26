@@ -125,16 +125,14 @@ const Detail =(props)=>{
     formData.append("size", size===undefined||""||null?prd.size:size)
     formData.append("category_id", category===undefined||""||null?prd.category: category)
     UPDATE(formData, id).then((response) => {
-      console.log(response)
-      alert("Update data berhasil")
+      alert(response.data.message)
       history.push("/product");
     }).catch((err) =>{
       console.log(err)
     })
   }
   
-  // const cartData = localStorage.getItem("cart")
-  // const cart = JSON.parse(cartData)
+
   return(
     <div>
       <Navbar logsign={false} product={true}/>
@@ -152,7 +150,7 @@ const Detail =(props)=>{
               </div>
             <div className="dtlbutton">
               {user.status===0?(<button className="btn" id="btn1" onClick={()=>clicked('update')}>Update Product</button>):null}
-              <button className="btn" onClick={addCart}>Add to Cart</button>
+              {user.status===1?(<button className="btn" onClick={addCart}>Add to Cart</button>):null}
             </div>
           </div>
           {toggle==="update"?
@@ -203,7 +201,7 @@ const Detail =(props)=>{
                   </div>
                 </div>
               </div>
-              <div className="delivery">
+              {/* <div className="delivery">
                 <p className="txtmenu">Choose Delivery Methods</p>
                 <div className="buttonbox">
                   <button onClick="" className="btn">Dine in</button>
@@ -214,7 +212,7 @@ const Detail =(props)=>{
                   <p className="text">Set time :</p>
                   <Input className="Input" placeholder="Enter the time you’ll arrived"></Input>
                 </div>
-              </div>
+              </div> */}
             </div>
           }
         </div>

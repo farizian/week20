@@ -51,9 +51,12 @@ const Navbarmenu=(props)=>{
             <Link className="menu1 nav-item" to="/">Home</Link>
             <Link className="menu1 nav-item" to="/product">Product</Link>
             {status==='1'?<Link to="/payment" className="nav-item menu1">Your Cart</Link>:null}
-            <Link to="" className="nav-item menu1">
+            {status === '1'?<Link to="" className="nav-item menu1">
               <div className="nav-link active" href="#" aria-disabled="true">History</div>
-            </Link>
+            </Link>:null}
+            {status === '0'? <Link to="" className="nav-item menu1">
+              <div className="nav-link active" href="#" aria-disabled="true">Dashboard</div>
+            </Link>:null}
           </ul>
           {!token?
           <ul className="navbar-nav secondary-menu">
@@ -75,7 +78,7 @@ const Navbarmenu=(props)=>{
                 <div className="notif">1</div>
               </li>
               <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-                <DropdownToggle className="nav-item profile bg-transparent" style={{border: 'none'}}>
+                <DropdownToggle className="nav-item profile bg-transparent" style={{ width:"25px", height:"25px"}}>
                   <img src={API_URL+imgUser} style={{borderRadius:"20px", width:"25px", height:"25px"}} alt=""/>
                 </DropdownToggle>
                 <DropdownMenu>

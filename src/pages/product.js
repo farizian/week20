@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { GET_ALL_PRODUCT, deletePrd, GET_CATEGORY_PRODUCT, INSERT} from "../redux/actions/product"
+import { GET_ALL_PROMO, GET_DETAIL_PROMO, UPDATE_PROMO, INSERT_PROMO, DELETE_PROMO } from "../redux/actions/promo"
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import {Link, useHistory} from 'react-router-dom'
@@ -18,14 +19,16 @@ const Product=()=>{
   const history = useHistory();
   const toggle = () => setModal(!modal);
   const dispatch = useDispatch()
-  const product = useSelector(state => state.product.getAll)
+  const product = useSelector(state => state.product)
+  const promo = useSelector(state => state.promo)
   const category = useSelector(state => state.product.category)
   const user = useSelector(state => state.user)
   const detail = user.getDetail
-  const getData = async()=>{
-    await dispatch(GET_ALL_PRODUCT())
-    await dispatch(GET_DETAIL_USER())
-    await dispatch(GET_CATEGORY_PRODUCT())
+  const getData = ()=>{
+    dispatch(GET_ALL_PRODUCT())
+    dispatch(GET_DETAIL_USER())
+    dispatch(GET_CATEGORY_PRODUCT())
+    dispatch(GET_ALL_PROMO())
   }
   useEffect(()=>{
     getData()
@@ -58,24 +61,17 @@ const Product=()=>{
   }
   const insertPrd=(event)=>{
     event.preventDefault();
-    const {img, disc, name, price, category}=updData
+    const {img, disc, name, price, size, category}=updData
     const formData = new FormData()
     formData.append("img", img)
-    formData.append("disc", disc===undefined?"":disc)
-    formData.append("prdname", name===undefined?"":name)
-    formData.append("price", price===undefined?"":price)
-    formData.append("category_id", category==="Main Course"?1:category===undefined?"":2)
+    formData.append("disc", !disc?"":disc)
+    formData.append("prdname", !name?"":name)
+    formData.append("price", !price?"":price)
+    formData.append("size", !size?"":size)
+    formData.append("category_id", !category?"": category)
     INSERT(formData).then((response) => {
-      console.log(response)
       getData()
-      alert("Insert Produk Berhasil")
-      setUpd({
-        img: "",
-        disc: "",
-        name: "",
-        price: "",
-        category: ""
-      })
+      alert("input produk berhasil")
       history.push("/product");
       toggle();
     }).catch((err) =>{
@@ -93,34 +89,15 @@ const Product=()=>{
           </div>
           <div className="content">
             <div className="promo">
-              <div className="prmcard green">
-                <img className="image" src="https://raw.githubusercontent.com/farizian/week5/master/img/image%2046.png" alt="" srcSet=""/>
+            {promo.getAll.map((e,i) => (
+              <div key={i} id={`card${i}`} className="prmcard">
+                <img className="image" src={API_URL+e.img} alt="" srcSet=""/>
                 <div className="title">
-                  <strong>HAPPY MOTHER'S DAY!</strong>
-                  <p>Get one of our favorite menu free!</p>
+                  <strong>{e.promoTitle}</strong>
+                  <p>{e.description}</p>
                 </div>
               </div>
-              <div className="prmcard yellow">
-                  <img className="image" src="https://raw.githubusercontent.com/farizian/week5/master/img/image%2043.png" alt="" srcSet=""/>
-                  <div className="title">
-                      <strong>Get a cup of coffee for free on sunday morning</strong>
-                      <p>Only at 7 to 9 AM</p>
-                  </div>
-              </div>
-              <div className="prmcard green">
-                  <img className="image" src="https://raw.githubusercontent.com/farizian/week5/master/img/image%2046.png" alt="" srcSet=""/>
-                  <div className="title">
-                      <strong>HAPPY MOTHER'S DAY!</strong>
-                      <p>Get one of our favorite menu free!</p>
-                  </div>
-              </div>
-              <div className="prmcard red">
-                  <img className="image" src="https://raw.githubusercontent.com/farizian/week5/master/img/image%2045.png" alt="" srcSet=""/>
-                  <div className="title">
-                      <strong>HAPPY MOTHER'S DAY!</strong>
-                      <p>Get one of our favorite menu free!</p>
-                  </div>
-              </div>
+            ))}
             </div>
             <div className="action">
              <button className="btn">Apply Coupon</button>
@@ -147,12 +124,14 @@ const Product=()=>{
             </ul>
           </nav>
           <div className="row">
-            {product.map((e, i)=>{
+            {product.loadAll===true?
+            (<img style={{width:'80%', height:'80%'}} src="https://img.pikbest.com/58pic/35/39/61/62K58PICb88i68HEwVnm5_PIC2018.gif!c1024wm0/compress/true/progressive/true/format/webp/fw/1024" alt=""></img>):
+             product.getAll.map((e, i)=>{
               return(
                 <div key={i} className="card col-lg-2 col-md-4 col-6" id={e.idStyle}>
                   {detail.status===0?(<button onClick={()=>delPrd(e.id)} className="remove">-</button>):null}
                   <Link className="link" to={`/detailprd/${e.id}`}>
-                  <img className="prdimg" src={API_URL+e.img} alt=""/>
+                  <img className="prdimg" src={!e.img||e.img===''?'https://raw.githubusercontent.com/farizian/week20/master/img/default.png':API_URL+e.img} alt=""/>
                   {e.disc===null?
                   null:e.disc===""?null:<p className="disc">{e.disc}</p>
                   }
@@ -164,8 +143,8 @@ const Product=()=>{
             })}
           </div>
           {detail.status===0?(
-          <div>
-            <Button color="danger" onClick={toggle}>Add New Product</Button>
+          <div className="addNew">
+            <Button onClick={toggle}>Add New Product</Button>
             <Modal isOpen={modal} toggle={toggle} className="">
               <ModalHeader toggle={toggle}>Add New Product</ModalHeader>
               <ModalBody>
@@ -185,6 +164,14 @@ const Product=()=>{
                 <div className="textbox">
                   <h3>Price :</h3>
                   <Input type="number" placeholder="Enter your price" name="price" onChange={setChange}></Input>
+                </div>
+                <div className="textbox">
+                  <h3>Size :</h3>
+                  <select name="size" class="form-control" onChange={setChange}>
+                    <option value="R" >Regular</option>
+                    <option value="L" >Large</option>
+                    <option value="XL" >Extra Large</option>
+                  </select>
                 </div>
                 <div className="textbox">
                   <h3>Category :</h3>

@@ -41,6 +41,23 @@
   /* background-color: rgb(30, 255, 0); */
 }
 
+.addNew Button{
+  height: 90px;
+  width: 729px;
+  border: none;
+  border-radius: 20px;
+  margin: 50px 0 50px 0;
+  background-color: #6A4029 !important;
+  transition: 50ms;
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+}
+.addNew Button:hover{
+  background-color: #552f1d !important;
+  color: rgb(158, 153, 153);
+}
 .productitem .row .card{
   height: 180px;
   text-align: center;
@@ -79,16 +96,17 @@
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 20px;
-  left: -15px;
+  top: 155px;
+  left: 110px;
   border-radius: 100px;
   font-size: 20px;
   font-weight: 900;
   border: none;
   display: flex;
+  color: white;
   justify-content: center;
   align-items: center;
-  background-color: #FFBA33;
+  background-color: #6A4029;
 }
 .productitem .row .card .disc{
   background-color: white;

@@ -2,9 +2,10 @@ import axios from "axios";
 import { API_URL } from "../../helper/env";
 import { getAllProduct, getAllProductPending, getAllProductError, getDetailProduct, getDetailProductPending, getDetailProductError, categoryProduct, categoryProductPending, categoryProductError} from "../../helper/var";
 
-const token = localStorage.getItem('token')
+
 
 export const UPDATE = (form, id)=> {
+  const token = localStorage.getItem("token")
   return new Promise((resolve, reject) =>{
     const headers = {
       "Content-Type": "multipart/form-data",
@@ -15,12 +16,12 @@ export const UPDATE = (form, id)=> {
       resolve(response)
     }).catch ((err) => {
       reject(err)
-      console.log(err)
     })
   })
 }
 
 export const INSERT = (form)=> {
+  const token = localStorage.getItem("token")
   return new Promise((resolve, reject) =>{
     const headers = {
       "Content-Type": "multipart/form-data",
@@ -35,6 +36,7 @@ export const INSERT = (form)=> {
   })
 }
 export const GET_CATEGORY_PRODUCT = () => {
+  const token = localStorage.getItem("token")
   return (dispatch) => {
     dispatch({
       type: categoryProductPending
@@ -53,11 +55,12 @@ export const GET_CATEGORY_PRODUCT = () => {
   }
 }
 export const GET_ALL_PRODUCT = (data) => {
+  const token = localStorage.getItem("token")
   return (dispatch) => {
     dispatch({
       type: getAllProductPending
     })
-    axios.get(`${API_URL}product?search=${data === undefined ? '' : data}&field=id`, {headers: {token: token} }).then((response) => {
+    axios.get(`${API_URL}product?search=${!data ? '' : data}&field=id`, {headers: {token: token} }).then((response) => {
       dispatch({
         type: getAllProduct,
         payload: response.data.field.data
@@ -71,6 +74,7 @@ export const GET_ALL_PRODUCT = (data) => {
   }
 }
 export const GET_DETAIL_PRODUCT = (id) => {
+  const token = localStorage.getItem("token")
   return (dispatch) => {
     dispatch({
       type: getDetailProductPending
@@ -90,6 +94,7 @@ export const GET_DETAIL_PRODUCT = (id) => {
 }
 
 export const deletePrd = (id)=>{
+  const token = localStorage.getItem("token")
   return new Promise((resolve, reject) => {
     const headers={
       "token": token

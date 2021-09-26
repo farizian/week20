@@ -7,7 +7,6 @@
   background-position-y: center;
 }
 .summary{
-  /* background-color: wheat; */
   height: 200vh;
   padding: 5% 0 0 7%;
 }
@@ -42,7 +41,6 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 80px;
-  background-color: aqua;
 }
 .summary .descbox .textbox h1{
   font-family: Poppins;
@@ -53,19 +51,18 @@
 }
 .summary .descbox .prdbox{
   display: flex;
-  background-color: burlywood;
-  padding: 0 0 20px 20px;
+  padding: 0 0 20px 3%;
 }
 #idbox0{
   padding-top: 0;
 }
 .summary .descbox .prdbox img {
-  height: 90px;
-  width: 82px;
+  height: 5%;
+  width: 18%;
+  margin-top: 3px;
   border-radius: 20px;
 }
 .summary .descbox .prdbox .txt {
-  background-color: aquamarine;
   width: 50%;
   padding: 0 0 0 5%;
 }
@@ -78,7 +75,6 @@
   line-height: 30px;
 }
 .summary .descbox .prdbox .txt2 {
-  background-color: aquamarine;
   width: 30%;
   display: flex;
   flex-direction: column;
@@ -108,15 +104,14 @@
 }
 .summary .descbox .pricemenu {
   padding-top: 10px;
-  border-top: 0.5px solid #aaa8a8
+  border-top: 0.5px solid #d4d3d3;
 }
 .summary .descbox .pricemenu .txt{
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: column;
-  padding-left: 5%;
+  padding-left: 3%;
   justify-content: center;
-  background-color: khaki;
 }
 .summary .descbox .pricemenu .txt p{
   margin: 0;
@@ -127,23 +122,22 @@
   color: #362115;
 }
 .summary .descbox .pricemenu .txt2{
-  width: 50%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  background-color: khaki;
+  padding-right: 2%;
 }
 .summary .descbox .pricemenu .txt2 .num{
   margin-top: 5px;
 }
 .summary .descbox .totalbox{
   margin: 10% 0 0 0;
-  background-color: khaki;
 }
 .summary .descbox .totalbox .total{
-  width: 50%;
-  padding-left: 5%;
+  width: 40%;
+  padding-left: 3%;
   font-family: Poppins;
   font-size: 30px;
   font-style: normal;
@@ -158,7 +152,8 @@
   font-weight: 700;
   line-height: 45px;
   color: #362115;
-  width: 50%;
+  width: 60%;
+  padding-right: 1%;
   text-align: end;
 }
 .method{
@@ -192,21 +187,95 @@
   height: 198px;
   margin-top: 10px;
   border-radius: 20px;
-  padding: 70px;
+  padding: 5%;
 }
-.method .descbox2{
-  background-color: white;
+.method .descbox .textbox{
+  /* background-color: burlywood; */
+  height: 100%;
+}
+.method .descbox .textbox p{
+  width: 100%;
+  height: 40px;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  display: flex;
+  margin: 0;
+  align-items: center;
+  /* background-color: chartreuse; */
+  border-bottom: 0.5px solid #cec8c8;
+}
+.method .descbox .textbox textarea{
+  width: 100%;
+  height: 120px;
+  border: none;
+}
+.method .descbox .paybox{
+  width: 100%;
+  padding: 0;
+}
+.method .descbox .paybox .pay{
+  display: flex;
+  border: none;
+}
+.method .descbox .paybox .pay .custom{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+}
+.method .descbox .paybox .pay .custom input{
+  margin-right: 10px;
+  color: #6A4029 !important;
+  background-color: #6A4029 !important;
+  width: 20px;
+  height: 20px;
+}
+input[type=radio]:checked{
+  color: #6A4029 !important;
+  background: #6A4029 !important;
+  background-color: #6A4029 !important;
+}
+.method .descbox .paybox .pay .custom label{
+  height: 100%;
   width: 90%;
-  height: 590px;
+  align-items: center;
+  border-bottom: 0.5px solid #d4d2d2;
+}
+.method .descbox .paybox .pay .custom label p{
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  color: black;
+}
+.method .button{
+  width: 90%;
   margin-top: 50px;
-  border-radius: 10px;
+}
+.method .button button{
+  height: 84px;
+  width: 100%;
+  border-radius: 20px;
+  border: none;
+  background-color: #6A4029;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  box-shadow: 0px 10px 20px 0px #89553766;
+}
+.method .button button:hover{
+  border: solid 2px rgb(255, 254, 254);
 }
 .method .descbox2 .insert{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: blueviolet; */
 }
 .method .descbox2 .insert .textbox{
   display: flex;
@@ -214,7 +283,6 @@
   align-items: center;
   width: 100%;
   margin-bottom: 20px;
-  /* background-color: tomato; */
 }
 #txtbox1{
   margin-top: 30px;

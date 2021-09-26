@@ -111,13 +111,16 @@
     font-size: 10px;
     font-family: 'rubik', sans-serif;
 }
-.green{
+#card0{
     background-color: #88B788;
 }
-.yellow{
+#card1{
     background-color: #f5c361;
 }
-.red{
+#card2{
+    background-color: #88B788;
+}
+#card3{
     background-color: #C59378;
 }
 @media screen and (max-width: 768px){

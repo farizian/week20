@@ -1,7 +1,7 @@
 import {Redirect, Route} from 'react-router-dom'
 
 const Guard =({component: Component, ...rest})=>{
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem("token")
   return(
     <Route {...rest} render={
       (props)=>{

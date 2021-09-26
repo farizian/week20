@@ -223,6 +223,11 @@
 }
 .navbar .navmenu .sec .menu .profile{
     cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .navbar .navmenu .sec .menu .chat img{
     margin-left: 2px;
