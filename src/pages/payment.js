@@ -39,26 +39,26 @@ const Payment =(props)=>{
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   useEffect(()=>{
-    setData({
+    setTrans({
       ...transState,
       address: user.address
     })
   }, [user])
 
-  const [transState, setData] = useState({
+  const [transState, setTrans] = useState({
     address: ''
   })
   const deleteBtn =(id)=>{
     dispatch(DELETE_CART(id))
   }
   const updAddress =(e)=>{
-    setData({
+    setTrans({
       ...transState,
       address: e.target.value
     })
   }
   const updMethod=(e)=>{
-    setData({
+    setTrans({
       ...transState,
       payment: e.target.value
     })

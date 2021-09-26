@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
-.row{
+.body{
+  background-image: url('https://raw.githubusercontent.com/farizian/week20/master/img/bg3.png');
+}
+.body .row{
   padding: 6%;
-  background-color: violet;
+  
 }
 .row .title{
   font-family: Rubik;
@@ -14,27 +16,29 @@
   color: white;
 }
 .photobox{
-  padding: 20px 5% 20px 5%;
+  padding: 50px 5% 20px 5%;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
   background-color: aquamarine;
 }
-.photobox .row{
+.photobox .rowimg{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: burlywood;
 }
-.photobox .row .imgbox{
+.photobox .rowimg .imgbox{
   width: 80%;
   background-color: coral;
 }
-.photobox .row .imgbox img{
+.photobox .rowimg .imgbox img{
   width: 100%;
-  height: 189px;
-  border-radius: 100px;
+  height: 220px;
+  border-radius: 120px;
   margin-bottom: 20px;
 }
-.photobox .row .imgbox h3{
+.photobox .rowimg .imgbox h3{
   font-family: Rubik;
   font-size: 20px;
   font-style: normal;
@@ -42,7 +46,7 @@
   color: black;
   text-align: center;
 }
-.photobox .row .imgbox p{
+.photobox .rowimg .imgbox p{
   font-family: Rubik;
   font-size: 15px;
   font-style: normal;
@@ -50,7 +54,7 @@
   color: white;
   text-align: center;
 }
-.photobox .row .buttonbox1{
+.photobox .rowimg .buttonbox1{
   width: 80%;
   padding: 0;
   display: flex;
@@ -58,7 +62,7 @@
   align-items: center;
   background-color: coral;
 }
-.photobox .row .buttonbox1 button{
+.photobox .rowimg .buttonbox1 button{
   height: 44px;
   width: 95%;
   border-radius: 10px;
@@ -71,19 +75,19 @@
   color: #6A4029;
   border: none;
 }
-.photobox .row .buttonbox1 .remove{
+.photobox .rowimg .buttonbox1 .remove{
   background-color: #6A4029;
   color: white;
 }
-.photobox .row .buttonbox1 .remove:hover{
+.photobox .rowimg .buttonbox1 .remove:hover{
   background-color: #382216;
   color: rgb(148, 145, 145);
 }
-.photobox .row .buttonbox1 button:hover{
+.photobox .rowimg .buttonbox1 button:hover{
   background-color: #705621;
   color: #382216;
 }
-.photobox .row .buttonbox2{
+.photobox .rowimg .buttonbox2{
   width: 80%;
   padding: 0;
   display: flex;
@@ -91,7 +95,7 @@
   align-items: center;
   background-color: coral;
 }
-.photobox .row .buttonbox2 h3{
+.photobox .rowimg .buttonbox2 h3{
   font-family: Poppins;
   font-size: 20px;
   font-style: normal;
@@ -100,7 +104,7 @@
   text-align: center;
   margin: 30px 0 30px 0;
 }
-.photobox .row .buttonbox2 button{
+.photobox .rowimg .buttonbox2 button{
   height: 60px;
   width: 95%;
   border-radius: 20px;
@@ -113,28 +117,95 @@
   color: white;
   margin-bottom: 20px;
 }
-.photobox .row .buttonbox2 .cancel{
+.photobox .rowimg .buttonbox2 .cancel{
   background-color: #FFBA33;
   color: #6A4029;
 }
-.photobox .row .buttonbox2 .cancel:hover{
+.photobox .rowimg .buttonbox2 .cancel:hover{
   background-color: #705621;
   color: #382216;
 }
-.photobox .row .buttonbox2 button:hover{
+.photobox .rowimg .buttonbox2 button:hover{
   background-color: #382216;
   color: rgb(148, 145, 145);
   box-shadow: 0px 10px 20px 0px #00000038;
 }
-.photobox .row .buttonbox2 .logout{
+.photobox .rowimg .buttonbox2 .logout{
   background-color: white;
   color: #6A4029;
   border: 1px solid #9F9F9F
 }
-.photobox .row .buttonbox2 .logout:hover{
+.photobox .rowimg .buttonbox2 .logout:hover{
   background-color: rgb(146, 145, 145);
   color: #4b2d1d;
 }
-.inputbox{
+.inputcontainer{
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 50px 2% 20px 0;
   background-color: blue;
+}
+.inputcontainer .row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0;
+  padding: 0 20px 0 20px;
+  box-shadow: 0px 6px 20px 0px #00000038;
+  background-color: white;
+}
+.inputcontainer .row .box1{
+  height: 100vh;
+  margin-top: 20px;
+  background-color: tomato;
+  padding: 0;
+}
+.inputcontainer .row .box1 h3{
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  color: #4F5665;
+}
+.inputcontainer .row .box1 .inputbox1{
+  margin-top: 20px;
+  background-color: turquoise;
+}
+.inputcontainer .row .box1 .inputbox1 p{
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  color: #9F9F9F;
+  margin: 0;
+}
+.inputcontainer .row .box1 .inputbox1 input{
+  width: 87%;
+  border: none;
+  margin-top: 5px;
+  border-bottom: 1px solid black;
+}
+.inputcontainer .row .box1 .inputbox1 textarea{
+  border: none;
+  width: 87%;
+  margin: 5px 0 0 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+.inputcontainer .row .box2{
+  padding: 0;
+  height: 100vh;
+  background-color: #FFBA33;
+}
+.inputcontainer .row .box2 .imgbox{
+  height: 49px;
+  width: 47px;
+  border-radius: 50px;
+  margin-left: 81%;
+  background-color: #6A4029;
+}
+.inputcontainer .row .box2 .imgbox img{
+  width: 20px;
+  height: 20px;
 }
