@@ -31,7 +31,21 @@ export const REGISTER = (data)=> {
     })
   })
 }
-
+export const UPDATE_USER = (form, id)=> {
+  const token = localStorage.getItem("token")
+  return new Promise((resolve, reject) =>{
+    const headers = {
+      "Content-Type": "multipart/form-data",
+      "token": token
+    }
+    axios.put(`${API_URL}user/${id}`, form, {headers})
+    .then((response) => {
+      resolve(response)
+    }).catch ((err) => {
+      reject(err)
+    })
+  })
+}
 export const GET_ALL_USER = (data) => {
   return (dispatch) => {
     dispatch({

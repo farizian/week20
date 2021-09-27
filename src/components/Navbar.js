@@ -26,6 +26,9 @@ const Navbarmenu=(props)=>{
     localStorage.removeItem('status')
     history.push('/')
   }
+  const linkto = ()=>{
+    history.push('/profile')
+  }
   const changeSearch=(event)=>{
     setSearch(event.target.value)
   }
@@ -51,7 +54,7 @@ const Navbarmenu=(props)=>{
             <Link className="menu1 nav-item" to="/">Home</Link>
             <Link className="menu1 nav-item" to="/product">Product</Link>
             {status==='1'?<Link to="/payment" className="nav-item menu1">Your Cart</Link>:null}
-            {status === '1'?<Link to="" className="nav-item menu1">
+            {status === '1'?<Link to="/history" className="nav-item menu1">
               <div className="nav-link active" href="#" aria-disabled="true">History</div>
             </Link>:null}
             {status === '0'? <Link to="" className="nav-item menu1">
@@ -82,7 +85,7 @@ const Navbarmenu=(props)=>{
                   <img src={API_URL+imgUser} style={{borderRadius:"20px", width:"25px", height:"25px"}} alt=""/>
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem>Edit Profile</DropdownItem>
+                  <DropdownItem onClick={linkto}>Edit Profile</DropdownItem>
                   <DropdownItem onClick={logout}>Log Out</DropdownItem>
                 </DropdownMenu>
               </Dropdown>

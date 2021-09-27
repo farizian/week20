@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-.body{
+.bodyprofile{
   background-image: url('https://raw.githubusercontent.com/farizian/week20/master/img/bg3.png');
 }
-.body .row{
+.bodyprofile .row{
   padding: 6%;
   
 }
@@ -74,6 +74,29 @@
   background-color: #FFBA33;
   color: #6A4029;
   border: none;
+}
+.photobox .rowimg .buttonbox1 Input#file-input{
+  display: none;
+}
+.photobox .rowimg .buttonbox1 Input#file-input + label{
+  background-color: #FFBA33;
+  height: 44px;
+  width: 95%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-family: Poppins;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6A4029;
+  cursor: pointer;
+}
+.photobox .rowimg .buttonbox1 Input#file-input + label:hover{
+  background-color: #705621;
+  color: #382216;
 }
 .photobox .rowimg .buttonbox1 .remove{
   background-color: #6A4029;
@@ -148,7 +171,7 @@
 .inputcontainer .row{
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   border-radius: 10px;
   padding: 0;
   padding: 0 20px 0 20px;
@@ -156,8 +179,8 @@
   background-color: white;
 }
 .inputcontainer .row .box1{
-  height: 100vh;
-  margin-top: 20px;
+  height: 85vh;
+  margin-top: 25px;
   background-color: tomato;
   padding: 0;
 }
@@ -183,29 +206,85 @@
 .inputcontainer .row .box1 .inputbox1 input{
   width: 87%;
   border: none;
+  outline: 0px;
   margin-top: 5px;
   border-bottom: 1px solid black;
 }
 .inputcontainer .row .box1 .inputbox1 textarea{
   border: none;
+  border-bottom: 1px solid black;
   width: 87%;
+  outline: 0px;
   margin: 5px 0 0 0;
   text-decoration: none;
   list-style-type: none;
 }
+
 .inputcontainer .row .box2{
   padding: 0;
-  height: 100vh;
+  height: 90vh;
+  margin-top: 15px;
   background-color: #FFBA33;
 }
 .inputcontainer .row .box2 .imgbox{
   height: 49px;
   width: 47px;
   border-radius: 50px;
-  margin-left: 81%;
+  margin-left: 84%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #6A4029;
 }
 .inputcontainer .row .box2 .imgbox img{
   width: 20px;
   height: 20px;
+}
+.inputcontainer .row .box2 .inputbox1{
+  margin-top: 11px;
+  background-color: turquoise;
+}
+.inputcontainer .row .box2 .inputbox1 input{
+  width: 83%;
+  border: none;
+  outline: 0px;
+  margin-top: 5px;
+  border-bottom: 1px solid black;
+}
+.inputcontainer .row .box2 .inputbox1 select{
+  width: 83%;
+  border: none;
+  outline: 0px;
+  border-bottom: 1px solid black;
+}
+.inputcontainer .row .box2 .inputbox1 p{
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  color: #9F9F9F;
+  margin: 0;
+}
+.inputcontainer .row .radiobox{
+  width: 100%;
+  margin: 30px 0 50px 0;
+  align-items: center;
+  justify-content: center;
+}
+.inputcontainer .row .radiobox .form-check{
+  margin-right: 90px;
+}
+.inputcontainer .row .radiobox .form-check label{
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  color: #9F9F9F;  
+}
+.inputcontainer .row .radiobox .form-check input{
+  margin-top: 8px;
+}
+.inputcontainer .row .radiobox .form-check label:checked{
+  background-color: aqua !important;
+  color: #FFBA33;
 }

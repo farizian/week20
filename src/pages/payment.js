@@ -82,10 +82,7 @@ const Payment =(props)=>{
     console.log(body)
     INSERT_TRANSACTION(body).then((response) =>{
       alert("Transaksi Berhasil")
-      const dataTr = transaction.getDetailMaster.map((e) => e)
-      const dataTrPrd = transaction.getDetailTr.map((e) => e)
-      console.log(dataTr)
-      console.log(dataTrPrd)
+      history.push('/history')
     }).catch((err) =>{
       console.log(err)
     })

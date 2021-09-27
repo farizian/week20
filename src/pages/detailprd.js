@@ -110,7 +110,6 @@ const Detail =(props)=>{
       shipping: 1000,
       total: prd.price*qty.qty+200+1000
     }
-    console.log(data)
     dispatch(INSERT_CART(data))
     history.push('/payment')
   }
