@@ -134,61 +134,61 @@ const Payment =(props)=>{
               </div>
           </div>
           
-            <div className="col-lg-5 col-12 method">
-              <div className="text d-flex" style={{width:"88%"}}>
-                <h3>Address details</h3>
-                <p onClick={editAddress} style={{cursor:'pointer'}}>edit</p>
-              </div>
-              <div className="descbox">
-                <div className="textbox">
-                  <p><strong>Delivery</strong>&nbsp;to:</p>
-                  {edit?<textarea name="text" wrap="soft" value={transState.address} onChange={updAddress}></textarea>:<textarea name="text" wrap="soft" onChange={updAddress}></textarea>}
-                </div>
-              </div>
-              <div className="text d-flex" style={{width:"88%", marginTop: '60px'}}>
-                <h3 style={{width: "100%"}}>Payment Method</h3>
-              </div>
-              <div className="descbox pb-2" style={{height:'unset'}}>
-                <ul className="paybox">
-                  <li className="list-group-item rounded-0 pay">
-                    <div className="custom-control custom-radio custom">
-                      <input className="custom-control-input" id="customRadio1" type="radio" name="customRadio" value="card" onChange={updMethod}/>
-                      <label className="custom-control-label d-flex" for="customRadio1">
-                        <div className='imgbox d-flex align-items-center justify-content-center me-2' style={{width:'40px', height:'40px', borderRadius:'10px', backgroundColor:'#F47B0A'}}>
-                          <img src="https://raw.githubusercontent.com/farizian/week20/master/img/bi_credit-card-2-front-fill.png" alt=""></img>
-                        </div>
-                        <p className="mb-0">Card</p>
-                      </label>
-                    </div>
-                  </li>
-                  <li className="list-group-item rounded-0 d-flex align-items-center justify-content-between pay">
-                    <div className="custom-control custom-radio custom">
-                      <input className="custom-control-input" id="customRadio2" type="radio" name="customRadio" value="bank" onChange={updMethod}/>
-                      <label className="custom-control-label d-flex" for="customRadio2">
-                        <div className='imgbox d-flex align-items-center justify-content-center me-2' style={{width:'40px', height:'40px', borderRadius:'10px', backgroundColor:'#F47B0A'}}>
-                          <img src="https://raw.githubusercontent.com/farizian/week20/master/img/dashicons_bank.png" alt=""></img>
-                        </div>
-                        <p className="mb-0">Bank account</p>
-                      </label>
-                    </div>
-                  </li>
-                  <li className="list-group-item rounded-0 d-flex align-items-center justify-content-between pay">
-                    <div className="custom-control custom-radio custom">
-                      <input className="custom-control-input" id="customRadio3" type="radio" name="customRadio" value="cod" onChange={updMethod}/>
-                      <label className="custom-control-label d-flex" for="customRadio3">
-                        <div className='imgbox d-flex align-items-center justify-content-center me-2' style={{width:'40px', height:'40px', borderRadius:'10px', backgroundColor:'#FFBA33'}}>
-                          <img src="https://raw.githubusercontent.com/farizian/week20/master/img/fast-delivery%203.png" alt=""></img>
-                        </div>
-                        <p className="mb-0">Cash on delivery</p>
-                      </label>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div className="button">
-                <button onClick={submitTransaction}>Confirm and Pay</button>
+          <div className="col-lg-5 col-12 method">
+            <div className="text d-flex" style={{width:"88%"}}>
+              <h3>Address details</h3>
+              <p onClick={editAddress} style={{cursor:'pointer'}}>edit</p>
+            </div>
+            <div className="descbox">
+              <div className="textbox">
+                <p><strong>Delivery</strong>&nbsp;to:</p>
+                {edit?<textarea name="text" wrap="soft" value={transState.address} onChange={updAddress}></textarea>:<textarea name="text" wrap="soft" onChange={updAddress}></textarea>}
               </div>
             </div>
+            <div className="text d-flex" style={{width:"88%", marginTop: '60px'}}>
+              <h3 style={{width: "100%"}}>Payment Method</h3>
+            </div>
+            <div className="descbox pb-2" style={{height:'unset'}}>
+              <ul className="paybox">
+                <li className="list-group-item rounded-0 pay">
+                  <div className="custom-control custom-radio custom">
+                    <input className="custom-control-input" id="customRadio1" type="radio" name="customRadio" value="card" onChange={updMethod}/>
+                    <label className="custom-control-label d-flex" for="customRadio1">
+                      <div className='imgbox d-flex align-items-center justify-content-center me-2' style={{width:'40px', height:'40px', borderRadius:'10px', backgroundColor:'#F47B0A'}}>
+                        <img src="https://raw.githubusercontent.com/farizian/week20/master/img/bi_credit-card-2-front-fill.png" alt=""></img>
+                      </div>
+                      <p className="mb-0">Card</p>
+                    </label>
+                  </div>
+                </li>
+                <li className="list-group-item rounded-0 d-flex align-items-center justify-content-between pay">
+                  <div className="custom-control custom-radio custom">
+                    <input className="custom-control-input" id="customRadio2" type="radio" name="customRadio" value="bank" onChange={updMethod}/>
+                    <label className="custom-control-label d-flex" for="customRadio2">
+                      <div className='imgbox d-flex align-items-center justify-content-center me-2' style={{width:'40px', height:'40px', borderRadius:'10px', backgroundColor:'#F47B0A'}}>
+                        <img src="https://raw.githubusercontent.com/farizian/week20/master/img/dashicons_bank.png" alt=""></img>
+                      </div>
+                      <p className="mb-0">Bank account</p>
+                    </label>
+                  </div>
+                </li>
+                <li className="list-group-item rounded-0 d-flex align-items-center justify-content-between pay">
+                  <div className="custom-control custom-radio custom">
+                    <input className="custom-control-input" id="customRadio3" type="radio" name="customRadio" value="cod" onChange={updMethod}/>
+                    <label className="custom-control-label d-flex" for="customRadio3">
+                      <div className='imgbox d-flex align-items-center justify-content-center me-2' style={{width:'40px', height:'40px', borderRadius:'10px', backgroundColor:'#FFBA33'}}>
+                        <img src="https://raw.githubusercontent.com/farizian/week20/master/img/fast-delivery%203.png" alt=""></img>
+                      </div>
+                      <p className="mb-0">Cash on delivery</p>
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div className="button">
+              <button onClick={submitTransaction}>Confirm and Pay</button>
+            </div>
+          </div>
           
         </div>
       </div>

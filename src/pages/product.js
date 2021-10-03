@@ -136,7 +136,7 @@ const Product=()=>{
                   null:e.disc===""?null:<p className="disc">{e.disc}</p>
                   }
                   <p className="prdname">{e.prdname}</p>
-                  <CurrencyFormat className="harga" value={e.price} displayType={'text'} thousandSeparator={true} prefix={'Rp. '}/>
+                  <CurrencyFormat className="harga" value={e.price} displayType={'text'} thousandSeparator={true} hunderedSeparator={true} prefix={'Rp. '}/>
                   </Link>
                 </div>
               )

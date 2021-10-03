@@ -44,7 +44,7 @@ const Detail =(props)=>{
       disc: prd.disc,
       name: prd.prdname,
       price: prd.price,
-      size: prd.size
+      size: prd.size,
     })
   }, [prd])
   
@@ -174,7 +174,7 @@ const Detail =(props)=>{
                 </div>
                 <div className="textbox">
                   <h3>Size :</h3>
-                  <select name="size" class="form-control" onChange={setChange}>
+                  <select name="size" value={updData.size} class="form-control" onChange={setChange}>
                     <option value="R" >Regular</option>
                     <option value="L" >Large</option>
                     <option value="XL" >Extra Large</option>

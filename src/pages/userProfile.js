@@ -18,28 +18,17 @@ const Profile =(props)=>{
   const user = useSelector(state => state.user.getDetail)
   const history = useHistory();
   const dispatch = useDispatch()
-  const [updData, setUpd]=useState({
-    img: "",
-    first_name: "",
-    last_name: "",
-    birth_date: "",
-    gender: "",
-    username: "",
-    email: "",
-    password: "",
-    address: "",
-    phone_number: "",
-    status: "",
-  })
+  
   const id = user.Id
-  const getData = async()=>{
-    await dispatch(GET_DETAIL_USER())
+  const getData = ()=>{
+    dispatch(GET_DETAIL_USER())
   }
   
   useEffect(()=>{
     getData()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
+  const [updData, setUpd]=useState({})
   useEffect(()=>{
     setUpd({
       img: user.img,
@@ -161,7 +150,7 @@ const Profile =(props)=>{
                 </div>
                 <div style={{marginTop:"70%"}} className="inputbox1">
                   <p>DD/MM/YY</p>
-                  <input name="birth_date" type="date" className="form-control" placeholder="Birth Date" onChange={setChange}/>
+                  <input name="birth_date" value={updData.birth_date} type="date" className="form-control" placeholder="Birth Date" onChange={setChange}/>
                 </div>
                 <div style={{marginTop:"15px"}} className="inputbox1">
                   <p>Status :</p>
@@ -183,7 +172,7 @@ const Profile =(props)=>{
                   </label>
                 </div>
                 <div className="form-check m-0">
-                  <input className="form-check-input" type="radio" name="status" id="flexRadioDefault2" value="male" onChange={setChange}/>
+                  <input className="form-check-input" type="radio" name="status" id="flexRadioDefault2" value="female" onChange={setChange}/>
                   <label className="form-check-label" for="flexRadioDefault2">
                     Female
                   </label>

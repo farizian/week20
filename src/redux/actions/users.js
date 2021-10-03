@@ -71,9 +71,23 @@ export const GET_DETAIL_USER = () => {
       type: getDetailUserPending
     })
     axios.get(`${API_URL}userdetails`, {headers: {token: token} }).then((response) => {
+      const data = {
+        Id: response.data.field[0].Id,
+        img: response.data.field[0].img,
+        first_name: response.data.field[0].first_name,
+        last_name: response.data.field[0].last_name,
+        birth_date: response.data.field[0].birth_date.slice(0, 10),
+        gender: response.data.field[0].gender,
+        username: response.data.field[0].username,
+        email: response.data.field[0].email,
+        password: response.data.field[0].password,
+        address: response.data.field[0].address,
+        phone_number: response.data.field[0].phone_number,
+        status: response.data.field[0].status,
+      }
       dispatch({
         type: getDetailUser,
-        payload: response.data.field[0]
+        payload: data
       })
     }).catch((err) => {
       dispatch({

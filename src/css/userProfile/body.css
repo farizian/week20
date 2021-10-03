@@ -19,18 +19,16 @@
   padding: 50px 5% 20px 5%;
   border-bottom-left-radius: 20px;
   border-top-left-radius: 20px;
-  background-color: aquamarine;
+  background-color: #F8F8F8;
 }
 .photobox .rowimg{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: burlywood;
 }
 .photobox .rowimg .imgbox{
   width: 80%;
-  background-color: coral;
 }
 .photobox .rowimg .imgbox img{
   width: 100%;
@@ -60,7 +58,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: coral;
 }
 .photobox .rowimg .buttonbox1 button{
   height: 44px;
@@ -116,7 +113,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: coral;
 }
 .photobox .rowimg .buttonbox2 h3{
   font-family: Poppins;
@@ -166,7 +162,7 @@
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
   padding: 50px 2% 20px 0;
-  background-color: blue;
+  background-color: #F8F8F8;
 }
 .inputcontainer .row{
   display: flex;
