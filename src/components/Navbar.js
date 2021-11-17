@@ -34,7 +34,7 @@ const Navbarmenu=(props)=>{
   }
   const submitPrd=(event)=>{
     event.preventDefault();
-    dispatch(GET_ALL_PRODUCT(search))
+    dispatch(GET_ALL_PRODUCT(search, "prdname"))
   }
 
   return(
@@ -58,7 +58,7 @@ const Navbarmenu=(props)=>{
               <div className="nav-link active" href="#" aria-disabled="true">History</div>
             </Link>:null}
             {status === '0'? <Link to="" className="nav-item menu1">
-              <div className="nav-link active" href="#" aria-disabled="true">Dashboard</div>
+              <div className="nav-link active" href="#" aria-disabled="true"><p></p></div>
             </Link>:null}
           </ul>
           {!token?
@@ -84,7 +84,7 @@ const Navbarmenu=(props)=>{
                 <DropdownToggle className="nav-item profile bg-transparent" style={{ width:"25px", height:"25px"}}>
                   <img src={API_URL+imgUser} style={{borderRadius:"20px", width:"25px", height:"25px"}} alt=""/>
                 </DropdownToggle>
-                <DropdownMenu>
+                <DropdownMenu right style={{marginTop:'16px'}}>
                   <DropdownItem onClick={linkto}>Edit Profile</DropdownItem>
                   <DropdownItem onClick={logout}>Log Out</DropdownItem>
                 </DropdownMenu>

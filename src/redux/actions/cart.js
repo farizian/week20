@@ -1,10 +1,17 @@
-import { insertCart, deleteCart} from "../../helper/var";
+import { insertCart, deleteCart, resetCart} from "../../helper/var";
 
 export const INSERT_CART = (data) => {
   return (dispatch) => {
     dispatch({
       type: insertCart,
       payload: data
+    })
+  }
+}
+export const RESET_CART = (data) => {
+  return (dispatch) => {
+    dispatch({
+      type: resetCart
     })
   }
 }

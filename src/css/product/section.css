@@ -58,6 +58,15 @@
   background-color: #552f1d !important;
   color: rgb(158, 153, 153);
 }
+.productitem .row{
+  height: 100vh;
+  overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.productitem .row::-webkit-scrollbar {
+  display: none;
+}
 .productitem .row .card{
   height: 180px;
   text-align: center;
@@ -225,5 +234,8 @@
     margin: 90px 0 0 50px;
     font-weight: 500;
     margin: 20px 0 0 30px;
+  }
+  .addNew Button {
+    width: 100%;
   }
 }

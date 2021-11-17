@@ -250,6 +250,10 @@ input[type=radio]:checked{
   font-weight: 400;
   color: black;
 }
+.method .descbox .paybox .imgbox .deliv{
+  width: 25px;
+  height: 20px;
+}
 .method .button{
   width: 90%;
   margin-top: 50px;
@@ -560,10 +564,39 @@ input[type=radio]:checked{
 @media screen and (max-width: 576px){
   .summary{
     height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .imgCartSad{
+    width: 100% !important;
+    height: 200px !important;
+  }
+  .summary .titlebox{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .summary .titlebox h1{
+    width: 80%;
+  }
+  .summary .descbox{
+    width: 90%;
+  }
+  .summary .descbox .textbox{
+    width: 100% ;
+  }
+  .summary .descbox .textbox .text{
+    font-size: 30px;
   }
   .method{
     padding: 0;
-    height: 120vh;
+    height: 160vh;
     display: flex;
     flex-direction: column;
     align-items: center;

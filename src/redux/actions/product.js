@@ -54,13 +54,13 @@ export const GET_CATEGORY_PRODUCT = () => {
     })
   }
 }
-export const GET_ALL_PRODUCT = (data) => {
+export const GET_ALL_PRODUCT = (search, format) => {
   const token = localStorage.getItem("token")
   return (dispatch) => {
     dispatch({
       type: getAllProductPending
     })
-    axios.get(`${API_URL}product?search=${!data ? '' : data}&field=id`, {headers: {token: token} }).then((response) => {
+    axios.get(`${API_URL}product?search=${!search ? '' : search}&field=id`, {headers: {token: token} }).then((response) => {
       dispatch({
         type: getAllProduct,
         payload: response.data.field.data

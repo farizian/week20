@@ -1,10 +1,10 @@
 /* eslint-disable array-callback-return */
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { GET_DETAIL_PRODUCT, GET_CATEGORY_PRODUCT} from "../redux/actions/product"
-import { INSERT_CART, DELETE_CART } from "../redux/actions/cart"
-import { INSERT_TRANSACTION } from "../redux/actions/transaction"
-import { GET_DETAIL_USER, UPDATE_USER } from "../redux/actions/users"
+// import { GET_DETAIL_PRODUCT, GET_CATEGORY_PRODUCT} from "../redux/actions/product"
+// import { INSERT_CART, DELETE_CART } from "../redux/actions/cart"
+// import { INSERT_TRANSACTION } from "../redux/actions/transaction"
+import { GET_DETAIL_USER, UPDATE_USER, DEL_IMG, UPDATE_PW } from "../redux/actions/users"
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../css/userProfile/body.css'
 import Navbar from '../components/Navbar'
@@ -12,13 +12,14 @@ import Footer from '../components/Footer'
 import {useHistory, useParams} from 'react-router-dom'
 import CurrencyFormat from 'react-currency-format'
 import { API_URL } from '../helper/env'
-import { Input } from "reactstrap"
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from "reactstrap"
 
 const Profile =(props)=>{
   const user = useSelector(state => state.user.getDetail)
   const history = useHistory();
   const dispatch = useDispatch()
-  
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
   const id = user.Id
   const getData = ()=>{
     dispatch(GET_DETAIL_USER())
@@ -35,6 +36,7 @@ const Profile =(props)=>{
       first_name: user.first_name,
       last_name: user.last_name,
       birth_date: user.birth_date,
+      // birth_date: user.birth_date.slice(0, 10),
       gender: user.gender,
       username: user.username,
       email: user.email,
@@ -53,12 +55,14 @@ const Profile =(props)=>{
   const setFile = (event)=>{
     setUpd({
       ...updData,
-      img: event.target.files[0]
+      img: event.target.files[0],
+      imgPreview: URL.createObjectURL(event.target.files[0])
     })
   }
   const updateUser=(event)=>{
     event.preventDefault();
-    const {img, first_name, last_name, birth_date, gender, username, email, password,address, phone_number, status}=updData
+    const {img, first_name, last_name, birth_date, gender, username, email, address, phone_number, status}=updData
+    console.log(status)
     const formData = new FormData()
     formData.append("img", !img?user.img:img)
     formData.append("first_name", !first_name?updData.first_name:first_name)
@@ -67,7 +71,6 @@ const Profile =(props)=>{
     formData.append("gender", !gender?updData.gender:gender)
     formData.append("username", !username?updData.username: username)
     formData.append("email", !email?updData.email: email)
-    formData.append("password", !password?updData.password: password)
     formData.append("address", !address?updData.address: address)
     formData.append("phone_number", !phone_number?updData.phone_number: phone_number)
     formData.append("status", !status?updData.status: status)
@@ -87,6 +90,31 @@ const Profile =(props)=>{
     localStorage.removeItem('status')
     history.push('/')
   }
+  const delImg = () => {
+    setUpd({
+      ...updData,
+      imgPreview: API_URL+"default.png"
+    })
+    DEL_IMG().then((response) => {
+      console.log(response)
+    }).catch((err) =>{
+      console.log(err)
+    })
+  }
+  const updatePw=(event)=>{
+    event.preventDefault();
+    const userPw = {
+      oldpassword: updData.oldpassword,
+      password: updData.password
+    }
+    UPDATE_PW(userPw).then((response) => {
+      alert(response.data.message)
+    }).catch((err) =>{
+      alert("password tidak sesuai")
+      console.log(err)
+    })
+    toggle()
+  }
   return(
     <div className="bodyprofile">
       <Navbar logsign={false} product={true}/>
@@ -96,14 +124,34 @@ const Profile =(props)=>{
           <aside className="photobox col-lg-4">
             <div className="rowimg">
               <div className="imgbox">
-                <img src={API_URL+user.img} alt=""></img>
+                <img src={updData.imgPreview?updData.imgPreview:API_URL+user.img} alt=""></img>
                 <h3>{`${user.first_name} ${user.last_name}`}</h3>
                 <p>{user.email}</p>
               </div>
               <div className="buttonbox1">
-                <Input type="file" id="file-input" className="select" onChange={setFile}>Choose photo</Input>
+                <Input type="file" id="file-input" className="select" onChange={setFile} accept=".jpg, .png, .jpeg" >Choose photo</Input>
                 <label for="file-input">Choose Photo</label>
-                <button className="remove">Remove photo</button>
+                <button className="remove" onClick={delImg}>Remove photo</button>
+                <Button className="editpw mt-5" onClick={toggle}>Edit Password</Button>
+                <Modal isOpen={modal} toggle={toggle} modalClassName="d-flex align-items-center" className='w-100'>
+                  <ModalHeader toggle={toggle}>Edit Password</ModalHeader>
+                  <ModalBody>
+                  <form className="insert">
+                    <div className="textbox" style={{marginBottom:'10px'}}>
+                      <h3>Old Password :</h3>
+                      <Input type="password" placeholder="Insert Password" name="oldpassword" onChange={setChange}></Input>
+                    </div>
+                    <div className="textbox">
+                      <h3>New Password :</h3>
+                      <Input type="password" placeholder="Insert Password" name="password" onChange={setChange}></Input>
+                    </div>
+                  </form>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button color="primary" onClick={updatePw}>Submit</Button>{' '}
+                    <Button color="secondary" onClick={toggle}>Cancel</Button>
+                  </ModalFooter>
+                </Modal>
               </div>
               <div className="buttonbox2">
                 <h3>Do you want to save the change?</h3>
@@ -148,31 +196,27 @@ const Profile =(props)=>{
                   <p>Mobile number :</p>
                   <input name="phone_number" value={updData.phone_number} onChange={setChange} type="text"></input>
                 </div>
-                <div style={{marginTop:"70%"}} className="inputbox1">
-                  <p>DD/MM/YY</p>
+                <div style={window.matchMedia('(max-width: 576px)').matches?{marginTop:'10%'}:{marginTop:'70%'}} className="inputbox1">
+                  <p>Birth date</p>
                   <input name="birth_date" value={updData.birth_date} type="date" className="form-control" placeholder="Birth Date" onChange={setChange}/>
                 </div>
-                <div style={{marginTop:"15px"}} className="inputbox1">
+                <div style={window.matchMedia('(max-width: 576px)').matches?null:{marginTop:'15px'}} className="inputbox1">
                   <p>Status :</p>
-                  <select name="status" className="form-control" value={updData.status} onChange={setChange}>
-                    <option value="0" >Admin</option>
+                  <select name="status" className="form-control" value={updData.status}  onChange={setChange}>
                     <option value="1" >User</option>
+                    <option value="0" >Admin</option>
                   </select>
-                </div>
-                <div className="inputbox1">
-                  <p>Password :</p>
-                  <input name="password" onChange={setChange} type="password"></input>
                 </div>
               </div>
               <div style={{display:"flex"}} className="radiobox">
                 <div className="form-check">
-                  <input className="form-check-input" type="radio" name="status" id="flexRadioDefault1" value="male" onChange={setChange}/>
+                  <input className="form-check-input" type="radio" name="gender" id="flexRadioDefault1" value="male" onChange={setChange}/>
                   <label className="form-check-label" for="flexRadioDefault1">
                     Male
                   </label>
                 </div>
                 <div className="form-check m-0">
-                  <input className="form-check-input" type="radio" name="status" id="flexRadioDefault2" value="female" onChange={setChange}/>
+                  <input className="form-check-input" type="radio" name="gender" id="flexRadioDefault2" value="female" onChange={setChange}/>
                   <label className="form-check-label" for="flexRadioDefault2">
                     Female
                   </label>

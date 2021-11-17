@@ -41,7 +41,7 @@ export const GET_DETAIL_TRANSACTION = (id) => {
     dispatch({
       type: getDetailTrPending
     })
-    axios.get(`${API_URL}transaction/${id}`, {headers: {token: token} }).then((response) => {
+    axios.get(`${API_URL}detail/${id}`, {headers: {token: token} }).then((response) => {
       dispatch({
         type: getDetailTr,
         payload: response.data.field
@@ -55,3 +55,18 @@ export const GET_DETAIL_TRANSACTION = (id) => {
   }
 }
 
+export const DEL_TRANS = (id) => {
+  const token = localStorage.getItem("token")
+  return new Promise((resolve, reject) => {
+    const headers={
+      "token": token
+    }
+    axios.delete(`${API_URL}transaction/${id}`, { headers })
+    .then((response) => {
+      resolve(response.data)
+    })
+    .catch((err)=>{
+      reject(err)
+    })
+  })
+}

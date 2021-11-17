@@ -103,9 +103,16 @@
   background-color: #382216;
   color: rgb(148, 145, 145);
 }
-.photobox .rowimg .buttonbox1 button:hover{
-  background-color: #705621;
+.photobox .rowimg .buttonbox1 .editpw{
+  height: 60px;
+  width: 207px;
+  background-color: white;
   color: #382216;
+  border-radius: 20px;
+}
+.photobox .rowimg .buttonbox1 button:hover{
+  background-color: #c2c0bc;
+  color: #975b3b;
 }
 .photobox .rowimg .buttonbox2{
   width: 80%;
@@ -177,7 +184,7 @@
 .inputcontainer .row .box1{
   height: 85vh;
   margin-top: 25px;
-  background-color: tomato;
+  /* background-color: tomato; */
   padding: 0;
 }
 .inputcontainer .row .box1 h3{
@@ -189,7 +196,7 @@
 }
 .inputcontainer .row .box1 .inputbox1{
   margin-top: 20px;
-  background-color: turquoise;
+  /* background-color: turquoise; */
 }
 .inputcontainer .row .box1 .inputbox1 p{
   font-family: Poppins;
@@ -220,7 +227,7 @@
   padding: 0;
   height: 90vh;
   margin-top: 15px;
-  background-color: #FFBA33;
+  /* background-color: #FFBA33; */
 }
 .inputcontainer .row .box2 .imgbox{
   height: 49px;
@@ -238,7 +245,7 @@
 }
 .inputcontainer .row .box2 .inputbox1{
   margin-top: 11px;
-  background-color: turquoise;
+  /* background-color: turquoise; */
 }
 .inputcontainer .row .box2 .inputbox1 input{
   width: 83%;
@@ -283,4 +290,143 @@
 .inputcontainer .row .radiobox .form-check label:checked{
   background-color: aqua !important;
   color: #FFBA33;
+}
+
+@media screen and (max-width: 576px){
+  .bodyprofile{
+    background-image: url('https://raw.githubusercontent.com/farizian/week20/master/img/bg3.png');
+  }
+  .bodyprofile .row{
+    padding: 6%;
+    
+  }
+  .row .title{
+    font-family: Rubik;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 500;
+    color: white;
+  }
+  .photobox{
+    padding: 50px 5% 20px 5%;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    background-color: #F8F8F8;
+  }
+  .inputcontainer{
+    border-radius: 20px;
+    padding: 50px 0 20px 0;
+    background-color: #F8F8F8;
+  }
+  .inputcontainer .row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5%;
+    box-shadow: 0px 6px 20px 0px #00000038;
+    background-color: white;
+  }
+  .inputcontainer .row .box1{
+    height: unset;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 25px;
+    padding: 0;
+  }
+  .inputcontainer .row .box1 h3{
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    color: #4F5665;
+  }
+  .inputcontainer .row .box1 .inputbox1{
+    margin-top: 20px;
+    /* background-color: turquoise; */
+  }
+  .inputcontainer .row .box1 .inputbox1 p{
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    color: #9F9F9F;
+    margin: 0;
+  }
+  .inputcontainer .row .box1 .inputbox1 input{
+    width: 87%;
+    border: none;
+    outline: 0px;
+    margin-top: 5px;
+    border-bottom: 1px solid black;
+  }
+  .inputcontainer .row .box1 .inputbox1 textarea{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 87%;
+    outline: 0px;
+    margin: 5px 0 0 0;
+    text-decoration: none;
+    list-style-type: none;
+  }
+  
+  .inputcontainer .row .box2{
+    padding: 0;
+    height: unset;
+    margin-top: 15px;
+    /* background-color: #FFBA33; */
+  }
+  .inputcontainer .row .box2 .imgbox{
+    display: none;
+  }
+  .inputcontainer .row .box2 .inputbox1{
+    margin-top: 11px;
+    /* background-color: turquoise; */
+  }
+  .inputcontainer .row .box2 .inputbox1 input{
+    width: 83%;
+    border: none;
+    outline: 0px;
+    margin-top: 5px;
+    border-bottom: 1px solid black;
+  }
+  .inputcontainer .row .box2 .inputbox1 select{
+    width: 83%;
+    border: none;
+    outline: 0px;
+    border-bottom: 1px solid black;
+  }
+  .inputcontainer .row .box2 .inputbox1 p{
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    color: #9F9F9F;
+    margin: 0;
+  }
+  .inputcontainer .row .radiobox{
+    width: 100%;
+    margin: 30px 0 50px 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .inputcontainer .row .radiobox .form-check{
+    margin-right: 90px;
+  }
+  .inputcontainer .row .radiobox .form-check label{
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    color: #9F9F9F;  
+  }
+  .inputcontainer .row .radiobox .form-check input{
+    margin-top: 8px;
+  }
+  .inputcontainer .row .radiobox .form-check label:checked{
+    background-color: aqua !important;
+    color: #FFBA33;
+  }
 }

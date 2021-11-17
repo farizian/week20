@@ -14,6 +14,7 @@ const [user, setUser] = useState({
   email: "",
   password: "",
 })
+const [msg, setMsg] = useState()
 
 const setData=(event)=>{
   setUser({
@@ -24,12 +25,18 @@ const setData=(event)=>{
 
 const submit=(event)=>{
   event.preventDefault();
-  LOGIN(user).then(() =>{
-    alert("Login Berhasil")
-    history.push('/product')
-  }).catch((err) =>{
-    alert("username/password salah")
-  })
+  const valid = new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(user.email)
+  if(user.email === "" || user.password === "" || user.phone_number === ""){
+    setMsg("input harus diisi.")
+  } else if (!valid) {
+    setMsg("input email tidak sesuai.")
+  } else {
+    LOGIN(user).then(() =>{
+      history.push('/product')
+    }).catch((err) =>{
+      setMsg(err.response.data.error)
+    })
+  }
 }
   return(
     <div>
@@ -53,6 +60,7 @@ const submit=(event)=>{
                   <div className="textbox">
                     <input type="password" placeholder="Enter your password" name="password" onChange={setData}></input>
                   </div>
+                  <p>{msg}</p>
                   <h3 className="forgot">Forgot Password?</h3>
                 </div>
               </form>

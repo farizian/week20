@@ -42,9 +42,10 @@ const Detail =(props)=>{
     setUpd({
       img: prd.img,
       disc: prd.disc,
-      name: prd.prdname,
+      prdname: prd.prdname,
       price: prd.price,
       size: prd.size,
+      category_id: prd.category_id
     })
   }, [prd])
   
@@ -115,14 +116,14 @@ const Detail =(props)=>{
   }
   const updatePrd=(event)=>{
     event.preventDefault();
-    const {img, disc, name, price, size, category}=updData
+    const {img, disc, prdname, price, size, category_id}=updData
     const formData = new FormData()
     formData.append("img", img)
-    formData.append("disc", disc===undefined||""||null?"":disc)
-    formData.append("prdname", name===undefined||""||null?"":name)
-    formData.append("price", price===undefined||""||null?"":price)
-    formData.append("size", size===undefined||""||null?prd.size:size)
-    formData.append("category_id", category===undefined||""||null?prd.category: category)
+    formData.append("disc", !disc?updData.disc:disc)
+    formData.append("prdname", !prdname?updData.prdname:prdname)
+    formData.append("price", !price?updData.price:price)
+    formData.append("size", !size?updData.price:size)
+    formData.append("category_id", !category_id?updData.category_id: category_id)
     UPDATE(formData, id).then((response) => {
       alert(response.data.message)
       history.push("/product");
@@ -166,7 +167,7 @@ const Detail =(props)=>{
                 </div>
                 <div className="textbox">
                   <h3>Product Name :</h3>
-                  <Input type="text" placeholder="Enter product name" name="name" value={updData.name} onChange={setChange}></Input>
+                  <Input type="text" placeholder="Enter product name" name="prdname" value={updData.prdname} onChange={setChange}></Input>
                 </div>
                 <div className="textbox">
                   <h3>Price :</h3>
@@ -182,7 +183,7 @@ const Detail =(props)=>{
                 </div>
                 <div className="textbox">
                   <h3>Category :</h3>
-                  <select name="category" class="form-control" onChange={setChange}>{category.map((e)=>{return(<option value={e.id}>{e.category}</option>)})}</select>
+                  <select name="category_id" class="form-control" onChange={setChange}>{category.map((e)=>{return(<option value={e.id}>{e.category}</option>)})}</select>
                 </div>
                 <button type="submit" onClick={updatePrd}>submit</button>
               </form>

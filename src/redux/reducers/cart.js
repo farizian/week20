@@ -1,4 +1,4 @@
-import { insertCart, deleteCart} from "../../helper/var";
+import { insertCart, deleteCart, resetCart } from "../../helper/var";
 
 const cartState = {
   cart: [],
@@ -10,6 +10,8 @@ const cartReducer = (state=cartState, action) => {
       return {cart: [...state.cart, action.payload]}
     case deleteCart:
       return {cart: action.payload}
+    case resetCart:
+      return {cart: []}
     default:
       return state
   }

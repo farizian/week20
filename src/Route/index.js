@@ -8,6 +8,7 @@ import Guard from './guard'
 import Payment from '../pages/payment'
 import Profile from '../pages/userProfile'
 import History from '../pages/history'
+import History2 from '../pages/History2'
 import Detailhistory from '../pages/detailHistory'
 
 const Router =()=>{
@@ -22,7 +23,8 @@ const Router =()=>{
         <Guard path="/product" exact component={Product}/>
         <Guard path="/profile" exact component={Profile}/>
         <Guard path="/history" exact component={History}/>
-        <Guard path="/detailhistory" exact component={Detailhistory}/>
+        <Guard path="/history2" exact component={History2}/>
+        <Guard path="/detailhistory/:id" exact component={Detailhistory}/>
         <Guard path="/detailprd/:id" exact component={Detailprd}/>
         <Guard path="/payment" exact component={Payment}/>
         <Route>

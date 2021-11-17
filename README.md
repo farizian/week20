@@ -1,115 +1,65 @@
-# Coffee Shop Website
-  ini adalah tampilan website coffeeshop
-  untuk menjalankan silahkan baca README_react.md
-## Desktop Version
+# Coffee Shop App with ReactJS
 
-**1. Landing Page**
+Coffee Shop is a POS (Point of sale) web application created using the ReactJS library, with the addition of reactstrap for responsive display, and react-router-dom for page switching management and also for data management on the frontend using redux. This website has 2 versions for User and Admin.
 
-Navbar, Jumbotron and Infocard view
-![Landing_Page](https://raw.githubusercontent.com/farizian/week5/master/screenshot/landingpage/desktop/landingpage1.png)
+for instalation read README_react.md
 
-List  and image view
-![Landing_Page](https://raw.githubusercontent.com/farizian/week5/master/screenshot/landingpage/desktop/landingpage2.png)
+for backend repository click [this](https://github.com/farizian/week/19)
 
-Favorite card view
-![Landing_Page](https://raw.githubusercontent.com/farizian/week5/master/screenshot/landingpage/desktop/landingpage3.png)
+>User Version
 
-Map Image
-![Landing_Page](https://raw.githubusercontent.com/farizian/week5/master/screenshot/landingpage/desktop/landingpage4.png)
+Web Landing page | Mobile Landing page
+----------------------|---------------------
+![](coffeeshopSS/landing.png)| ![](coffeeshopSS/mobile/landing.png)
 
-Partner list
-![Landing_Page](https://raw.githubusercontent.com/farizian/week5/master/screenshot/landingpage/desktop/landingpage5.png)
 
-review card
-![Landing_Page](https://raw.githubusercontent.com/farizian/week5/master/screenshot/landingpage/desktop/landingpage6.png)
+Web Register page | Mobile Register page
+----------------------|--------------------
+![image](coffeeshopSS/signup1.png) | ![image](coffeeshopSS/mobile/signup.png)
 
-Promo Card and Footer
-![Landing_Page](https://raw.githubusercontent.com/farizian/week5/master/screenshot/landingpage/desktop/landingpage7.png)
+Web Login page | Mobile Login page
+----------------------|--------------------
+![image](coffeeshopSS/login1.png)|![image](coffeeshopSS/mobile/login.png)
 
-**2. Product Page**
-untuk bisa mengakses product harus register dan login terlebih dahulu
 
-Product Page View
-![Product](https://raw.githubusercontent.com/farizian/week5/master/screenshot/product/desktop/product1.png)
+Web Products page | Mobile Products page
+-------------------|----------------------
+![image](coffeeshopSS/product1.png)|![image](coffeeshopSS/mobile/productUser.png)
 
-Footer
-![Product](https://raw.githubusercontent.com/farizian/week5/master/screenshot/product/desktop/product2.png)
 
-**3. Login page**
 
-Login view
-![login](https://raw.githubusercontent.com/farizian/week5/master/screenshot/login/desktop/login1.png)
+Web Details Products page | Mobile Details Products page
+-------------------------|-----------------------
+![image](coffeeshopSS/detailProduk.png)|![image](coffeeshopSS/mobile/detailproduk.png)
 
-Footer
-![login](https://raw.githubusercontent.com/farizian/week5/master/screenshot/login/desktop/login2.png)
 
-**4. Signup page**
+Web MyCart page | Mobile MyCart page
+--------------------|----------------------
+![image](coffeeshopSS/mycart.png)|![image](coffeeshopSS/mobile/mycart.png)
 
-Signup view
-![signup](https://raw.githubusercontent.com/farizian/week5/master/screenshot/signup/desktop/signup1.png)
 
-Footer
-![signup](https://raw.githubusercontent.com/farizian/week5/master/screenshot/signup/desktop/signup2.png)
+Web History page | Mobile History page
+-------------------------|--------------------
+![image](coffeeshopSS/history.png)|![image](coffeeshopSS/mobile/history.png)
 
-**5. Detail product page**
 
-Detail Product view 1
-![detail](https://raw.githubusercontent.com/farizian/week15/master/img/detail1desktop.png)
+Web Detail History page | Mobile Detail History page
+-------------------------|--------------------
+![image](coffeeshopSS/detailHistory.png)|![image](coffeeshopSS/mobile/detailHistory.png)
 
-Detail Product view 2
-![detail](https://raw.githubusercontent.com/farizian/week15/master/img/detail2desktop.png)
 
-Footer
-![detail](https://raw.githubusercontent.com/farizian/week15/master/img/detail3desktop.png)
+Website Profile page | Mobile Profile page
+-------------------|--------------------
+![image](coffeeshopSS/userProfile.png)|![image](coffeeshopSS/mobile/userProfile.png)
 
-## Mobile Version
 
-**1. Landing page**
+>Admin Version
 
-Navbar, Jumbotron and Infocard view
-![Landing_Page](https://raw.githubusercontent.com/farizian/week5/master/screenshot/landingpage/mobile/landingpage1.png)
+Add product and Delete web version | Add product and Delete mobile version
+---------------------|--------------------
+![image](coffeeshopSS/productAdmin.png)|![image](coffeeshopSS/mobile/productAdmin.png)
 
-List view
-![Landing_Page](https://raw.githubusercontent.com/farizian/week5/master/screenshot/landingpage/mobile/landingpage2.png)
 
-Favorite card view
-![Landing_Page](https://raw.githubusercontent.com/farizian/week5/master/screenshot/landingpage/mobile/landingpage3.png)
-
-Map Image
-![Landing_Page](https://raw.githubusercontent.com/farizian/week5/master/screenshot/landingpage/mobile/landingpage4.png)
-
-Partner List, Promo Card and Footer
-![Landing_Page](https://raw.githubusercontent.com/farizian/week5/master/screenshot/landingpage/mobile/landingpage5.png)
-
-**2. Product Page**
-untuk bisa mengakses product harus register dan login terlebih dahulu
-
-Navbar and Promo Menu
-![Product](https://raw.githubusercontent.com/farizian/week5/master/screenshot/product/mobile/product1.png)
-
-Product Page View
-![Product](https://raw.githubusercontent.com/farizian/week5/master/screenshot/product/mobile/product2.png)
-
-Footer
-![Product](https://raw.githubusercontent.com/farizian/week5/master/screenshot/product/mobile/product3.png)
-
-**3. Login page**
-
-Login view
-![login](https://raw.githubusercontent.com/farizian/week5/master/screenshot/login/mobile/login1.png)
-
-Footer
-![login](https://raw.githubusercontent.com/farizian/week5/master/screenshot/login/mobile/login2.png)
-
-**4. Signup page**
-
-Signup view
-![signup](https://raw.githubusercontent.com/farizian/week5/master/screenshot/signup/mobile/signup1.png)
-
-Footer
-![signup](https://raw.githubusercontent.com/farizian/week5/master/screenshot/signup/mobile/signup2.png)
-
-**5. Detail product page**
-
-Detail Product view 1
-![detail](https://raw.githubusercontent.com/farizian/week15/master/img/detailmobile.png)
+Web Update Product page | Mobile Update Product page
+---------------------|--------------------
+![image](coffeeshopSS/updateProduct.png)|![image](coffeeshopSS/mobile/updateProduct.png)

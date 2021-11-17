@@ -46,6 +46,36 @@ export const UPDATE_USER = (form, id)=> {
     })
   })
 }
+export const UPDATE_PW = (form)=> {
+  const token = localStorage.getItem("token")
+  return new Promise((resolve, reject) =>{
+    const headers = {
+      token
+    }
+    axios.put(`${API_URL}pw`, form, {headers})
+    .then((response) => {
+      resolve(response)
+    }).catch ((err) => {
+      reject(err)
+    })
+  })
+}
+export const DEL_IMG = ()=> {
+  const token = localStorage.getItem("token")
+  console.log(token)
+  return new Promise((resolve, reject) =>{
+    const headers = {
+      token
+    }
+    console.log(headers)
+    axios.put(`${API_URL}delimg`, {},{headers})
+    .then((response) => {
+      resolve(response)
+    }).catch ((err) => {
+      reject(err)
+    })
+  })
+}
 export const GET_ALL_USER = (data) => {
   return (dispatch) => {
     dispatch({
@@ -76,7 +106,7 @@ export const GET_DETAIL_USER = () => {
         img: response.data.field[0].img,
         first_name: response.data.field[0].first_name,
         last_name: response.data.field[0].last_name,
-        birth_date: response.data.field[0].birth_date.slice(0, 10),
+        birth_date: response.data.field[0].birth_date,
         gender: response.data.field[0].gender,
         username: response.data.field[0].username,
         email: response.data.field[0].email,
@@ -85,6 +115,8 @@ export const GET_DETAIL_USER = () => {
         phone_number: response.data.field[0].phone_number,
         status: response.data.field[0].status,
       }
+      localStorage.setItem("img", data.img)
+      localStorage.setItem("status", data.status)
       dispatch({
         type: getDetailUser,
         payload: data

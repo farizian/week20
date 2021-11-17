@@ -6,27 +6,135 @@
 }
 
 .bodyhistory .row{
-  height: 100vh;
   display: flex;
-  padding-top: 30px;
+  padding-top: 10px;
   justify-content: center;
 }
-.bodyhistory .row .history{
-  width: 90%;
-  height: 200px;
-}
-.bodyhistory .row .history thead{
-  background-color: #FFBA33;
-  height: 50px;
+.titleHistory {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 47px;
   text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.8);
 }
-.bodyhistory .row .history tbody tr td button{
-  border: none;
-  background-color: #FFBA33;
-  color: white;
+.titleHistory .noteHistory {
+  font-style: normal;
+  font-size: 20px;
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.8);
+}
+.bodyhistory .row .rowcard{
+  width: 90%;
+  height: 500px;
+  padding: 0;
+  margin: 50px 0 100px 0;
+  overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.bodyhistory .row .rowcard::-webkit-scrollbar {
+  display: none;
+}
+
+.bodyhistory .row .rowcard .card{
+  height: 210px;
+  width: 350px;
   border-radius: 20px;
+  box-shadow: 0px 10px 40px 0px #00000008;
 }
-.bodyhistory .row .history tbody tr td button:hover{
-  background-color: #805e1a;
-  color: rgb(155, 154, 154);
+.bodyhistory .row .rowcard .card .inv{
+  font-size: 20px;
+}
+.bodyhistory .row .rowcard .card p{
+  margin: 5px 0;
+}
+/* rowcard2 */
+.bodyhistory .row .rowcard .card2{
+  height: 210px;
+  width: 350px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0px 10px 40px 0px #00000008;
+}
+.bodyhistory .row .rowcard .card2 .inv{
+  font-size: 20px;
+}
+.bodyhistory .row .rowcard .card2 p{
+  margin: 5px 0;
+}
+.hargatr{
+  color: #895537;
+}
+.btempty{
+  height: 84px;
+  width: 452px;
+  border-radius: 20px;
+  background-color: #6A4029;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: center;
+  border: none;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.btempty:hover{
+  background-color: #492c1c;
+  color: rgb(189, 187, 187);
+}
+@media screen and (max-width: 576px){
+  .bodyhistory{
+    padding: 0 !important;
+  }
+  .bodyhistory .rowcard{
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  .bodyhistory .rowcard .card{
+    margin-bottom: 10px;
+    width: 40% !important;
+  }
+  .bodyhistory .rowcard .card .cardrow{
+    flex-direction: column !important;
+    padding: 0 !important;
+  }
+  .bodyhistory .rowcard .card .cardrow .delimg{
+    width: 50%!important;
+  }
+  .bodyhistory .rowcard .card .cardrow .txt{
+    width: 100%!important;
+    margin-top: 10px;
+    padding: 0 !important;
+  }
+  .bodyhistory .rowcard .card .cardrow .txt .inv{
+    font-size: 15px;
+  }
+  .bodyhistory .rowcard .card .cardrow .txt p{
+    font-size: 15px;
+  }
+  /* card2 */
+  .bodyhistory .rowcard .card2{
+    margin-bottom: 10px;
+    width: 80% !important;
+  }
+  .bodyhistory .rowcard .card2 .cardrow{
+    padding: 0 !important;
+  }
+  .bodyhistory .rowcard .card2 .cardrow .txt{
+    width: 100%!important;
+    margin-top: 10px;
+    padding: 0 !important;
+  }
+  .bodyhistory .rowcard .card2 .cardrow .txt .inv{
+    font-size: 15px;
+  }
+  .bodyhistory .rowcard .card2 .cardrow .txt p{
+    font-size: 15px;
+  }
 }

@@ -16,6 +16,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from "react
 
 const Product=()=>{
   const [modal, setModal] = useState(false);
+  const [sort, setSort] = useState()
   const history = useHistory();
   const toggle = () => setModal(!modal);
   const dispatch = useDispatch()
@@ -24,8 +25,8 @@ const Product=()=>{
   const category = useSelector(state => state.product.category)
   const user = useSelector(state => state.user)
   const detail = user.getDetail
-  const getData = ()=>{
-    dispatch(GET_ALL_PRODUCT())
+  const getData = (search, format)=>{
+    dispatch(GET_ALL_PRODUCT(search, format))
     dispatch(GET_DETAIL_USER())
     dispatch(GET_CATEGORY_PRODUCT())
     dispatch(GET_ALL_PROMO())
@@ -46,6 +47,8 @@ const Product=()=>{
     disc: "",
     name: "",
     price: "",
+    size: "R",
+    category: 1,
   })
   const setChange=(event)=>{
     setUpd({
@@ -59,9 +62,14 @@ const Product=()=>{
       img: event.target.files[0]
     })
   }
+  const submitSort=(search)=>{
+    console.log(search)
+    getData(search, "c.category")
+  }
   const insertPrd=(event)=>{
     event.preventDefault();
     const {img, disc, name, price, size, category}=updData
+    console.log(updData)
     const formData = new FormData()
     formData.append("img", img)
     formData.append("disc", !disc?"":disc)
@@ -69,14 +77,18 @@ const Product=()=>{
     formData.append("price", !price?"":price)
     formData.append("size", !size?"":size)
     formData.append("category_id", !category?"": category)
-    INSERT(formData).then((response) => {
-      getData()
-      alert("input produk berhasil")
-      history.push("/product");
-      toggle();
-    }).catch((err) =>{
-      console.log(err)
-    })
+    if(name && price){
+      INSERT(formData).then((response) => {
+        getData()
+        alert("input produk berhasil")
+        history.push("/product");
+        toggle();
+      }).catch((err) =>{
+        console.log(err)
+      })
+    } else {
+      alert("isi field tidak boleh kosong!")
+    }
   }
   return(
     <div>
@@ -116,10 +128,10 @@ const Product=()=>{
         <section className="productitem">
           <nav className="prdmenu">
             <ul className="navprd">
-              <li>Favorite & Promo</li>
-              <li>Add Product</li>
-              <li>Edit Product</li>
-              <li>Foods</li>
+              <li>Main Course</li>
+              <li>Coffee</li>
+              <li>Dessert</li>
+              <li>Ice Cream</li>
               <li>Add-on</li>
             </ul>
           </nav>
@@ -151,7 +163,7 @@ const Product=()=>{
               <form className="insert">
                 <div className="textbox" id="txtbox1">
                   <h3>Picture :</h3>
-                  <Input type="file" name="img" onChange={setFile}></Input>
+                  <Input type="file" name="img" accept=".jpg, .png, .jpeg" onChange={setFile}></Input>
                 </div>
                 <div className="textbox">
                   <h3>Discount :</h3>

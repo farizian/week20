@@ -9,6 +9,7 @@ export const categoryProduct = 'GET_CATEGORY_PRODUCT_FULFILLED'
 export const categoryProductPending = 'GET_CATEGORY_PRODUCT_PENDING'
 export const categoryProductError = 'GET_CATEGORY_PRODUCT_REJECTED'
 // cart
+export const resetCart = 'RESET_CART'
 export const insertCart = 'INSERT_CART'
 export const deleteCart = 'DELETE_CART'
 // user
