@@ -9,10 +9,11 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import '../css/userProfile/body.css'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import {useHistory, useParams} from 'react-router-dom'
-import CurrencyFormat from 'react-currency-format'
+import {useHistory} from 'react-router-dom'
+// import CurrencyFormat from 'react-currency-format'
 import { API_URL } from '../helper/env'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from "reactstrap"
+import moment from 'moment'
 
 const Profile =(props)=>{
   const user = useSelector(state => state.user.getDetail)
@@ -35,8 +36,7 @@ const Profile =(props)=>{
       img: user.img,
       first_name: user.first_name,
       last_name: user.last_name,
-      birth_date: user.birth_date,
-      // birth_date: user.birth_date.slice(0, 10),
+      birth_date: moment(`${user.birth_date}`).format("YYYY-MM-DD"),
       gender: user.gender,
       username: user.username,
       email: user.email,
@@ -62,7 +62,7 @@ const Profile =(props)=>{
   const updateUser=(event)=>{
     event.preventDefault();
     const {img, first_name, last_name, birth_date, gender, username, email, address, phone_number, status}=updData
-    console.log(status)
+    console.log(birth_date)
     const formData = new FormData()
     formData.append("img", !img?user.img:img)
     formData.append("first_name", !first_name?updData.first_name:first_name)
@@ -78,7 +78,7 @@ const Profile =(props)=>{
       alert(response.data.message)
       history.push("/product");
     }).catch((err) =>{
-      alert(err)
+      console.log(err.response.data.error)
     })
   }
   const linkto = ()=>{
