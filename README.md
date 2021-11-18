@@ -6,7 +6,7 @@ for instalation read README_react.md
 
 for backend repository click [this](https://github.com/farizian/week/19)
 
-[Demo](https://coffeeshop-swart.vercel.app/history)
+for [Demo](https://coffeeshop-swart.vercel.app/history)
 
 >User Version
 
