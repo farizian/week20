@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { GET_ALL_PRODUCT, deletePrd, GET_CATEGORY_PRODUCT, INSERT} from "../redux/actions/product"
-import { GET_ALL_PROMO, GET_DETAIL_PROMO, UPDATE_PROMO, INSERT_PROMO, DELETE_PROMO } from "../redux/actions/promo"
+import { GET_ALL_PROMO} from "../redux/actions/promo"
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import {Link, useHistory} from 'react-router-dom'
@@ -16,7 +16,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from "react
 
 const Product=()=>{
   const [modal, setModal] = useState(false);
-  const [sort, setSort] = useState()
+  // const [sort, setSort] = useState()
   const history = useHistory();
   const toggle = () => setModal(!modal);
   const dispatch = useDispatch()
@@ -62,10 +62,10 @@ const Product=()=>{
       img: event.target.files[0]
     })
   }
-  const submitSort=(search)=>{
-    console.log(search)
-    getData(search, "c.category")
-  }
+  // const submitSort=(search)=>{
+  //   console.log(search)
+  //   getData(search, "c.category")
+  // }
   const insertPrd=(event)=>{
     event.preventDefault();
     const {img, disc, name, price, size, category}=updData
