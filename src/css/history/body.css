@@ -40,7 +40,6 @@
 }
 
 .bodyhistory .row .rowcard .card{
-  height: 210px;
   width: 350px;
   border-radius: 20px;
   box-shadow: 0px 10px 40px 0px #00000008;
@@ -53,7 +52,6 @@
 }
 /* rowcard2 */
 .bodyhistory .row .rowcard .card2{
-  height: 210px;
   width: 350px;
   border-radius: 20px;
   background-color: white;
@@ -97,7 +95,7 @@
     padding: 0 !important;
   }
   .bodyhistory .rowcard .card{
-    margin-bottom: 10px;
+    margin-bottom: 30px !important;
     width: 40% !important;
   }
   .bodyhistory .rowcard .card .cardrow{

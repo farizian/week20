@@ -1,15 +1,12 @@
 /* eslint-disable array-callback-return */
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { GET_DETAIL_PRODUCT, GET_CATEGORY_PRODUCT} from "../redux/actions/product"
-import { INSERT_CART, DELETE_CART } from "../redux/actions/cart"
-import { GET_DETAIL_TRANSACTION, DEL_TRANS } from "../redux/actions/transaction"
+import { GET_DETAIL_TRANSACTION } from "../redux/actions/transaction"
 import { GET_DETAIL_USER } from "../redux/actions/users"
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../css/history/body.css'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { AiOutlineDelete } from "react-icons/ai";
 import {useHistory, useParams} from 'react-router-dom'
 import CurrencyFormat from 'react-currency-format'
 import { API_URL } from '../helper/env'
