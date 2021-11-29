@@ -62,7 +62,7 @@ Coffee Shop is a POS (Point of sale) web application created using the ReactJS l
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
-<div id="demo"></div>
+<div id="demo" align="left"></div>
 
 ## Demo
 This is a link to the demo [Coffee Shop](https://coffeeshop-swart.vercel.app)
@@ -78,7 +78,7 @@ This is a link to the demo [Coffee Shop](https://coffeeshop-swart.vercel.app)
   ```
 
 <!-- GETTING STARTED -->
-<div id="getting-started"></div>
+<div id="getting-started" align="left"></div>
 
 ## Getting Started
 
